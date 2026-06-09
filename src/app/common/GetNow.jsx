@@ -403,7 +403,7 @@ export default function GetNow({ getNowModel, setGetNowModel, selectedProduct, q
 
                         {/* WhatsApp */}
 
-                        <Link target="_blank" href={'https://wa.me/918079092775'}>
+                        <Link target="_blank" href={'https://wa.me/9178370372'}>
                             <button
                                 className="
                                 w-full

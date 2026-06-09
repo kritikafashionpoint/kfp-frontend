@@ -161,7 +161,7 @@ export default function ContactClient() {
             {/* Background Texture */}
             <div className="absolute inset-0 -z-20 opacity-[0.035]">
                 <Image
-                sizes='full'
+                    sizes='full'
                     src={"/designs/d3.png"}
                     fill
                     alt="design"
@@ -230,7 +230,7 @@ export default function ContactClient() {
                         </span>
                     </h2>
 
-                    <div className="flex items-center justify-center gap-4 mt-6">
+                    <div className="flex my-3 items-center justify-center gap-4 mt-6">
 
                         <div
                             className="w-20 h-[1]"
@@ -411,26 +411,29 @@ export default function ContactClient() {
                         </h2>
 
                         <p className="text-gray-300 leading-8 text-lg">
-                            Phase I, Pal Gaon, Pal Road,
-                            <br />
-                            Jodhpur, Rajasthan 342014
+                            Shop No.4 Inda Market Pal Pasu Mela Road Pal Jodhpur, Rajasthan 342014
                         </p>
 
                         <div className="mt-8 space-y-5">
+                            <a
+                                href='tel:+916378853062'>
+                                <div className="flex my-3 items-center gap-4 text-gray-300">
+                                    <Phone size={18} color="#d4af37" />
+                                    <span style={{ fontFamily: 'Poppins' }}>+91 6378853062</span>
+                                </div>
+                            </a>
 
-                            <div className="flex items-center gap-4 text-gray-300">
-                                <Phone size={18} color="#d4af37" />
-                                <span>+91 8079994755</span>
-                            </div>
+                            <a
+                                href='tel:+916378370372'>
+                                <div className="flex my-3 items-center gap-4 text-gray-300">
+                                    <Phone size={18} color="#d4af37" />
+                                    <span style={{ fontFamily: 'Poppins' }}>+91 6378370372</span>
+                                </div>
+                            </a>
 
-                            <div className="flex items-center gap-4 text-gray-300">
-                                <Phone size={18} color="#d4af37" />
-                                <span>+91 8095684587</span>
-                            </div>
-
-                            <div className="flex items-center gap-4 text-gray-300 break-all">
+                            <div className="flex my-3 items-center gap-4 text-gray-300 break-all">
                                 <Mail size={18} color="#d4af37" />
-                                <span>kritikafashionpoint@gmail.com</span>
+                                <span style={{ fontFamily: 'Poppins' }}>kritikafashionpoint6@gmail.com</span>
                             </div>
 
                         </div>

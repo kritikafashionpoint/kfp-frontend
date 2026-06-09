@@ -386,8 +386,7 @@ export default function Footer() {
                                     </div>
 
                                     <p className='text-[#d9d9d9] text-lg leading-7 group-hover:text-white duration-300'>
-                                        New Pal Road Opposite Barkatullah Khan Stadium,
-                                        Jodhpur, Rajasthan
+                                        Shop No.4 Inda Market Pal Pasu Mela Road Pal Jodhpur, Rajasthan
                                     </p>
 
                                 </div>
@@ -428,17 +427,17 @@ export default function Footer() {
 
                                 <div className='text-[#d9d9d9] text-lg leading-8 flex items-center gap-1'>
                                     <a
-                                        href='tel:6378370372'
+                                        href='tel:+916378853062'
+                                        className='hover:text-[#f5df8b] duration-300 block'
+                                    >
+                                        6378853062 ,
+                                    </a>
+                                    <a
+                                        href='tel:+916378370372'
                                         className='hover:text-[#f5df8b] duration-300 block'
                                     >
                                         6378370372
                                     </a>
-                                    {/* <a
-                                        href='tel:8079994755'
-                                        className='hover:text-[#f5df8b] duration-300 block'
-                                    >
-                                        8079994755
-                                    </a> */}
                                 </div>
 
                             </div>
