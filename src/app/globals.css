@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+@import "swiper/css";
+@import "swiper/css/effect-fade";
+
+
+* {
+  /* font-family: "Playfair Display", serif; */
+  font-family: "Cormorant", serif;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.input {
+  width: 100%;
+  border-radius: 16px;
+  background-color: #111111;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #2a2a2a;
+  padding: 16px;
+  outline: none;
+  color: white;
+  height: 50px;
+}
+
+/* Premium Black Gold Scrollbar */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #d4af37 #050505;
+}
+
+/* Chrome / Edge / Safari */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 7px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #080808;
+  border-radius: 999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg,
+      #8c670a 0%,
+      #c9971a 25%,
+      #e6c766 50%,
+      #f5df8b 75%,
+      #b8860b 100%);
+
+  border-radius: 999px;
+  box-shadow: 0 0 8px rgba(230, 199, 102, 0.35);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg,
+      #b8860b 0%,
+      #f5df8b 50%,
+      #b8860b 100%);
+
+  box-shadow: 0 0 12px rgba(245, 223, 139, 0.5);
+}
+
+
+/* PREMIUM GOLDEN BANNER OFFER */
+.offer-strip {
+  height: 30px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  /* Premium symmetric luxury gold */
+  background: linear-gradient(135deg,
+      #8A6A12 0%,
+      #D4AF37 18%,
+      #D4AF37 35%,
+      #ffe564 50%,
+      #D4AF37 65%,
+      #D4AF37 80%,
+      #8A6A12 100%);
+
+  box-shadow:
+    0 10px 35px rgba(201, 162, 74, 0.18),
+    inset 0 0 18px rgba(255, 255, 255, 0.04);
+
+}
+
+
+.offer-strip {
+  height: 35px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  white-space: nowrap;
+  animation: marquee 10s linear infinite;
+}
+
+.marquee-content {
+  display: inline-block;
+  padding-right: 3rem;
+  white-space: nowrap;
+  color: black;
+  font-family: 'Poppins';
+  font-weight: 400;
+}
+
+/* TRUE infinite loop */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-33.33%);
+  }
+}
