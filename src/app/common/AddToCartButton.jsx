@@ -16,7 +16,7 @@ export default function AddToCartButton({
     item,
 }) {
 
-    console.log('add to cart item', item)
+    // console.log('add to cart item', item)
 
     const dispatch = useDispatch();
 
@@ -64,11 +64,6 @@ export default function AddToCartButton({
             const res = response?.data
                 ? response.data
                 : response;
-
-            console.log(
-                "ADD TO CART RESPONSE:",
-                res
-            );
 
             if (res?.success) {
 

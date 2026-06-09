@@ -34,7 +34,7 @@ export default function ProductDetailClient() {
 
     const { products, products_loading } = useSelector(
         (state) => state.products
-    );
+    );  
 
     const [selectedProduct, setSelectedProduct] = useState(null);
 

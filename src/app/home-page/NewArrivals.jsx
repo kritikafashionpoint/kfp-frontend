@@ -30,6 +30,8 @@ export default function NewArrivals() {
         (state) => state.products
     );
 
+    console.log('products',products)
+
     const new_arrivals = products.slice(0, 10)
 
 
