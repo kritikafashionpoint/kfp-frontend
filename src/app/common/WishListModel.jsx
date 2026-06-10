@@ -241,6 +241,8 @@ export default function WishListModel({ wishListModelOpen, setWishListModelOpen 
                                                 <div className="relative h-[190] overflow-hidden rounded-2xl">
 
                                                     <Image
+                                        loading='lazy'
+
                                                         src={item.index_image || "/images/no-image.png"}
                                                         alt={item.p_title || "Product Image"}
                                                         fill

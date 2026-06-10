@@ -70,9 +70,6 @@ export default function CategoryWiseSections({ item, index, loading, setLoading,
                 </span>
             </div>
 
-
-
-
             <div className='max-w-330 mx-auto lg:px-6 px-4 '>
 
                 <div className='lg:mb-5 mb-5'>
@@ -100,20 +97,43 @@ export default function CategoryWiseSections({ item, index, loading, setLoading,
                                 </SwiperSlide>
                             ))
                             : item?.products?.map((product, index) => (
-                                <SwiperSlide key={product.id}>
-                                    <ProductCard
-                                        setSelectedProduct={setSelectedProduct}
 
-                                        item={{
-                                            ...product,
-                                            index_image: product.images?.index_image,
-                                            gallery_images: product.images?.gallery_images || []
-                                        }}
-                                        index={index}
-                                        getNowModel={getNowModel}
-                                        setGetNowModel={setGetNowModel}
-                                    />
-                                </SwiperSlide>
+                                item.product.length <= 4 ?
+
+                                    (
+                                        <div className='grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-3 grid-cols-1 gap-x-5 gap-y-8'>
+                                            <ProductCard
+                                                setSelectedProduct={setSelectedProduct}
+                                                item={{
+                                                    ...product,
+                                                    index_image: product.images?.index_image,
+                                                    gallery_images: product.images?.gallery_images || []
+                                                }}
+                                                index={index}
+                                                getNowModel={getNowModel}
+                                                setGetNowModel={setGetNowModel}
+                                            />
+                                        </div>
+                                    )
+
+                                    :
+                                    (
+                                        <SwiperSlide key={product.id}>
+                                            <ProductCard
+                                                setSelectedProduct={setSelectedProduct}
+                                                item={{
+                                                    ...product,
+                                                    index_image: product.images?.index_image,
+                                                    gallery_images: product.images?.gallery_images || []
+                                                }}
+                                                index={index}
+                                                getNowModel={getNowModel}
+                                                setGetNowModel={setGetNowModel}
+                                            />
+                                        </SwiperSlide>
+                                    )
+
+
                             ))
                         }
                     </Swiper>

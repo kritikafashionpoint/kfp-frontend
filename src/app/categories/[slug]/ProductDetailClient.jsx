@@ -34,7 +34,7 @@ export default function ProductDetailClient() {
 
     const { products, products_loading } = useSelector(
         (state) => state.products
-    );  
+    );
 
     const [selectedProduct, setSelectedProduct] = useState(null);
 
@@ -111,7 +111,7 @@ export default function ProductDetailClient() {
                         </div>
 
                         {/* Main Section */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
+                        <div className="grid grid-cols-1 sm:grid-cols-[35%_auto] gap-10">
 
                             {/* LEFT IMAGES */}
                             <div className="w-full">
@@ -122,12 +122,14 @@ export default function ProductDetailClient() {
                                     style={{ borderColor: gold.base }}
                                 >
                                     <Image
+                                        loading='lazy'
+
                                         sizes="full"
                                         src={selectedImage || '/preview.jpg'}
                                         alt={p_title}
-                                        width={800}
-                                        height={800}
-                                        className="w-full lg:h-[500] h-full object-cover rounded-2xl"
+                                        width={400}
+                                        height={400}
+                                        className="w-full lg:h-[400] h-full object-cover rounded-2xl"
                                     />
                                     <WishListButton ProductBySlug={ProductBySlug} />
                                 </div>
@@ -145,6 +147,8 @@ export default function ProductDetailClient() {
                                                 }`}
                                         >
                                             <Image
+                                        loading='lazy'
+
                                                 src={img}
                                                 alt={`thumb-${index}`}
                                                 width={200}

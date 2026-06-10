@@ -38,7 +38,9 @@ export default function ProductCard({
             <article
                 style={{ borderColor: gold.dark }}
                 className="
-                    bg-white
+                    bg-transparent
+                    sm:mx-0
+                    mx-8
                     border
                     cursor-pointer
                     rounded-xl
@@ -120,6 +122,8 @@ export default function ProductCard({
                     <div className="relative h-[150] overflow-hidden rounded-2xl">
 
                         <Image
+                                        loading='lazy'
+
                             src={index_image || "/images/no-image.png"}
                             alt={p_title || "Product Image"}
                             fill
@@ -197,10 +201,10 @@ export default function ProductCard({
                             style={{ fontFamily: "Poppins" }}
                             className="
                                 text-sm
-                                my-4
+                                mt-2
                                 text-gray-300
                                 line-clamp-2
-                                min-h-[40]
+                                min-h-[30]
                             "
                         >
                             {p_short_description || "No description available"}

@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { post_api } from "../api_helper/api_helper";
 import { gold } from "../colors/color";
 import { fetchCartData } from "../redux/thunks/cartThunk";
+import { redirect } from "next/navigation";
 
 export default function AddToCartButton({
     quantity,
@@ -15,8 +16,6 @@ export default function AddToCartButton({
     icon,
     item,
 }) {
-
-    // console.log('add to cart item', item)
 
     const dispatch = useDispatch();
 
@@ -39,7 +38,7 @@ export default function AddToCartButton({
 
         if (!user?.user_id) {
             toast.warning("Please login to add products to cart");
-            return;
+            redirect('/login')
         }
 
         if (item.p_quantity == 0) {

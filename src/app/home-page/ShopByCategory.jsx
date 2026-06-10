@@ -290,8 +290,8 @@ export default function ShopByCategory() {
                                         md:h-[150]
                                         sm:w-[130]
                                         sm:h-[130]
-                                        w-[150]
-                                        h-[150]
+                                        w-[100]
+                                        h-[100]
                                         rounded-full 
                                         overflow-hidden 
                                         border-2
@@ -308,9 +308,11 @@ export default function ShopByCategory() {
 
                                                         {/* IMAGE */}
                                                         <Image
+                                        loading='lazy'
+
                                                             src={item.category_image}
                                                             fill
-                                                            sizes="100vw"
+                                                            sizes="full"
                                                             alt={item.category_name}
                                                             className="
                                             object-cover

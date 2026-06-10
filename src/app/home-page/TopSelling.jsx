@@ -97,37 +97,55 @@ export default function TopSelling() {
 
                         <NoNewArrFound title={'No Top Selling Products Yet'} />
 
-                    ) : (
+                    )
+                        :
+                        top_selling.length <= 4 ?
+                            (
+                                <div className='grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-3 grid-cols-1 gap-x-5 gap-y-8'>
+                                    {top_selling.map((item, index) => (
+                                        <ProductCard
+                                            key={index}
+                                            setSelectedProduct={setSelectedProduct}
+                                            item={item}
+                                            index={index}
+                                            getNowModel={getNowModel}
+                                            setGetNowModel={setGetNowModel}
+                                        />
+                                    ))}
+                                </div>
+                            )
+                            :
+                            (
 
-                        <Swiper
-                            modules={[Autoplay]}
-                            onSwiper={(swiper) => (swiperRef.current = swiper)}
-                            spaceBetween={20}
-                            slidesPerView={4}
-                            loop={true}
-                            autoplay={{
-                                delay: 2000,
-                                disableOnInteraction: false,
-                            }}
-                            breakpoints={{
-                                320: { slidesPerView: 1 },
-                                640: { slidesPerView: 3 },
-                                1024: { slidesPerView: 5 },
-                            }}
-                        >
-                            {top_selling.map((item, index) => (
-                                <SwiperSlide key={item.product_id || index}>
-                                    <ProductCard
-                                        setSelectedProduct={setSelectedProduct}
-                                        item={item}
-                                        index={index}
-                                        getNowModel={getNowModel}
-                                        setGetNowModel={setGetNowModel}
-                                    />
-                                </SwiperSlide>
-                            ))}
-                        </Swiper>
-                    )}
+                                <Swiper
+                                    modules={[Autoplay]}
+                                    onSwiper={(swiper) => (swiperRef.current = swiper)}
+                                    spaceBetween={20}
+                                    slidesPerView={4}
+                                    loop={true}
+                                    autoplay={{
+                                        delay: 2000,
+                                        disableOnInteraction: false,
+                                    }}
+                                    breakpoints={{
+                                        320: { slidesPerView: 1 },
+                                        640: { slidesPerView: 3 },
+                                        1024: { slidesPerView: 5 },
+                                    }}
+                                >
+                                    {top_selling.map((item, index) => (
+                                        <SwiperSlide key={item.product_id || index}>
+                                            <ProductCard
+                                                setSelectedProduct={setSelectedProduct}
+                                                item={item}
+                                                index={index}
+                                                getNowModel={getNowModel}
+                                                setGetNowModel={setGetNowModel}
+                                            />
+                                        </SwiperSlide>
+                                    ))}
+                                </Swiper>
+                            )}
                 </div>
             </div>
         </section>

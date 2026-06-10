@@ -50,7 +50,7 @@ export default function MobileHeader() {
                 className='lg:hidden block w-full h-full py-3.5 border-b px-4'>
                 <div className='flex items-center justify-between'>
                     <div className='absolute top-0 left-0 w-full h-full pointer-events-none z-0 overflow-hidden'>
-                        <Image src={'/designs/d2.png'} sizes='full' alt='designs' fill className='opacity-[0.05] w-full h-full object-cover object-top' />
+                        <Image  src={'/designs/d2.png'} sizes='full' alt='designs' fill className='opacity-[0.05] w-full h-full object-cover object-top' />
                     </div>
                     <Link href={'/'}>
                         <div className='cursor-pointer group'>

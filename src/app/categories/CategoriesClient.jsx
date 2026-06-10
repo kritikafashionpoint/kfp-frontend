@@ -106,7 +106,7 @@ export default function CategoriesClient() {
                                     className={`${item.category_id === selectedCategory
                                         ? "bg-amber-300 text-black"
                                         : "bg-transparent text-white"
-                                        } lg:px-8 lg:py-2 px-5 py-1 capitalize rounded-full tracking-wide cursor-pointer transition-all duration-300 hover:scale-110 hover:-translate-y-1 font-bold active:scale-95 backdrop-blur-md`}
+                                        } lg:px-8 lg:py-2 px-5 py-2 capitalize rounded-full tracking-wide cursor-pointer transition-all duration-300 hover:scale-110 hover:-translate-y-1 font-bold active:scale-95 backdrop-blur-md`}
                                     style={{
                                         border: `1px solid ${gold.base}50`,
                                         fontFamily: "Poppins",

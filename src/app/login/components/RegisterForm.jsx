@@ -249,30 +249,9 @@ export const RegisterForm = ({ setActiveTab }) => {
         <div
             className="
                 w-full
-                rounded-[30px]
-                border
                 overflow-hidden
                 relative
-                backdrop-blur-xl
-                p-6
-                sm:p-8
-                lg:p-10
-            "
-            style={{
-                borderColor: "rgba(212,175,55,0.18)",
-                background: `
-                    linear-gradient(
-                        145deg,
-                        rgba(8,8,8,0.98) 0%,
-                        rgba(15,15,15,0.98) 35%,
-                        rgba(28,20,5,0.98) 100%
-                    )
-                `,
-                boxShadow: `
-                    0 0 40px rgba(212,175,55,0.08),
-                    inset 0 0 30px rgba(255,255,255,0.02)
-                `
-            }}
+                "
         >
 
             {/* Glow */}
@@ -288,9 +267,6 @@ export const RegisterForm = ({ setActiveTab }) => {
                     opacity-20
                     pointer-events-none
                 "
-                style={{
-                    background: "rgba(212,175,55,0.15)"
-                }}
             />
 
             {/* Heading */}

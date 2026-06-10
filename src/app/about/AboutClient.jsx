@@ -530,6 +530,7 @@ export default function AboutClient() {
                                     <div className='relative w-full h-[320] overflow-hidden'>
 
                                         <Image
+                                        loading='lazy'
                                             alt='desiimages'
                                             src={item.src}
                                             fill

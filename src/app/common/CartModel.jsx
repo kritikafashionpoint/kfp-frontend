@@ -292,6 +292,8 @@ export default function CartModel({ cartModelOpen, setCartModelOpen }) {
                                                                 className="relative h-47.5 overflow-hidden rounded-2xl"
                                                             >
                                                                 <Image
+                                        loading='lazy'
+
                                                                     src={item?.images?.index_image}
                                                                     alt={item.p_title}
                                                                     fill
