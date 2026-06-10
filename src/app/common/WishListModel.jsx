@@ -241,7 +241,7 @@ export default function WishListModel({ wishListModelOpen, setWishListModelOpen 
                                                 <div className="relative h-[190] overflow-hidden rounded-2xl">
 
                                                     <Image
-                                        loading='lazy'
+                                                        loading='lazy'
 
                                                         src={item.index_image || "/images/no-image.png"}
                                                         alt={item.p_title || "Product Image"}
@@ -251,7 +251,6 @@ export default function WishListModel({ wishListModelOpen, setWishListModelOpen 
                                 (max-width: 1024px) 50vw,
                                 25vw
                             "
-                                                        priority={index < 2}
                                                         className="
                                 sm:object-cover
                                 object-contain

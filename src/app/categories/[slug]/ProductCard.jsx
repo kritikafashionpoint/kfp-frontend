@@ -132,7 +132,6 @@ export default function ProductCard({
                                 (max-width: 1024px) 50vw,
                                 25vw
                             "
-                            priority={index < 2}
                             className="
                                 sm:object-cover
                                 object-contain
