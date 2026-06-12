@@ -1,14 +1,23 @@
 'use client'
+import { redirect } from 'next/navigation'
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
 
 export default function BuyNowButton({ setQuantity, getNowModel, item, setGetNowModel, customClasses, setSelectedProduct }) {
+
+    const user = useSelector((store) => store.user.user)
 
     return (
         <button
             onClick={(e) => {
                 e.preventDefault()
                 e.stopPropagation()
+
+                if (!user?.user_id) {
+                    toast.warning("Please login to add products to cart");
+                    redirect('/login')
+                }
 
                 if (item.p_quantity == 0) {
                     return toast.warning("Out Of Stock Please Come Back Later !")

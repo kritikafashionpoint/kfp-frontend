@@ -90,67 +90,79 @@ export default function Header() {
         }
     };
 
-    // const fetchAllCartItems = async () => {
-    //     try {
-    //         dispatch(setCartDataLoading(true));
+    const fetchAllCartItems = async () => {
+        try {
+            dispatch(setCartDataLoading(true));
 
-    //         const response = await post_api({
-    //             body: {},
-    //             params: null,
-    //             path: "user/view-cart",
-    //             token,
-    //         })
+            const response = await post_api({
+                body: {},
+                params: null,
+                path: "user/view-cart",
+                token,
+            })
 
-    //         if (response?.data?.success) {
+            if (response?.data?.success) {
 
-    //             dispatch(
-    //                 setTotalAmountOfCart(
-    //                     response.data.data.total || 0
-    //                 )
-    //             )
+                dispatch(
+                    setTotalAmountOfCart(
+                        response.data.data.total || 0
+                    )
+                )
 
-    //             dispatch(
-    //                 setCartData(
-    //                     response?.data?.data?.items || []
-    //                 )
-    //             );
-    //         }
+                dispatch(
+                    setCartData(
+                        response?.data?.data?.items || []
+                    )
+                );
+            }
 
-    //     } catch (error) {
-    //         console.log(error);
+        } catch (error) {
+            console.log(error);
 
-    //     } finally {
-    //         dispatch(setCartDataLoading(false));
-    //     }
-    // };
+        } finally {
+            dispatch(setCartDataLoading(false));
+        }
+    };
 
-    // const fetchWishlistItems = async () => {
-    //     try {
-    //         dispatch(setwishlistDataLoading(true));
+    const fetchWishlistItems = async () => {
+        try {
+            dispatch(setwishlistDataLoading(true));
 
-    //         const response = await post_api({
-    //             body: {},
-    //             params: null,
-    //             path: "user/view-wishlist",
-    //             token,
-    //         })
+            const response = await post_api({
+                body: {},
+                params: null,
+                path: "user/view-wishlist",
+                token,
+            })
 
-    //         if (response?.data?.success) {
+            if (response?.data?.success) {
 
-    //             dispatch(
-    //                 setwishlistData(
-    //                     response?.data?.data || []
-    //                 )
-    //             );
-    //         }
+                dispatch(
+                    setwishlistData(
+                        response?.data?.data || []
+                    )
+                );
+            }
 
-    //     } catch (error) {
-    //         console.log(error);
+        } catch (error) {
+            console.log(error);
 
-    //     } finally {
-    //         dispatch(setwishlistDataLoading(false));
-    //     }
-    // }
+        } finally {
+            dispatch(setwishlistDataLoading(false));
+        }
+    }
+
+    useEffect(() => {
+        if (token) {
+            fetchAllCartItems()
+        }
+    }, [])
+
+    useEffect(() => {
+        if (token) {
+            fetchWishlistItems()
+        }
+    }, [])
 
 
     useEffect(() => {
