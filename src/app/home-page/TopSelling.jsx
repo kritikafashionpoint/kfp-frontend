@@ -102,7 +102,7 @@ export default function TopSelling() {
                         top_selling.length <= 4 ?
                             (
                                 <div className='grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-3 grid-cols-1 gap-x-5 gap-y-8'>
-                                    {top_selling.map((item, index) => (
+                                    {top_selling?.map((item, index) => (
                                         <ProductCard
                                             key={index}
                                             setSelectedProduct={setSelectedProduct}
@@ -133,7 +133,7 @@ export default function TopSelling() {
                                         1024: { slidesPerView: 5 },
                                     }}
                                 >
-                                    {top_selling.map((item, index) => (
+                                    {top_selling?.map((item, index) => (
                                         <SwiperSlide key={item.product_id || index}>
                                             <ProductCard
                                                 setSelectedProduct={setSelectedProduct}

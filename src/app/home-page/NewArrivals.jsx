@@ -166,7 +166,7 @@ export default function NewArrivals() {
                         new_arrivals.length <= 4 ?
                             (
                                 <div className='grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-3 grid-cols-1 gap-x-5 gap-y-8'>
-                                    {new_arrivals.map((item, index) => (
+                                    {new_arrivals?.map((item, index) => (
                                         <ProductCard
                                             key={index}
                                             setSelectedProduct={setSelectedProduct}
@@ -197,7 +197,7 @@ export default function NewArrivals() {
                                         1024: { slidesPerView: 5 },
                                     }}
                                 >
-                                    {new_arrivals.map((item, index) => (
+                                    {new_arrivals?.map((item, index) => (
                                         <SwiperSlide key={item.product_id || index}>
                                             <ProductCard
                                                 setSelectedProduct={setSelectedProduct}

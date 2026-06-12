@@ -269,7 +269,7 @@ export default function ShopByCategory() {
 
                                 :
 
-                                categories.map((item) => {
+                                categories?.map((item) => {
                                     return (
                                         <SwiperSlide key={item.category_id}>
 

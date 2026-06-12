@@ -98,7 +98,7 @@ export default function CategoryWiseSections({ item, index, loading, setLoading,
                             ))
                             : item?.products?.map((product, index) => (
 
-                                item.product.length <= 4 ?
+                                item?.product?.length <= 4 ?
 
                                     (
                                         <div className='grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-3 grid-cols-1 gap-x-5 gap-y-8'>
