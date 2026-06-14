@@ -23,6 +23,10 @@ export default function Footer() {
         (state) => state.products
     );
 
+    const { categories, category_loading } = useSelector(
+        (state) => state.categories
+    );
+
     return (
         <footer
             className='
@@ -57,7 +61,7 @@ export default function Footer() {
             />
 
             {/* Decorative Design */}
-            <div className="absolute -top-10 -left-10 w-[300] h-[300] opacity-[0.1] pointer-events-none">
+            <div className="absolute -top-10 -left-10 w-[300] h-[300] opacity-[0.2] pointer-events-none">
                 <Image
                     src="/designs/d1.png"
                     alt="design"
@@ -67,7 +71,7 @@ export default function Footer() {
                 />
             </div>
 
-            <div className="absolute -bottom-10 -right-10 rotate-180 w-[300] h-[300] opacity-[0.1] pointer-events-none">
+            <div className="absolute -bottom-10 -right-10 rotate-180 w-[300] h-[300] opacity-[0.2] pointer-events-none">
                 <Image
                     src="/designs/d1.png"
                     alt="design"
@@ -240,7 +244,7 @@ export default function Footer() {
                                 w-fit
                             '
                         >
-                            Top Selling Proudcts
+                            Shop By Categories
 
                             <div style={{
                                 background: `
@@ -258,8 +262,8 @@ export default function Footer() {
                         </h2>
 
                         <ul className='grid sm:grid-cols-2 gap-x-10 gap-y-4'>
-                            {products.map((item) => (
-                                <Link key={item.id} href={`/categories/${item.p_slug}`}>
+                            {categories.map((item) => (
+                                <Link key={item.id} href={`/categories/${item.category_slug}`}>
                                     <li
                                         className='
                                             relative
@@ -273,7 +277,7 @@ export default function Footer() {
                                             text-lg
                                         '
                                     >
-                                        {item.p_title}
+                                        {item.category_name}
 
                                         <div
                                             className='

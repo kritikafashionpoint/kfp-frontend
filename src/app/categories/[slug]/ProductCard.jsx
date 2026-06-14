@@ -59,7 +59,7 @@ export default function ProductCard({
 
                 {/* TOP SELLING BADGE */}
                 {is_top_selling && (
-                    <div className="absolute top-3 left-3 z-40">
+                    <div className="absolute top-3 left-3 z-99">
                         <p
                             style={{
                                 fontFamily: "Poppins",
@@ -118,11 +118,11 @@ export default function ProductCard({
                 )}
 
                 {/* IMAGE */}
-                <div className="p-5 bg-black relative">
-                    <div className="relative h-[150] overflow-hidden rounded-2xl">
+                <div className="bg-red-600 relative">
+                    <div className="relative h-[230] overflow-hidden rounded-t-xl">
 
                         <Image
-                                        loading='lazy'
+                            loading='lazy'
 
                             src={index_image || "/images/no-image.png"}
                             alt={p_title || "Product Image"}

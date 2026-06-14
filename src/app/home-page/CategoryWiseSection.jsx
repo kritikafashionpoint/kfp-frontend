@@ -25,6 +25,15 @@ export default function CategoryWiseSections({ item, index, loading, setLoading,
 
     return (
         <section className="w-full bg-black overflow-hidden relative">
+
+            <img
+                src={'/designs/d1.png'}
+                sizes="full"
+                alt="designs"
+                fill
+                className="absolute opacity-[0.03] bottom-0 right-0 w-full h-full object-cover object-top"
+            />
+
             {getNowModel && <Overlay />}
             <GetNow getNowModel={getNowModel} setGetNowModel={setGetNowModel} selectedProduct={selectedProduct} />
 

@@ -284,8 +284,8 @@ export default function ShopByCategory() {
                                                         }}
                                                         className="
                                         relative 
-                                        lg:w-[120]
-                                        lg:h-[120]
+                                        lg:w-[130]
+                                        lg:h-[130]
                                         md:w-[150]
                                         md:h-[150]
                                         sm:w-[130]
@@ -308,7 +308,7 @@ export default function ShopByCategory() {
 
                                                         {/* IMAGE */}
                                                         <Image
-                                        loading='lazy'
+                                                            loading='lazy'
 
                                                             src={item.category_image}
                                                             fill
