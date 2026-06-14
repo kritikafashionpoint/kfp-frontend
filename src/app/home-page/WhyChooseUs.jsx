@@ -33,8 +33,8 @@ export default function WhyChooseUs() {
             relative
             w-full
             bg-black
-            lg:mt-24
-            mt-10
+            lg:py-20
+            py-10
             overflow-hidden
         '>
 

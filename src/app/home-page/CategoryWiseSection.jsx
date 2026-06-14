@@ -24,23 +24,32 @@ export default function CategoryWiseSections({ item, index, loading, setLoading,
     const [getNowModel, setGetNowModel] = useState(false)
 
     return (
-        <section className="w-full bg-black overflow-hidden relative">
+        <section className="w-full bg-black relative">
 
             <img
-                src={'/designs/d1.png'}
+                src={'/designs/d4.png'}
                 sizes="full"
                 alt="designs"
                 fill
-                className="absolute opacity-[0.03] bottom-0 right-0 w-full h-full object-cover object-top"
+                className="absolute opacity-[0.02] bottom-0 right-0 w-screen h-full object-cover object-top"
             />
 
             {getNowModel && <Overlay />}
             <GetNow getNowModel={getNowModel} setGetNowModel={setGetNowModel} selectedProduct={selectedProduct} />
 
             <div className='flex justify-center relative z-50'>
-                <span style={{
-                    fontFamily: 'Poppins',
-                    background: `
+                <div className="flex items-center gap-5">
+
+                    <div
+                        className="lg:w-28 w-16 h-[1]"
+                        style={{
+                            background: `linear-gradient(to right, transparent, ${gold.base})`
+                        }}
+                    />
+
+                    <span style={{
+                        fontFamily: 'Poppins',
+                        background: `
                     linear-gradient(
                         to left,
                         #8a6a12 0%,
@@ -50,9 +59,9 @@ export default function CategoryWiseSections({ item, index, loading, setLoading,
                         #d4af37 60%,
                         #b8860b 80%,
                         #8a6a12 100%
-                    )`}} className='font-bold rounded-full text-black lg:text-2xl md:text-xl text-lg lg:py-2 py-1.5 lg:px-16 md:px-12 px-10 lg:my-10 my-10 capitalize '>{item.category_name}
-                    <div
-                        className="
+                    )`}} className='font-bold rounded-full text-black lg:text-2xl md:text-xl text-lg lg:py-2 py-1.5 lg:px-16 md:px-12 px-10 lg:my-10 my-10 capitalize '> ✦ {item.category_name} ✦
+                        <div
+                            className="
                                     absolute
                                     top-1/2
                                     left-1/2
@@ -61,8 +70,8 @@ export default function CategoryWiseSections({ item, index, loading, setLoading,
                                     h-[0.5]
                                     -z-50
                                 "
-                        style={{
-                            background: `
+                            style={{
+                                background: `
                                         linear-gradient(
                                             90deg,
                                             transparent 0%,
@@ -72,11 +81,21 @@ export default function CategoryWiseSections({ item, index, loading, setLoading,
                                             transparent 100%
                                         )
                                     `
-                        }}
-                    >
+                            }}
+                        >
 
-                    </div>
-                </span>
+                        </div>
+                    </span>
+
+                    <div
+                        className="lg:w-28 w-16 h-[1]"
+                        style={{
+                            background: `linear-gradient(to left, transparent, ${gold.base})`
+                        }}
+                    />
+
+                </div>
+
             </div>
 
             <div className='max-w-330 mx-auto lg:px-6 sm:px-4 '>

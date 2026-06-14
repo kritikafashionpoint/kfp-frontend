@@ -1,36 +1,64 @@
 import { useState } from "react";
 import { BankTransferModel } from "./BankTransferModel";
 import { QrCodeModel } from "./QrCodeModel";
+import { post_api } from "../api_helper/api_helper";
+import { toast } from "react-toastify";
+import { useSelector } from "react-redux";
 
 export function PaymentOption({ paymentOptionModel, setPaymentOptionModel, selectedProduct, selectedTabPaymentTab }) {
     const [bankTransferModel, setBankTransferModel] = useState(null);
     const [QrCodeOpen, setQrCodeOpen] = useState(false);
 
+    const token = useSelector((store) => store.user.token)
 
-    const HandleUpiPayment = () => {
-        const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-        const title = selectedProduct?.p_title || "Exclusive Jwellery with Premium Design";
-        const shortDesc = selectedProduct?.p_short_description || "";
-        const amount = selectedTabPaymentTab == 'advance' ? selectedProduct?.p_advance_payment : selectedProduct?.p_customer_price;
+    const HandleUpiPayment = async () => {
+        try {
 
-        const transactionNote = encodeURIComponent(
-            `${title} - ${shortDesc}`
-        );
+            const orderResponse = await post_api({
+                path: "user/create-order",
+                body: {
+                    product_id: selectedProduct.id,
+                    payment_type: selectedTabPaymentTab,
+                    payment_status: "pending",
+                    order_status: "pending"
+                },
+                token: token
+            });
 
-        const upiLink =
-            `upi://pay?pa=mehratarun80@ybl` +
-            `&pn=${encodeURIComponent("Kritika Fashion Point")}` +
-            `&am=${amount}` +
-            `&tn=${transactionNote}` +
-            `&cu=INR`;
+            if (!orderResponse?.data?.success) {
+                return toast.error("Unable to create order");
+            }
 
-        if (isMobile) {
-            window.location.href = upiLink;
-        } else {
-            setQrCodeOpen(true);
+            const order_id = orderResponse.data.order_id;
+
+            const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+            const amount =
+                selectedTabPaymentTab === "advance"
+                    ? selectedProduct.p_advance_payment
+                    : selectedProduct.p_customer_price;
+
+            const upiLink =
+                `upi://pay?pa=mehratarun80@ybl` +
+                `&pn=${encodeURIComponent("Kritika Fashion Point")}` +
+                `&am=${amount}` +
+                `&tn=${encodeURIComponent(`ORDER-${order_id}`)}` +
+                `&cu=INR`;
+
+            if (isMobile) {
+                window.location.href = upiLink;
+            } else {
+                setQrCodeOpen(true);
+            }
+
+        } catch (error) {
+            console.log(error);
+            toast.error("Something went wrong");
         }
     };
+
+
 
     return (
         <>
@@ -254,7 +282,7 @@ export function PaymentOption({ paymentOptionModel, setPaymentOptionModel, selec
                                     💳
                                 </div>
 
-                                <div>
+                                <div onClick={() => createOrder(selectedProduct)}>
                                     <h3 className="text-[#f5df8b] text-xl font-bold tracking-wide">
                                         Pay with UPI / Scanner
                                     </h3>

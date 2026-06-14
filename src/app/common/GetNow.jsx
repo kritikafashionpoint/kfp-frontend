@@ -25,55 +25,55 @@ export default function GetNow({ getNowModel, setGetNowModel, selectedProduct, q
     const token = useSelector((store) => store.user.token)
 
 
-    const handleAdvancePayment = async (selectedProduct, actualQuantity) => {
-        try {
+    // const handleAdvancePayment = async (selectedProduct, actualQuantity) => {
+    //     try {
 
-            const response = await post_api({
-                path: "payment/create-order",
-                token,
-                body: {
-                    amount: selectedProduct.p_advance_payment,
-                    product_id: selectedProduct.id,
-                    actualQuantity,
-                    payment_type: 'advance'
-                }
-            });
+    //         const response = await post_api({
+    //             path: "payment/create-order",
+    //             token,
+    //             body: {
+    //                 amount: selectedProduct.p_advance_payment,
+    //                 product_id: selectedProduct.id,
+    //                 actualQuantity,
+    //                 payment_type: 'advance'
+    //             }
+    //         });
 
 
-            window.location.href = response.data.paymentUrl;
+    //         window.location.href = response.data.paymentUrl;
 
-        } catch (error) {
-            console.log(error);
-        }
-    };
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // };
 
-    const handleFullPayment = async ({ selectedProduct, actualQuantity }) => {
-        try {
-            const totalAmount =
-                selectedProduct.p_customer_price * actualQuantity;
+    // const handleFullPayment = async ({ selectedProduct, actualQuantity }) => {
+    //     try {
+    //         const totalAmount =
+    //             selectedProduct.p_customer_price * actualQuantity;
 
-            const response = await post_api({
-                path: "payment/create-order",
-                token,
-                body: {
-                    amount: totalAmount,
-                    product_id: selectedProduct.id,
-                    actualQuantity,
-                    payment_type: "full",
-                },
-            });
+    //         const response = await post_api({
+    //             path: "payment/create-order",
+    //             token,
+    //             body: {
+    //                 amount: totalAmount,
+    //                 product_id: selectedProduct.id,
+    //                 actualQuantity,
+    //                 payment_type: "full",
+    //             },
+    //         });
 
-            window.location.href = response.data.paymentUrl;
-        } catch (error) {
-            console.log(error);
-        }
-    };
+    //         window.location.href = response.data.paymentUrl;
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // };
 
     return (
         <>
             {/* payment option model */}
             <PaymentOption
-            
+
                 setSelectedPaymentTab={setSelectedPaymentTab}
                 selectedTabPaymentTab={selectedTabPaymentTab}
                 selectedProduct={selectedProduct}
@@ -211,7 +211,6 @@ export default function GetNow({ getNowModel, setGetNowModel, selectedProduct, q
                             onClick={() => {
                                 setPaymentOptionModel(true)
                                 setSelectedPaymentTab('advance')
-                                handleAdvancePayment(selectedProduct, actualQuantity)
                             }}
                             className="
                                 w-full
@@ -356,7 +355,6 @@ export default function GetNow({ getNowModel, setGetNowModel, selectedProduct, q
                             onClick={() => {
                                 setPaymentOptionModel(true)
                                 setSelectedPaymentTab('full')
-                                handleFullPayment(selectedProduct, actualQuantity)
                             }}
                             className="
                                 w-full

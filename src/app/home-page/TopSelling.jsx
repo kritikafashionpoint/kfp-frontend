@@ -63,27 +63,52 @@ export default function TopSelling() {
                 ) 1`
             }} className="max-w-330 mx-auto lg:px-6 sm:px-4">
 
-                <h1 className="relative flex flex-col items-center justify-center">
+                {/* Side Lines */}
+                <div className="flex items-center justify-center gap-5">
+
+                    <div
+                        className="lg:w-28 w-16 h-[1]"
+                        style={{
+                            background: `linear-gradient(to right, transparent, ${gold.base})`
+                        }}
+                    />
 
                     {/* Main Heading */}
-                    <span
-                        className="relative z-10 lg:text-4xl text-3xl font-extrabold tracking-wide inline-block bg-clip-text text-transparent"
+                    <h1 className="relative">
+
+
+
+                        <span
+                            className="relative uppercase z-10 block lg:text-4xl md:text-3xl text-2xl font-black tracking-wider "
+                            style={{
+                                fontFamily: "serif",
+                                background: `linear-gradient(
+                                      180deg,
+                                      #fff5c2 0%,
+                                      ${gold.light} 25%,
+                                      ${gold.base} 50%,
+                                      ${gold.dark} 100%
+                                  )`,
+                                WebkitBackgroundClip: "text",
+                                WebkitTextFillColor: "transparent",
+                            }}
+                        >
+                            ✦ Top selling ✦
+                        </span>
+
+
+                    </h1>
+
+                    <div
+                        className="lg:w-28 w-16 h-[1]"
                         style={{
-                            backgroundImage:
-                                `linear-gradient(90deg,${gold.dark},${gold.base},${gold.dark})`,
-                            WebkitBackgroundClip: "text",
-                            WebkitTextFillColor: "transparent",
-                            display: "inline-block",
-                            fontFamily: "serif",
+                            background: `linear-gradient(to left, transparent, ${gold.base})`
                         }}
-                    >
-                        Top Selling Products
-                    </span>
+                    />
 
-                    <DecorativeLine />
-                </h1>
+                </div>
 
-                <div>
+                <div className='my-10'>
                     {products_loading ? (
 
                         <div className='grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-3 grid-cols-1 gap-x-5 gap-y-8'>

@@ -79,7 +79,7 @@ export default function NewArrivals() {
                         />
 
                         <span
-                            className="relative z-10 block lg:text-5xl md:text-3xl text-2xl font-black tracking-wider capitalize"
+                            className="relative uppercase z-10 block lg:text-4xl md:text-3xl text-2xl font-black tracking-wider capitalize"
                             style={{
                                 fontFamily: "serif",
                                 background: `linear-gradient(
@@ -93,24 +93,10 @@ export default function NewArrivals() {
                                 WebkitTextFillColor: "transparent",
                             }}
                         >
-                            New Arrivals
+                            ✦ New Arrivals ✦
                         </span>
 
-                        {/* Underline Accent */}
-                        <div className="flex justify-center mt-3">
-                            <div
-                                className="h-[3] rounded-full"
-                                style={{
-                                    width: "90px",
-                                    background: `linear-gradient(
-                            90deg,
-                            transparent,
-                            ${gold.base},
-                            transparent
-                        )`
-                                }}
-                            />
-                        </div>
+                     
 
                     </h1>
 
@@ -123,24 +109,6 @@ export default function NewArrivals() {
 
                 </div>
 
-                {/* Floating Sparkles */}
-                <div
-                    className="lg:block hidden absolute top-5 left-[45%] text-lg animate-pulse"
-                    style={{ color: gold.light }}
-                >
-                    ✦
-                </div>
-
-                <div
-                    className="lg:block hidden absolute top-6 right-[36.6%] text-sm animate-pulse"
-                    style={{
-                        color: gold.base,
-                        animationDelay: "1s"
-                    }}
-                >
-                    ✦
-                </div>
-
             </div>
 
 
@@ -151,7 +119,7 @@ export default function NewArrivals() {
                 <div>
                     {products_loading ? (
 
-                        <div className='grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-3 grid-cols-1 gap-x-5 gap-y-8'>
+                        <div className='grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 sm:gap-x-5 gap-y-8'>
                             {[...Array(5)].map((_, index) => (
                                 <ProductCardSkeleton key={index} />
                             ))}
@@ -164,7 +132,7 @@ export default function NewArrivals() {
                     ) :
 
                         (
-                            <div className='grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-3 grid-cols-2 sm:gap-x-5 gap-y-8'>
+                            <div className='grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 sm:gap-x-5 gap-y-8'>
                                 {new_arrivals?.map((item, index) => (
                                     <ProductCard
                                         key={index}

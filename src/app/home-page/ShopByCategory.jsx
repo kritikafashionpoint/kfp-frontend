@@ -284,8 +284,8 @@ export default function ShopByCategory() {
                                                         }}
                                                         className="
                                         relative 
-                                        lg:w-[130]
-                                        lg:h-[130]
+                                        lg:w-[150]
+                                        lg:h-[150]
                                         md:w-[150]
                                         md:h-[150]
                                         sm:w-[150]

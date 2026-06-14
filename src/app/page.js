@@ -1,5 +1,6 @@
 import CartModel from "./common/CartModel";
 import WishListModel from "./common/WishListModel";
+import AboutUs from "./home-page/AboutUs";
 import LuxuryGlowBanner from "./home-page/Banner";
 import CategoryIndex from "./home-page/CategoryIndex";
 import CategoryWiseSections from "./home-page/CategoryWiseSection";
@@ -17,10 +18,12 @@ export default function Home() {
       <CartModel />
 
       <LuxuryGlowBanner />
+      <ShopByCategory />
+
       <NewArrivals />
+      <AboutUs />
       <WhyChooseUs />
 
-      <ShopByCategory />
       <TopSelling />
       <CategoryIndex />
       <Faq />

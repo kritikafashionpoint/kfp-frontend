@@ -21,7 +21,7 @@ export default function LuxuryGlowBanner() {
                             `
                 }}
             />
-            <div className="bg-black pb-10 w-screen lg:h-[75vh] md:h-[70vh] sm:h-[50vh] h-[55vh] relative">
+            <div className="bg-black pb-10 w-screen h-full relative">
 
                 <div className="lg:block hidden w-[350] h-[400] absolute -bottom-30 left-10 opacity-5 rotate-x-180 z-50">
                     <Image fill sizes="full" alt="designs" src={'/designs/d1.png'} className="absolute top-0 left-0 object-contain object-center w-full h-full " />
