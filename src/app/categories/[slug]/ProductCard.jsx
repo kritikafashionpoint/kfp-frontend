@@ -215,12 +215,12 @@ export default function ProductCard({
                             style={{ color: gold.base }}
                             className="text-2xl font-extrabold"
                         >
-                            ₹ {p_customer_price || 0}
+                            ₹{p_customer_price || 0}
                         </p>
 
                         {!!p_customer_price && (
                             <p className="text-sm text-gray-400 line-through">
-                                ₹ {p_sale_price}
+                                ₹{p_sale_price}
                             </p>
                         )}
                     </div>
