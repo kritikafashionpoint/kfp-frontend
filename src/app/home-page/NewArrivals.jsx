@@ -146,7 +146,7 @@ export default function NewArrivals() {
 
 
 
-            <div className='max-w-330 mx-auto lg:px-6 px-4 '>
+            <div className='max-w-330 mx-auto lg:px-6 sm:px-4 '>
 
                 <div>
                     {products_loading ? (
@@ -163,54 +163,21 @@ export default function NewArrivals() {
 
                     ) :
 
-                        new_arrivals.length <= 4 ?
-                            (
-                                <div className='grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-3 grid-cols-1 gap-x-5 gap-y-8'>
-                                    {new_arrivals?.map((item, index) => (
-                                        <ProductCard
-                                            key={index}
-                                            setSelectedProduct={setSelectedProduct}
-                                            item={item}
-                                            index={index}
-                                            getNowModel={getNowModel}
-                                            setGetNowModel={setGetNowModel}
-                                        />
-                                    ))}
-                                </div>
-                            )
-                            :
-                            (
-
-                                <Swiper
-                                    modules={[Autoplay]}
-                                    onSwiper={(swiper) => (swiperRef.current = swiper)}
-                                    spaceBetween={20}
-                                    slidesPerView={4}
-                                    loop={true}
-                                    autoplay={{
-                                        delay: 4000,
-                                        disableOnInteraction: false,
-                                    }}
-                                    breakpoints={{
-                                        320: { slidesPerView: 1 },
-                                        640: { slidesPerView: 3 },
-                                        1024: { slidesPerView: 5 },
-                                    }}
-                                >
-                                    {new_arrivals?.map((item, index) => (
-                                        <SwiperSlide key={item.product_id || index}>
-                                            <ProductCard
-                                                setSelectedProduct={setSelectedProduct}
-
-                                                item={item}
-                                                index={index}
-                                                getNowModel={getNowModel}
-                                                setGetNowModel={setGetNowModel}
-                                            />
-                                        </SwiperSlide>
-                                    ))}
-                                </Swiper>
-                            )}
+                        (
+                            <div className='grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-3 grid-cols-2 sm:gap-x-5 gap-y-8'>
+                                {new_arrivals?.map((item, index) => (
+                                    <ProductCard
+                                        key={index}
+                                        setSelectedProduct={setSelectedProduct}
+                                        item={item}
+                                        index={index}
+                                        getNowModel={getNowModel}
+                                        setGetNowModel={setGetNowModel}
+                                    />
+                                ))}
+                            </div>
+                        )
+                    }
                 </div>
             </div>
         </section>

@@ -147,7 +147,7 @@ export default function ProductDetailClient() {
                                                 }`}
                                         >
                                             <Image
-                                        loading='lazy'
+                                                loading='lazy'
 
                                                 src={img}
                                                 alt={`thumb-${index}`}

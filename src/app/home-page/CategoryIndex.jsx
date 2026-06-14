@@ -6,7 +6,7 @@ import { get_api } from '../api_helper/api_helper'
 
 export default function CategoryIndex() {
 
-    const [category_products_loading,set_category_products_loading] = useState(false)
+    const [category_products_loading, set_category_products_loading] = useState(false)
 
     const [category_products, set_category_products] = useState([])
 
@@ -59,7 +59,7 @@ export default function CategoryIndex() {
                         ?.filter(category => category.products?.length > 0)
                         .map((category) => (
                             <CategoryWiseSections
-                            category_products_loading={category_products_loading}
+                                category_products_loading={category_products_loading}
                                 key={category.category_id}
                                 item={category}
                             />

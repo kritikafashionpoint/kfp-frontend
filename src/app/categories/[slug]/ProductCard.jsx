@@ -36,15 +36,14 @@ export default function ProductCard({
             className="h-fit"
         >
             <article
-                style={{ borderColor: gold.dark }}
                 className="
                     bg-transparent
-                    sm:mx-0
-                    mx-8
-                    border
+                    sm:border
+                    border-[#8A6A12]
                     cursor-pointer
-                    rounded-xl
-                    shadow-md
+                    sm:rounded-xl
+                    shadow-sm
+                    shadow-gray-950
                     transition-all
                     duration-300
                     group
@@ -118,8 +117,8 @@ export default function ProductCard({
                 )}
 
                 {/* IMAGE */}
-                <div className="bg-red-600 relative">
-                    <div className="relative h-[230] overflow-hidden rounded-t-xl">
+                <div className="bg-white relative overflow-hidden">
+                    <div className="relative h-[230] bg-white overflow-hidden rounded-t-xl">
 
                         <Image
                             loading='lazy'
@@ -133,8 +132,7 @@ export default function ProductCard({
                                 25vw
                             "
                             className="
-                                sm:object-cover
-                                object-contain
+                                object-cover
                                 object-center
                                 duration-500
                                 group-hover:scale-105
@@ -206,7 +204,7 @@ export default function ProductCard({
                                 min-h-[30]
                             "
                         >
-                            {p_short_description || "No description available"}
+                            {p_short_description || "Best Artificial Premium Jwellery For your special Occasion"}
                         </p>
                     </div>
 
@@ -229,7 +227,7 @@ export default function ProductCard({
                 </div>
 
                 {/* BUTTONS */}
-                <div className="grid grid-cols-2  gap-2 px-5 pb-5 bg-black">
+                <div className="grid sm:grid-cols-2  sm:gap-2 gap-4 px-5 pb-5 bg-black">
 
                     <AddToCartButton item={item} />
 
