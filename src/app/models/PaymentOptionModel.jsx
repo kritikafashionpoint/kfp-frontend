@@ -12,7 +12,7 @@ export function PaymentOption({ paymentOptionModel, setPaymentOptionModel, selec
 
         const title = selectedProduct?.p_title || "Exclusive Jwellery with Premium Design";
         const shortDesc = selectedProduct?.p_short_description || "";
-        const amount = selectedProduct?.p_customer_price || selectedProduct?.p_advance_payment;
+        const amount = selectedTabPaymentTab == 'advance' ? selectedProduct?.p_advance_payment : selectedProduct?.p_customer_price;
 
         const transactionNote = encodeURIComponent(
             `${title} - ${shortDesc}`

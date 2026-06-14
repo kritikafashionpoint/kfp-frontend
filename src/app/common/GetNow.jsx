@@ -73,6 +73,7 @@ export default function GetNow({ getNowModel, setGetNowModel, selectedProduct, q
         <>
             {/* payment option model */}
             <PaymentOption
+            
                 setSelectedPaymentTab={setSelectedPaymentTab}
                 selectedTabPaymentTab={selectedTabPaymentTab}
                 selectedProduct={selectedProduct}
