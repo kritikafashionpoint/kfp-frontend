@@ -44,7 +44,6 @@ export default function TopSelling() {
     return (
         <section style={{ background: 'black' }} className="w-screen overflow-x-hidden  pb-5 relative ">
 
-            {getNowModel && <Overlay />}
 
             <GetNow selectedProduct={selectedProduct} getNowModel={getNowModel} setGetNowModel={setGetNowModel} />
             {/* <div className="absolute lg:w-[500] w-full bottom-0 left-0">

@@ -10,14 +10,20 @@ export function PaymentOption({ paymentOptionModel, setPaymentOptionModel, selec
     const HandleUpiPayment = () => {
         const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-        // const upiLink =
-        //     "upi://pay?pa=mehratarun80@ybl&pn=Kritika Fashion Point&am=499&tn=Advance Payment&cu=INR";
+        const title = selectedProduct?.p_title || "Exclusive Jwellery with Premium Design";
+        const shortDesc = selectedProduct?.p_short_description || "";
+        const amount = selectedProduct?.p_customer_price || selectedProduct?.p_advance_payment;
 
-        // const upiLink =
-        //     "upi://pay?pa=mehratarun80@ybl&pn=Kritika%20Fashion%20Point&am=499&tn=Advance%20Payment&cu=INR";
+        const transactionNote = encodeURIComponent(
+            `${title} - ${shortDesc}`
+        );
 
         const upiLink =
-            "upi://pay?pa=mehratarun80@ybl&pn=Kritika%20Fashion%20Point&am=499&tn=Advance%20Payment%20for%20Exclusive%20Jewellery%20Order.%20Premium%20fashion%20accessories%20and%20bridal%20collection.%20Thank%20you%20for%20choosing%20Kritika%20Fashion%20Point.&cu=INR";
+            `upi://pay?pa=mehratarun80@ybl` +
+            `&pn=${encodeURIComponent("Kritika Fashion Point")}` +
+            `&am=${amount}` +
+            `&tn=${transactionNote}` +
+            `&cu=INR`;
 
         if (isMobile) {
             window.location.href = upiLink;
