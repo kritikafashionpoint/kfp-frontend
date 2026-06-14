@@ -22,11 +22,11 @@ import Overlay from "@/app/common/Overlay";
 import GetNow from "@/app/common/GetNow";
 import ProductCard from "./ProductCard";
 import { useSelector } from "react-redux";
-import { NoNewArrFound } from "@/app/home-page/NewArrivals";
 import ProductCardSkeleton from "./ProductSkelaton";
 import { useParams } from "next/navigation";
 import Loading from "../../../../Loading";
 import WishListButton from "@/app/common/WishListButton";
+import { NoNewArrFound } from "@/app/home-page/NewArrivals";
 
 export default function ProductDetailClient() {
 

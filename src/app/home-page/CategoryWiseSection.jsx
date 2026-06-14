@@ -37,7 +37,7 @@ export default function CategoryWiseSections({ item, index, loading, setLoading,
             {getNowModel && <Overlay />}
             <GetNow getNowModel={getNowModel} setGetNowModel={setGetNowModel} selectedProduct={selectedProduct} />
 
-            <div className='flex justify-center relative z-40'>
+            <div className='flex justify-center relative z-50'>
                 <span style={{
                     fontFamily: 'Poppins',
                     background: `
@@ -50,7 +50,7 @@ export default function CategoryWiseSections({ item, index, loading, setLoading,
                         #d4af37 60%,
                         #b8860b 80%,
                         #8a6a12 100%
-                    )`}} className='font-bold rounded-full text-black lg:text-2xl md:text-xl text-lg lg:py-2 py-1.5 lg:px-16 md:px-12 px-10 lg:my-10 my-5 capitalize'>{item.category_name}
+                    )`}} className='font-bold rounded-full text-black lg:text-2xl md:text-xl text-lg lg:py-2 py-1.5 lg:px-16 md:px-12 px-10 lg:my-10 my-5 capitalize '>{item.category_name}
                     <div
                         className="
                                     absolute
@@ -59,7 +59,7 @@ export default function CategoryWiseSections({ item, index, loading, setLoading,
                                     -translate-x-1/2
                                     w-screen
                                     h-[0.5]
-                                    -z-10
+                                    -z-50
                                 "
                         style={{
                             background: `
