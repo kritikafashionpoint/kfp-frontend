@@ -50,7 +50,7 @@ export default function CategoryWiseSections({ item, index, loading, setLoading,
                         #d4af37 60%,
                         #b8860b 80%,
                         #8a6a12 100%
-                    )`}} className='font-bold rounded-full text-black lg:text-2xl md:text-xl text-lg lg:py-2 py-1.5 lg:px-16 md:px-12 px-10 lg:my-10 my-5 capitalize '>{item.category_name}
+                    )`}} className='font-bold rounded-full text-black lg:text-2xl md:text-xl text-lg lg:py-2 py-1.5 lg:px-16 md:px-12 px-10 lg:my-10 my-10 capitalize '>{item.category_name}
                     <div
                         className="
                                     absolute
@@ -82,23 +82,7 @@ export default function CategoryWiseSections({ item, index, loading, setLoading,
             <div className='max-w-330 mx-auto lg:px-6 sm:px-4 '>
 
                 <div className='lg:mb-5 mb-5'>
-                    <Swiper
-                        modules={[Autoplay]}
-                        onSwiper={(swiper) => (swiperRef.current = swiper)}
-                        spaceBetween={20}
-                        slidesPerView={4}
-                        loop={!category_products_loading}
-                        autoplay={
-                            !category_products_loading
-                                ? { delay: 2000, disableOnInteraction: false }
-                                : false
-                        }
-                        breakpoints={{
-                            320: { slidesPerView: 1 },
-                            640: { slidesPerView: 2 },
-                            1024: { slidesPerView: 5 },
-                        }}
-                    >
+                    <div className='grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-3 grid-cols-2 sm:gap-x-5 sm:gap-y-8 sm:my-10'>
                         {category_products_loading
                             ? Array.from({ length: 5 }).map((_, index) => (
                                 <SwiperSlide key={index}>
@@ -107,23 +91,23 @@ export default function CategoryWiseSections({ item, index, loading, setLoading,
                             ))
                             : item?.products?.map((product, index) => (
                                 (
-                                    <div className='grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-3 grid-cols-2 sm:gap-x-5 gap-y-8 my-10'>
 
-                                        <ProductCard
-                                            setSelectedProduct={setSelectedProduct}
-                                            item={{
-                                                ...product,
-                                                index_image: product.images?.index_image,
-                                                gallery_images: product.images?.gallery_images || []
-                                            }}
-                                            index={index}
-                                            getNowModel={getNowModel}
-                                            setGetNowModel={setGetNowModel}
-                                        />
-                                    </div>
+
+                                    <ProductCard
+                                        setSelectedProduct={setSelectedProduct}
+                                        item={{
+                                            ...product,
+                                            index_image: product.images?.index_image,
+                                            gallery_images: product.images?.gallery_images || []
+                                        }}
+                                        index={index}
+                                        getNowModel={getNowModel}
+                                        setGetNowModel={setGetNowModel}
+                                    />
                                 )
                             ))}
-                    </Swiper>
+                    </div>
+
                 </div>
             </div>
         </section>
