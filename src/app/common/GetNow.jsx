@@ -73,6 +73,7 @@ export default function GetNow({ getNowModel, setGetNowModel, selectedProduct, q
         <>
             {/* payment option model */}
             <PaymentOption
+                setSelectedPaymentTab={setSelectedPaymentTab}
                 selectedTabPaymentTab={selectedTabPaymentTab}
                 selectedProduct={selectedProduct}
                 paymentOptionModel={paymentOptionModel}
@@ -207,8 +208,8 @@ export default function GetNow({ getNowModel, setGetNowModel, selectedProduct, q
                         {/* Advance Payment */}
                         <button
                             onClick={() => {
-                                // setPaymentOptionModel(true)
-                                // setSelectedPaymentTab('advance')
+                                setPaymentOptionModel(true)
+                                setSelectedPaymentTab('advance')
                                 handleAdvancePayment(selectedProduct, actualQuantity)
                             }}
                             className="
@@ -352,8 +353,8 @@ export default function GetNow({ getNowModel, setGetNowModel, selectedProduct, q
                         {/* Full Payment */}
                         <button
                             onClick={() => {
-                                // setPaymentOptionModel(true)
-                                // setSelectedPaymentTab('full')
+                                setPaymentOptionModel(true)
+                                setSelectedPaymentTab('full')
                                 handleFullPayment(selectedProduct, actualQuantity)
                             }}
                             className="

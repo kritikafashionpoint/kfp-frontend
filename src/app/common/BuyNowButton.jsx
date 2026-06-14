@@ -15,7 +15,7 @@ export default function BuyNowButton({ setQuantity, getNowModel, item, setGetNow
                 e.stopPropagation()
 
                 if (!user?.user_id) {
-                    toast.warning("Please login to add products to cart");
+                    toast.warning("Please login to Buy Products");
                     redirect('/login')
                 }
 
