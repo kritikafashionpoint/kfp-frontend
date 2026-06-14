@@ -62,7 +62,7 @@ export default function TopSelling() {
                     ${gold.dark}55,
                     transparent
                 ) 1`
-            }} className="max-w-330 mx-auto lg:px-6 px-4">
+            }} className="max-w-330 mx-auto lg:px-6 sm:px-4">
 
                 <h1 className="relative flex flex-col items-center justify-center">
 
@@ -99,53 +99,21 @@ export default function TopSelling() {
 
                     )
                         :
-                        top_selling.length <= 4 ?
-                            (
-                                <div className='grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-3 grid-cols-1 gap-x-5 gap-y-8'>
-                                    {top_selling?.map((item, index) => (
-                                        <ProductCard
-                                            key={index}
-                                            setSelectedProduct={setSelectedProduct}
-                                            item={item}
-                                            index={index}
-                                            getNowModel={getNowModel}
-                                            setGetNowModel={setGetNowModel}
-                                        />
-                                    ))}
-                                </div>
-                            )
-                            :
-                            (
-
-                                <Swiper
-                                    modules={[Autoplay]}
-                                    onSwiper={(swiper) => (swiperRef.current = swiper)}
-                                    spaceBetween={20}
-                                    slidesPerView={4}
-                                    loop={true}
-                                    autoplay={{
-                                        delay: 2000,
-                                        disableOnInteraction: false,
-                                    }}
-                                    breakpoints={{
-                                        320: { slidesPerView: 1 },
-                                        640: { slidesPerView: 3 },
-                                        1024: { slidesPerView: 5 },
-                                    }}
-                                >
-                                    {top_selling?.map((item, index) => (
-                                        <SwiperSlide key={item.product_id || index}>
-                                            <ProductCard
-                                                setSelectedProduct={setSelectedProduct}
-                                                item={item}
-                                                index={index}
-                                                getNowModel={getNowModel}
-                                                setGetNowModel={setGetNowModel}
-                                            />
-                                        </SwiperSlide>
-                                    ))}
-                                </Swiper>
-                            )}
+                        (
+                            <div className='grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-3 grid-cols-2 sm:gap-x-5 gap-y-8'>
+                                {top_selling?.map((item, index) => (
+                                    <ProductCard
+                                        key={index}
+                                        setSelectedProduct={setSelectedProduct}
+                                        item={item}
+                                        index={index}
+                                        getNowModel={getNowModel}
+                                        setGetNowModel={setGetNowModel}
+                                    />
+                                ))}
+                            </div>
+                        )
+                    }
                 </div>
             </div>
         </section>

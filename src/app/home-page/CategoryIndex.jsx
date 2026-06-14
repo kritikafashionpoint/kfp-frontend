@@ -52,7 +52,7 @@ export default function CategoryIndex() {
     return (
         <section className='w-full h-full text-white'>
 
-            <div className="max-w-330 mx-auto lg:px-6 px-4 lg:my-10 my-5">
+            <div className="max-w-330 mx-auto lg:px-6 sm:px-4 lg:my-10 my-5">
 
                 {
                     category_products

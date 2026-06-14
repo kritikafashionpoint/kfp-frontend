@@ -288,8 +288,8 @@ export default function ShopByCategory() {
                                         lg:h-[130]
                                         md:w-[150]
                                         md:h-[150]
-                                        sm:w-[130]
-                                        sm:h-[130]
+                                        sm:w-[150]
+                                        sm:h-[150]
                                         w-[100]
                                         h-[100]
                                         rounded-full 
