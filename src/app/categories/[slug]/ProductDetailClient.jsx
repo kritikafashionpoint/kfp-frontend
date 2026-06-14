@@ -562,13 +562,13 @@ export default function ProductDetailClient() {
 
                     </div>
 
-                    <div className='max-w-330 mx-auto lg:px-6 px-4 lg:my-10 my-5'>
+                    <div className='max-w-330 mx-auto  lg:my-10 my-5'>
 
-                        <div className="flex items-center justify-between mb-8">
+                        <div className="flex items-center justify-between mb-8 lg:px-6 px-4 ">
 
-                            <div>
+                            <div className="">
 
-                                <div className="flex items-center gap-3 mb-3">
+                                <div className="flex items-center gap-3 mb-3 ">
 
                                     <div
                                         style={{
@@ -604,7 +604,7 @@ export default function ProductDetailClient() {
                         <div>
                             {products_loading ? (
 
-                                <div className='grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-3 grid-cols-1 gap-x-5 gap-y-8'>
+                                <div className='grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-3 grid-cols-2 sm:gap-x-5 sm:gap-y-8'>
                                     {[...Array(10)].map((_, index) => (
                                         <ProductCardSkeleton key={index} />
                                     ))}
@@ -612,38 +612,23 @@ export default function ProductDetailClient() {
 
                             ) : products.length === 0 ? (
 
-                                <NoNewArrFound title={'No Related Products Yet'} />
+                                <NoNewArrFound title="No Related Products Yet" />
 
                             ) : (
 
-                                <Swiper
-                                    modules={[Autoplay]}
-                                    onSwiper={(swiper) => (swiperRef.current = swiper)}
-                                    spaceBetween={20}
-                                    slidesPerView={4}
-                                    loop={true}
-                                    autoplay={{
-                                        delay: 2000,
-                                        disableOnInteraction: false,
-                                    }}
-                                    breakpoints={{
-                                        320: { slidesPerView: 1 },
-                                        640: { slidesPerView: 3 },
-                                        1024: { slidesPerView: 5 },
-                                    }}
-                                >
+                                <div className='grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-3 grid-cols-2 sm:gap-x-5 sm:gap-y-8'>
                                     {products.map((item, index) => (
-                                        <SwiperSlide key={item.product_id || index}>
-                                            <ProductCard
-                                                setSelectedProduct={setSelectedProduct}
-                                                item={item}
-                                                index={index}
-                                                getNowModel={getNowModel}
-                                                setGetNowModel={setGetNowModel}
-                                            />
-                                        </SwiperSlide>
+                                        <ProductCard
+                                            key={item.id || index}
+                                            setSelectedProduct={setSelectedProduct}
+                                            item={item}
+                                            index={index}
+                                            getNowModel={getNowModel}
+                                            setGetNowModel={setGetNowModel}
+                                        />
                                     ))}
-                                </Swiper>
+                                </div>
+
                             )}
                         </div>
 
