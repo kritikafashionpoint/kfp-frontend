@@ -79,9 +79,9 @@ export default function ShopNowClient() {
 
             {getNowModel && <Overlay />}
 
-            <div className='max-w-330 mx-auto lg:px-6 px-4'>
+            <div className='max-w-330 mx-auto '>
                 <div className='lg:my-10 my-5'>
-                    <div className='flex gap-3 justify-between items-center'>
+                    <div className='flex gap-3 justify-between items-center lg:px-6 px-4'>
                         <div>
                             <h1
                                 className='lg:text-5xl md:text-4xl text-3xl  sm:text-center font-semibold tracking-wide text-white leading-tight'
@@ -116,7 +116,7 @@ export default function ShopNowClient() {
                             }
                         </div>
 
-                        <div className='flex items-center gap-5'>
+                        <div className='flex items-center sm:gap-5 gap-3'>
                             <Link href={'/categories'}>
                                 <button
                                     // onClick={() => setFilterModelOpen(true)}
@@ -134,7 +134,7 @@ export default function ShopNowClient() {
                                 )`
                                     }}
 
-                                    className='flex text-black  hover:scale-[1.05] duration-300 ease-in-out items-center sm:px-10 px-2 py-1.5 rounded-md cursor-pointer gap-2 text-lg'>
+                                    className='flex text-black  hover:scale-[1.05] duration-300 ease-in-out items-center sm:px-10 px-3 py-2.5 rounded-md cursor-pointer gap-2 text-lg'>
                                     <BiSolidCategory />
                                     <span style={{ fontFamily: 'Poppins' }} className='sm:block hidden font-semibold'>Categories
                                     </span>
@@ -157,7 +157,7 @@ export default function ShopNowClient() {
                                     #4d3900 100%
                                 )`
                                 }}
-                                className='flex text-black  hover:scale-[1.05] duration-300 ease-in-out items-center sm:px-10 px-2 py-1.5 rounded-md cursor-pointer gap-2 text-lg'>
+                                className='flex text-black  hover:scale-[1.05] duration-300 ease-in-out items-center sm:px-10 px-3 py-2.5 rounded-md cursor-pointer gap-2 text-lg'>
                                 <span style={{ fontFamily: 'Poppins' }} className='sm:block hidden font-semibold'>Filter
                                 </span>
                                 <FaSortAmountUp />
@@ -183,7 +183,7 @@ export default function ShopNowClient() {
 
                         ) : (
 
-                            <div className='grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-x-5 gap-y-8'>
+                            <div className='grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 grid-cols-2 sm:gap-x-5 sm:gap-y-8'>
                                 {filteredProducts.map((item, index) => (
                                     <ProductCard
                                         setSelectedProduct={setSelectedProduct}
