@@ -64,7 +64,7 @@ export default function TopSelling() {
             }} className="max-w-330 mx-auto lg:px-6 sm:px-4">
 
                 {/* Side Lines */}
-                <div className="flex items-center justify-center gap-5">
+                <div className="flex items-center justify-center sm:gap-5 gap-1">
 
                     <div
                         className="lg:w-28 w-16 h-[1]"
@@ -93,7 +93,7 @@ export default function TopSelling() {
                                 WebkitTextFillColor: "transparent",
                             }}
                         >
-                            ✦ Top selling 
+                            ✦ Top selling
                         </span>
 
 

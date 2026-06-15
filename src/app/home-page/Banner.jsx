@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function LuxuryGlowBanner() {
     return (
-        <div className="w-full h-[80vh] relative ">
+        <div className="w-full h-[90vh] relative ">
 
             <div
                 className="absolute -bottom-5 left-1/2 -translate-x-1/2 h-[1] w-32 rounded-full"
