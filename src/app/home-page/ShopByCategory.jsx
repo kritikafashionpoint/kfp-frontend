@@ -17,7 +17,7 @@ export default function ShopByCategory() {
     );
 
     return (
-        <section className="w-screen bg-black h-full lg:my-16 my-12 relative">
+        <section className="w-screen bg-black h-full lg:my-16 sm:my-12 my-7 relative">
 
             {/* <div style={{background:gold.dark}} className="absolute top-0 left-1/2 -translate-1/2 w-[200] h-[5] rounded-full "></div> */}
 
