@@ -201,7 +201,7 @@ export default function CartModel({ cartModelOpen, setCartModelOpen }) {
                                             return (
 
                                                 <Link
-                                                key={index}
+                                                    key={index}
                                                     href={`/categories/${item.p_slug}`}
                                                     className="block h-fit"
                                                 >
@@ -286,13 +286,13 @@ export default function CartModel({ cartModelOpen, setCartModelOpen }) {
                                                         )}
 
                                                         {/* IMAGE */}
-                                                        <div className="p-5 bg-black relative">
+                                                        <div className="bg-black relative">
                                                             <div
                                                                 onClick={() => setCartModelOpen(false)}
-                                                                className="relative h-47.5 overflow-hidden rounded-2xl"
+                                                                className="relative h-47.5 overflow-hidden "
                                                             >
                                                                 <Image
-                                        loading='lazy'
+                                                                    loading='lazy'
 
                                                                     src={item?.images?.index_image}
                                                                     alt={item.p_title}

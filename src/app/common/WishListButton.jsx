@@ -15,7 +15,7 @@ export default function WishListButton({ ProductBySlug }) {
     const wishlist = useSelector(
         (store) => store.wishlist.wishlistData
     );
-    console.log('wishlist',wishlist)
+    console.log('wishlist', wishlist)
 
     const wishlistCheck = wishlist?.some(
         (item) => item.id === ProductBySlug.id

@@ -152,6 +152,7 @@ export default function WishListModel({ wishListModelOpen, setWishListModelOpen 
 
                                 wishListDataList.map((item, index) => (
                                     <Link
+                                        onClick={() => setWishListModelOpen(false)}
                                         key={index}
                                         href={`/categories/${item.p_slug}`}
                                         className="block h-fit"
@@ -237,8 +238,8 @@ export default function WishListModel({ wishListModelOpen, setWishListModelOpen 
                                             )}
 
                                             {/* IMAGE */}
-                                            <div className="p-5 bg-black relative">
-                                                <div className="relative h-[190] overflow-hidden rounded-2xl">
+                                            <div className="bg-black relative">
+                                                <div className="relative h-[190] overflow-hidden">
 
                                                     <Image
                                                         loading='lazy'
@@ -252,8 +253,7 @@ export default function WishListModel({ wishListModelOpen, setWishListModelOpen 
                                 25vw
                             "
                                                         className="
-                                sm:object-cover
-                                object-contain
+                                object-cover
                                 object-center
                                 duration-500
                                 group-hover:scale-105
@@ -263,100 +263,103 @@ export default function WishListModel({ wishListModelOpen, setWishListModelOpen 
                                             </div>
 
                                             {/* CONTENT */}
-                                            <div
-                                                style={{ borderTopColor: gold.dark }}
-                                                className="
-                        border-t
-                        px-5
-                        pt-5
-                        pb-3
-                        bg-black
-                        flex
-                        flex-col
-                    "
-                                            >
+                                            <div style={{ borderColor: gold.dark }}
+                                                className="sm:border-x sm:border-b">
+                                                <div
+                                                    className="
+                                                                  border-t
+                                                                  px-5
+                                                                  pt-5
+                                                                  pb-3
+                                                                  bg-black
+                                                                  flex-1
+                                                                  flex
+                                                                  flex-col
+                                                              "
+                                                >
 
-                                                {/* TITLE */}
-                                                <div className="flex-1">
+                                                    {/* TITLE */}
+                                                    <div className="flex-1">
 
-                                                    <h2
-                                                        className="
-                                text-xl
-                                text-[#E6C766]
-                                font-extrabold
-                                relative
-                                capitalize
-                            "
-                                                    >
-                                                        {item.p_title || "Untitled Product"}
-
-                                                        <span
-                                                            style={{
-                                                                background: `
-                                        linear-gradient(
-                                            to left,
-                                            #8c670a,
-                                            #d4af37,
-                                            #f5df8b
-                                        )
-                                    `,
-                                                            }}
+                                                        <h2
                                                             className="
-                                    block
-                                    w-[50]
-                                    h-[2]
-                                    mt-2
-                                    rounded-full
-                                    duration-500
-                                    group-hover:w-[90]
-                                "
-                                                        />
-                                                    </h2>
+                                                                          text-xl
+                                                                          text-[#E6C766]
+                                                                          font-extrabold
+                                                                          relative
+                                                                          line-clamp-1
+                                                                      "
+                                                        >
+                                                            {item.p_title || "Untitled Product"}
 
-                                                    {/* DESCRIPTION */}
-                                                    <p
-                                                        style={{ fontFamily: "Poppins" }}
-                                                        className="
-                                text-sm
-                                mt-4
-                                text-gray-300
-                                line-clamp-2
-                                min-h-[40]
-                            "
-                                                    >
-                                                        {item.p_short_description || "No description available"}
-                                                    </p>
-                                                </div>
+                                                            <span
+                                                                style={{
+                                                                    background: `
+                                                                                  linear-gradient(
+                                                                                      to left,
+                                                                                      #8c670a,
+                                                                                      #d4af37,
+                                                                                      #f5df8b
+                                                                                  )
+                                                                              `,
+                                                                }}
+                                                                className="
+                                                                              block
+                                                                              w-[50]
+                                                                              h-[2]
+                                                                              mt-2
+                                                                              rounded-full
+                                                                              duration-500
+                                                                              group-hover:w-[90]
+                                                                          "
+                                                            />
+                                                        </h2>
 
-                                                {/* PRICE */}
-                                                <div className="flex items-center gap-3">
-
-                                                    <p
-                                                        style={{ color: gold.base }}
-                                                        className="text-2xl font-extrabold"
-                                                    >
-                                                        ₹ {item.p_customer_price || 0}
-                                                    </p>
-
-                                                    {!!item.p_customer_price && (
-                                                        <p className="text-sm text-gray-400 line-through">
-                                                            ₹ {item.p_sale_price}
+                                                        {/* DESCRIPTION */}
+                                                        <p
+                                                            style={{ fontFamily: "Poppins" }}
+                                                            className="
+                                                                          text-sm
+                                                                          mt-2
+                                                                          text-gray-300
+                                                                          line-clamp-2
+                                                                          min-h-[30]
+                                                                      "
+                                                        >
+                                                            {item.p_short_description || "Best Artificial Premium Jwellery For your special Occasion"}
                                                         </p>
-                                                    )}
+                                                    </div>
+
+                                                    {/* PRICE */}
+                                                    <div className="flex items-center sm:gap-3 gap-1.5">
+
+                                                        <p
+                                                            style={{ color: gold.base }}
+                                                            className="sm:text-2xl text-xl font-extrabold"
+                                                        >
+                                                            ₹{item.p_customer_price || 0}
+                                                        </p>
+
+                                                        {!!item.p_customer_price && (
+                                                            <p className="text-sm text-gray-400 line-through">
+                                                                ₹{item.p_sale_price}
+                                                            </p>
+                                                        )}
+                                                    </div>
                                                 </div>
-                                            </div>
 
-                                            {/* BUTTONS */}
-                                            <div className="grid grid-cols-2  gap-2 px-5 pb-5 bg-black">
+                                                {/* BUTTONS */}
+                                                <div className="grid grid-cols-2 sm:gap-2 gap-4 px-5 pb-5 bg-black">
 
-                                                <AddToCartButton item={item} />
+                                                    <AddToCartButton item={item} />
 
-                                                <BuyNowButton
-                                                    setSelectedProduct={setSelectedProduct}
-                                                    item={item}
-                                                    getNowModel={getNowModel}
-                                                    setGetNowModel={setGetNowModel}
-                                                />
+                                                    <BuyNowButton
+                                                        setSelectedProduct={setSelectedProduct}
+                                                        item={item}
+                                                        getNowModel={getNowModel}
+                                                        setGetNowModel={setGetNowModel}
+                                                    />
+                                                </div>
                                             </div>
 
                                         </article>
