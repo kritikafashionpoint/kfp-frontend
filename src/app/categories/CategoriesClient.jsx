@@ -133,10 +133,10 @@ export default function CategoriesClient() {
                                 </li>
 
                                 {categories.map((item) => (
-                                   <li
-    onClick={() => setSelectedCategory(item.category_id)}
-    key={item.category_id}
-    className={`
+                                    <li
+                                        onClick={() => setSelectedCategory(item.category_id)}
+                                        key={item.category_id}
+                                        className={`
         lg:px-8
         lg:py-2
         px-5
@@ -152,24 +152,24 @@ export default function CategoriesClient() {
         active:scale-95
         backdrop-blur-md
         ${item.category_id === selectedCategory
-            ? "text-black shadow-[0_0_25px_rgba(212,175,55,0.4)]"
-            : "text-white"
-        }
+                                                ? "text-black shadow-[0_0_25px_rgba(212,175,55,0.4)]"
+                                                : "text-white"
+                                            }
     `}
-    style={
-        item.category_id === selectedCategory
-            ? {
-                background:
-                    "linear-gradient(135deg,#8a6a12 0%,#b8860b 20%,#d4af37 40%,#fff2b3 50%,#d4af37 60%,#b8860b 80%,#8a6a12 100%)",
-                border: "1px solid rgba(255,242,179,0.4)",
-            }
-            : {
-                border: `1px solid ${gold.base}50`,
-            }
-    }
->
-    {item.category_name}
-</li>
+                                        style={
+                                            item.category_id === selectedCategory
+                                                ? {
+                                                    background:
+                                                        "linear-gradient(135deg,#8a6a12 0%,#b8860b 20%,#d4af37 40%,#fff2b3 50%,#d4af37 60%,#b8860b 80%,#8a6a12 100%)",
+                                                    border: "1px solid rgba(255,242,179,0.4)",
+                                                }
+                                                : {
+                                                    border: `1px solid ${gold.base}50`,
+                                                }
+                                        }
+                                    >
+                                        {item.category_name}
+                                    </li>
                                 ))}
                             </ul>
                         </div>

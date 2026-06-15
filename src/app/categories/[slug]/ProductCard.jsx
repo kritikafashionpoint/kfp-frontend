@@ -118,7 +118,7 @@ export default function ProductCard({
 
                 {/* IMAGE */}
                 <div className="bg-white relative overflow-hidden">
-                    <div className="relative h-[230] bg-white overflow-hidden rounded-t-xl">
+                    <div className="relative h-[230] bg-white overflow-hidden ">
 
                         <Image
                             loading='lazy'
