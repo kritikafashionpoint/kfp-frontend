@@ -98,7 +98,7 @@ export default function Footer() {
                         Premium Jewellery Collection
                     </p>
 
-                    <h1
+                    <h2
                         className='
                             lg:text-5xl
                             md:text-4xl
@@ -112,7 +112,7 @@ export default function Footer() {
                         <span className='text-[#d4af37] ml-3'>
                             FASHION POINT
                         </span>
-                    </h1>
+                    </h2>
 
                     <div className='flex justify-center mt-5'>
                         <div
@@ -262,9 +262,10 @@ export default function Footer() {
                         </h2>
 
                         <ul className='grid sm:grid-cols-2 gap-x-10 gap-y-4'>
-                            {categories.map((item) => (
-                                <Link key={item.id} href={`/categories/${item.category_slug}`}>
+                            {categories.map((item,index) => (
+                                <Link key={index} href={`/categories/${item.category_slug}`}>
                                     <li
+                                    key={index}
                                         className='
                                             relative
                                             w-fit

@@ -113,6 +113,7 @@ export default function CategoryWiseSections({ item, index, loading, setLoading,
 
 
                                     <ProductCard
+                                    key={index}
                                         setSelectedProduct={setSelectedProduct}
                                         item={{
                                             ...product,

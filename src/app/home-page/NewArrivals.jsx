@@ -68,7 +68,7 @@ export default function NewArrivals() {
                     />
 
                     {/* Main Heading */}
-                    <h1 className="relative">
+                    <h2 className="relative">
 
                         {/* Glow */}
                         <div
@@ -79,7 +79,7 @@ export default function NewArrivals() {
                         />
 
                         <span
-                            className="relative uppercase z-10 block lg:text-4xl md:text-3xl text-2xl font-black tracking-wider capitalize"
+                            className="relative uppercase z-10 block lg:text-4xl md:text-3xl text-2xl font-black tracking-wider "
                             style={{
                                 fontFamily: "serif",
                                 background: `linear-gradient(
@@ -98,7 +98,7 @@ export default function NewArrivals() {
 
                      
 
-                    </h1>
+                    </h2>
 
                     <div
                         className="lg:w-28 w-16 h-[1]"

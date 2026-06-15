@@ -262,7 +262,7 @@ export default function LoginClient() {
                             Kritika Fashion Point
                         </p>
 
-                        <h1
+                        <h2
                             className="
                                 lg:text-6xl
                                 md:text-4xl
@@ -279,7 +279,7 @@ export default function LoginClient() {
                             Shopping
                             <br />
                             Experience
-                        </h1>
+                        </h2>
 
                         <p
                             className="

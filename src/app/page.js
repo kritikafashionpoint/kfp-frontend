@@ -21,7 +21,7 @@ export default function Home() {
       <ShopByCategory />
 
       <NewArrivals />
-      <AboutUs />
+      {/* <AboutUs /> */}
       <WhyChooseUs />
 
       <TopSelling />

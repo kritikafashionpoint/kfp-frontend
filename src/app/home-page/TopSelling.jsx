@@ -74,7 +74,7 @@ export default function TopSelling() {
                     />
 
                     {/* Main Heading */}
-                    <h1 className="relative">
+                    <h2 className="relative">
 
 
 
@@ -97,7 +97,7 @@ export default function TopSelling() {
                         </span>
 
 
-                    </h1>
+                    </h2>
 
                     <div
                         className="lg:w-28 w-16 h-[1]"

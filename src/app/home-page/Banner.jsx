@@ -69,9 +69,9 @@ export default function LuxuryGlowBanner() {
                                 }}
                                 className="lg:text-6xl md:text-5xl text-3xl w-fit font-extrabold tracking-wide leading-tight"
                             >
-                                Luxury Artificial
+                                Premium Rajasthani Jewellery
                                 <span className="block lg:mt-2 mt-1 tracking-wider  ">
-                                    Jewellery Accessories
+                                    & Rajputi Bridal Collection
                                 </span>
                             </h1>
                         </div>

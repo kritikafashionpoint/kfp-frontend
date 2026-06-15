@@ -138,7 +138,7 @@ export default function AboutClient() {
                                 Luxury • Elegance • Trust
                             </p>
 
-                            <h1
+                            <h2
                                 className='
                                     lg:text-5xl
                                     md:text-4xl
@@ -163,7 +163,7 @@ export default function AboutClient() {
                                 >
                                     Us
                                 </span>
-                            </h1>
+                            </h2>
 
                             <div className='flex justify-center'>
                                 <div
@@ -458,7 +458,7 @@ export default function AboutClient() {
                 {/* FACILITIES */}
                 <div className='w-full lg:pb-20 pb-12'>
 
-                    <h1
+                    <h2
                         className='
                             lg:text-5xl
                             md:text-4xl
@@ -480,7 +480,7 @@ export default function AboutClient() {
                         >
                             Facilities
                         </span>
-                    </h1>
+                    </h2>
 
                     <div className='flex justify-center mb-14'>
                         <div
@@ -530,7 +530,7 @@ export default function AboutClient() {
                                     <div className='relative w-full h-[320] overflow-hidden'>
 
                                         <Image
-                                        loading='lazy'
+                                            loading='lazy'
                                             alt='desiimages'
                                             src={item.src}
                                             fill

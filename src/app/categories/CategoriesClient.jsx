@@ -13,7 +13,7 @@ import { NoNewArrFound } from '../home-page/NewArrivals'
 import { Autoplay } from 'swiper/modules'
 import { useSelector } from 'react-redux'
 import ProductCardSkeleton from './[slug]/ProductSkelaton'
-
+import { ChevronDown } from "lucide-react";
 
 export default function CategoriesClient() {
 
@@ -41,6 +41,8 @@ export default function CategoriesClient() {
         )
         : products;
 
+    const [showCategories, setShowCategories] = useState(false);
+
 
     return (
         <section className='w-full h-full relative bg-no-repeat bg-cover bg-center'>
@@ -52,70 +54,125 @@ export default function CategoriesClient() {
 
 
             {/* <div className='w-full h-full absolute top-0 left-0 bg-[rgba(0,0,0,0.9)]'></div> */}
-            <div className='max-w-330 mx-auto lg:px-6 px-4 '>
-                <div className=' lg:py-10 py-5'>
+            <div className='max-w-330 mx-auto lg:px-6 sm:px-4 '>
+                <div className=' lg:py-10 py-5 '>
+
+                    {/* categoy modal */}
                     <div
-                        className="w-full h-fit lg:mb-10 mb-10 z-50 rounded-3xl px-6 py-10 relative overflow-hidden border border-[#FFF2B320] backdrop-blur-2xl"
-                        style={{
-                            background:
-                                "linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.01))",
-                        }}
+                        className="w-fit h-fit lg:mb-5 mb-3 z-50 rounded-3xl lg:mx-6 mx-4 px-6 py-5 relative overflow-hidden border border-gray-950 backdrop-blur-2xl"
+
                     >
-
                         {/* Heading */}
-                        <div className="flex items-center gap-4 mb-8 relative z-10">
-                            <div
-                                className="w-2 h-10 rounded-full shadow-lg"
-                                style={{
-                                    background: `linear-gradient(to bottom, ${gold.light}, ${gold.dark})`,
-                                }}
-                            />
+                        <div
+                            onClick={() => setShowCategories(!showCategories)}
+                            className="flex items-center justify-between mb-8 relative z-10 ">
+                            <div className="flex items-center gap-4 ">
+                                <div
+                                    className="w-2 h-10 rounded-full shadow-lg"
+                                    style={{
+                                        background: `linear-gradient(to bottom, ${gold.light}, ${gold.dark})`,
+                                    }}
+                                />
 
-                            <h1
-                                className="text-2xl font-bold tracking-[6px] uppercase"
-                                style={{
-                                    color: gold.light,
-                                    textShadow: `0 0 20px ${gold.base}40`,
-                                }}
+                                <h1
+                                    className="text-3xl font-bold tracking-[6px] capitalize Poppins"
+                                    style={{
+                                        color: gold.light,
+                                        textShadow: `0 0 20px ${gold.base}40`,
+                                    }}
+                                >
+                                    <span className="sm:inline hidden">All</span> Categories
+                                </h1>
+                            </div>
+
+                            <button
+                                className="text-white hover:scale-110 transition-all duration-300"
                             >
-                                <span className='sm:inline hidden'>All</span> Categories
-                            </h1>
+                                <ChevronDown
+                                    size={30}
+                                    className={`transition-transform duration-300 ${showCategories ? "rotate-180" : ""
+                                        }`}
+                                />
+                            </button>
                         </div>
 
                         {/* Categories */}
-                        <ul className="flex flex-wrap items-center gap-4 relative z-10">
-                            {/* ALL BUTTON */}
-                            <li
-                                onClick={() => setSelectedCategory(null)}
-                                style={{
-                                    border: `1px solid ${gold.base}50`,
-                                    fontFamily: "Poppins",
-                                }}
-                                className={`${selectedCategory == null
-                                    ? "bg-amber-300 text-black"
-                                    : "bg-transparent text-white"
-                                    } lg:px-8 lg:py-2 px-5 py-1 capitalize rounded-full tracking-wide cursor-pointer transition-all duration-300 hover:scale-110 hover:-translate-y-1 font-bold active:scale-95 backdrop-blur-md`}
-                            >
-                                All
-                            </li>
-
-                            {categories.map((item, index) => (
+                        <div
+                            className={`
+    overflow-hidden
+    transition-all
+    duration-700
+    ease-[cubic-bezier(0.22,1,0.36,1)]
+    ${showCategories
+                                    ? "max-h-[1000px] opacity-100 translate-y-0"
+                                    : "max-h-0 opacity-0 -translate-y-10"
+                                }
+  `}
+                        >
+                            <ul className="flex flex-wrap items-center gap-4 relative z-10">
+                                {/* ALL BUTTON */}
                                 <li
-                                    onClick={() => setSelectedCategory(item.category_id)}
-                                    key={item.category_id}
-                                    className={`${item.category_id === selectedCategory
-                                        ? "bg-amber-300 text-black"
+                                    onClick={() => setSelectedCategory(null)}
+                                    style={
+                                        selectedCategory == null
+                                            ? {
+                                                background:
+                                                    "linear-gradient(135deg,#8a6a12 0%,#b8860b 20%,#d4af37 40%,#fff2b3 50%,#d4af37 60%,#b8860b 80%,#8a6a12 100%)",
+                                                border: "1px solid rgba(255,242,179,0.4)",
+                                            }
+                                            : {
+                                                border: `1px solid ${gold.base}50`,
+                                            }
+                                    }
+                                    className={`${selectedCategory == null
+                                        ? "linear-gradient(to left,#8a6a12 0%,#b8860b 20%,#d4af37 40%,#fff2b3 50%,#d4af37 60%,#b8860b 80%,#8a6a12 100%) text-black"
                                         : "bg-transparent text-white"
-                                        } lg:px-8 lg:py-2 px-5 py-2 capitalize rounded-full tracking-wide cursor-pointer transition-all duration-300 hover:scale-110 hover:-translate-y-1 font-bold active:scale-95 backdrop-blur-md`}
-                                    style={{
-                                        border: `1px solid ${gold.base}50`,
-                                        fontFamily: "Poppins",
-                                    }}
+                                        } lg:px-8 lg:py-2 px-5 py-1 capitalize rounded-full tracking-wide cursor-pointer transition-all duration-300 hover:scale-110 hover:-translate-y-1 font-bold active:scale-95 backdrop-blur-md`}
                                 >
-                                    {item.category_name}
+                                    All
                                 </li>
-                            ))}
-                        </ul>
+
+                                {categories.map((item) => (
+                                   <li
+    onClick={() => setSelectedCategory(item.category_id)}
+    key={item.category_id}
+    className={`
+        lg:px-8
+        lg:py-2
+        px-5
+        py-2
+        capitalize
+        rounded-full
+        tracking-wide
+        cursor-pointer
+        transition-all
+        duration-300
+        hover:scale-105
+        font-bold
+        active:scale-95
+        backdrop-blur-md
+        ${item.category_id === selectedCategory
+            ? "text-black shadow-[0_0_25px_rgba(212,175,55,0.4)]"
+            : "text-white"
+        }
+    `}
+    style={
+        item.category_id === selectedCategory
+            ? {
+                background:
+                    "linear-gradient(135deg,#8a6a12 0%,#b8860b 20%,#d4af37 40%,#fff2b3 50%,#d4af37 60%,#b8860b 80%,#8a6a12 100%)",
+                border: "1px solid rgba(255,242,179,0.4)",
+            }
+            : {
+                border: `1px solid ${gold.base}50`,
+            }
+    }
+>
+    {item.category_name}
+</li>
+                                ))}
+                            </ul>
+                        </div>
                     </div>
 
                     <div className="lg:mb-5 mb-5 lg:p-0">
@@ -126,7 +183,7 @@ export default function CategoriesClient() {
                         ) : filteredProducts.length === 0 ? (
                             <NoProductFoundInThisCategory />
                         ) : (
-                            <div className="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 gap-x-5 gap-y-8">
+                            <div className="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 grid-cols-2  sm:gap-x-5 sm:gap-y-8">
                                 {filteredProducts.map((item, index) => (
                                     <ProductCard
                                         setSelectedProduct={setSelectedProduct}
@@ -167,7 +224,7 @@ export function NoProductFoundInThisCategory() {
             border-[#5c4308]
             bg-black
             py-10
-            lg:px-6 px-4
+            lg:px-6 sm:px-4
             text-center
             max-w-2xl
             mx-auto

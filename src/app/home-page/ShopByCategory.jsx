@@ -28,7 +28,7 @@ export default function ShopByCategory() {
             <div className="max-w-330 mx-auto lg:px-6 px-4">
 
                 {/* Heading */}
-                <h1 className="relative flex flex-col items-center justify-center lg:mb-14 mb-8">
+                <h2 className="relative flex flex-col items-center justify-center lg:mb-14 mb-8">
 
                     {/* Main Heading */}
                     <span
@@ -45,6 +45,8 @@ export default function ShopByCategory() {
                         Shop By Category
                     </span>
 
+                    <p className="Poppins text-gray-400 max-w-3xl mx-auto  tracking-wide text-center mt-3 ">At Kritika Fashion Point, explore handcrafted Rajasthani Jewellery and Rajputi Bridal Jewellery featuring Aad, Timaniya, Borla, Bajuband and traditional wedding accessories designed for every celebration.</p>
+
                     {/* Glow Effect
                     <div
                         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 blur-3xl opacity-20 w-72 h-16 rounded-full"
@@ -55,7 +57,7 @@ export default function ShopByCategory() {
 
                     {/* Decorative Line */}
                     <DecorativeLine />
-                </h1>
+                </h2>
 
 
                 {/* Slider */}

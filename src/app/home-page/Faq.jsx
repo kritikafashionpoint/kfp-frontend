@@ -79,7 +79,7 @@ export default function Faq() {
                 <div className="text-center lg:mb-14 mb-10">
 
                     {/* Heading */}
-                    <h1 className="relative flex flex-col items-center justify-center lg:mb-14 mb-8">
+                    <h2 className="relative flex flex-col items-center justify-center lg:mb-14 mb-8">
 
                         {/* Main Heading */}
                         <span
@@ -136,7 +136,7 @@ export default function Faq() {
                                 }}
                             />
                         </div>
-                    </h1>
+                    </h2>
 
 
                 </div>

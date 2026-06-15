@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Kritika Fashion Point | Artificial Jwellery",
-  description: "Best Artificial Jwellery Shop In Jodhpur",
+  title: "Kritika Fashion Point | Rajasthani Jewellery, Rajputi Jewellery & Bridal Collection",
+  description: "Explore premium Rajasthani jewellery and Rajputi jewellery at Kritika Fashion Point. Shop Aad, Timaniya, Borla, Bajuband, Rakhdi, bridal jewellery sets and traditional Rajasthani accessories crafted for weddings, festivals and special occasions.",
 };
 
 export default function RootLayout({ children }) {

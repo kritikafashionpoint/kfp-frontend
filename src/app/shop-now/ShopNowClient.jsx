@@ -83,7 +83,7 @@ export default function ShopNowClient() {
                 <div className='lg:my-10 my-5'>
                     <div className='flex gap-3 justify-between items-center lg:px-6 px-4'>
                         <div>
-                            <h1
+                            <h2
                                 className='lg:text-5xl md:text-4xl text-3xl  sm:text-center font-semibold tracking-wide text-white leading-tight'
                             >
                                 <span className='sm:inline hidden'>Our</span>
@@ -92,7 +92,7 @@ export default function ShopNowClient() {
                                 </span>
 
 
-                            </h1>
+                            </h2>
 
 
                             <div
@@ -186,6 +186,7 @@ export default function ShopNowClient() {
                             <div className='grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 grid-cols-2 sm:gap-x-5 sm:gap-y-8'>
                                 {filteredProducts.map((item, index) => (
                                     <ProductCard
+                                        key={index}
                                         setSelectedProduct={setSelectedProduct}
                                         item={item}
                                         index={index}

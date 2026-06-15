@@ -157,7 +157,7 @@ export function QrCodeModel({ QrCodeOpen, setQrCodeOpen, selectedProduct, select
                                 Premium Jewellery
                             </p>
 
-                            <h1
+                            <h2
                                 className="
                                     lg:text-4xl
                                     text-3xl
@@ -170,7 +170,7 @@ export function QrCodeModel({ QrCodeOpen, setQrCodeOpen, selectedProduct, select
                                 }}
                             >
                                 KRITIKA <span style={{ color: "#d4af37" }}>FASHION POINT</span>
-                            </h1>
+                            </h2>
 
                             <div className="flex items-center justify-center gap-3 my-3">
                                 <div
