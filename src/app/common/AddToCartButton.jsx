@@ -194,7 +194,7 @@ export default function AddToCartButton({
                 py-1
                 rounded-full
                 text-lg
-                border-2
+                border
                 flex
                 items-center
                 justify-center
