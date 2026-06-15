@@ -79,7 +79,7 @@ export default function NewArrivals() {
                         />
 
                         <span
-                            className="relative uppercase z-10 block lg:text-4xl md:text-3xl text-2xl font-black tracking-wider "
+                            className="relative sm:uppercase z-10 block lg:text-4xl md:text-3xl text-2xl font-black tracking-wider "
                             style={{
                                 fontFamily: "serif",
                                 background: `linear-gradient(
