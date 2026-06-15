@@ -292,8 +292,8 @@ export default function ShopByCategory() {
                                         md:h-[150]
                                         sm:w-[150]
                                         sm:h-[150]
-                                        w-[100]
-                                        h-[100]
+                                        w-[115]
+                                        h-[115]
                                         rounded-full 
                                         overflow-hidden 
                                         border-2
