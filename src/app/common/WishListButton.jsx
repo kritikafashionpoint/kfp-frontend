@@ -11,7 +11,13 @@ export default function WishListButton({ ProductBySlug }) {
 
     const token = useSelector((store) => store.user.token)
 
-    const [wishlistCheck, setWishListCheck] = useState(false)
+    const wishlist = useSelector(
+        (store) => store.wishlist.wishlistData
+    );
+
+    const wishlistCheck = wishlist?.some(
+        (item) => item.product_id === ProductBySlug.id
+    );
 
     const dispatch = useDispatch()
     const addtoWishList = async (id) => {
@@ -28,7 +34,6 @@ export default function WishListButton({ ProductBySlug }) {
                     fetchwishlistData(token)
                 );
 
-                setWishListCheck(response.data.isWishlisted);
 
                 return toast.success(response.data.message);
             }
@@ -48,7 +53,6 @@ export default function WishListButton({ ProductBySlug }) {
         <button
             onClick={() => {
                 addtoWishList(ProductBySlug.id)
-                con
             }}
             className="cursor-pointer bg-black  absolute top-6 right-6 w-12 h-12 rounded-full flex items-center justify-center border hover:scale-110  duration-200"
             style={{

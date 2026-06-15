@@ -123,7 +123,6 @@ export default function ProductDetailClient() {
                                 >
                                     <Image
                                         loading='lazy'
-
                                         sizes="full"
                                         src={selectedImage || '/preview.jpg'}
                                         alt={p_title}
