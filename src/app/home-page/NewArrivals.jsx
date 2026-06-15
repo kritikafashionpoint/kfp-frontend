@@ -96,9 +96,12 @@ export default function NewArrivals() {
                             ✦ New Arrivals
                         </span>
 
-                     
+
+
 
                     </h2>
+
+
 
                     <div
                         className="lg:w-28 w-16 h-[1]"
@@ -109,6 +112,9 @@ export default function NewArrivals() {
 
                 </div>
 
+                <p className="Poppins text-sm  text-gray-400 max-w-5xl mx-auto  tracking-wide text-center mt-3 ">
+                    Discover the latest women's fashion collection at Kritika Fashion Point, featuring premium ethnic wear, stylish kurtis, elegant dresses, and trendy outfits. Shop high-quality fashion online and find the perfect look for everyday wear, festive occasions, and special celebrations.
+                </p>
             </div>
 
 

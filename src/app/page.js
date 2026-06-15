@@ -6,6 +6,7 @@ import CategoryIndex from "./home-page/CategoryIndex";
 import CategoryWiseSections from "./home-page/CategoryWiseSection";
 import Faq from "./home-page/Faq";
 import NewArrivals from "./home-page/NewArrivals";
+import OfferBanner from "./home-page/OfferBanner";
 import ShopByCategory from "./home-page/ShopByCategory";
 import TopSelling from "./home-page/TopSelling";
 import WhyChooseUs from "./home-page/WhyChooseUs";
@@ -19,6 +20,8 @@ export default function Home() {
 
       <LuxuryGlowBanner />
       <ShopByCategory />
+
+      <OfferBanner/>
 
       <NewArrivals />
       {/* <AboutUs /> */}

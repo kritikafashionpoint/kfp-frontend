@@ -1,4 +1,5 @@
 import React from "react";
+import { gold } from "../colors/color";
 
 export default function AboutUs() {
     const cards = [
@@ -24,7 +25,7 @@ export default function AboutUs() {
             <div className="container mx-auto px-4">
                 {/* Header */}
                 <div className="text-center max-w-2xl mx-auto mb-14">
-                    <span className="text-[var(--gold-base)] uppercase tracking-[5px] text-sm">
+                    <span style={{ color: gold.base }} className="uppercase tracking-[5px] text-sm">
                         About Us
                     </span>
 
@@ -43,14 +44,15 @@ export default function AboutUs() {
                 <div className="flex flex-wrap justify-center gap-6">
                     {cards.map((card, index) => (
                         <div
+                            style={{ borderColor: `${gold.dark}/15` }}
                             key={index}
-                            className="group max-w-[330px] bg-zinc-950 border border-[var(--gold-base)]/15 rounded-3xl overflow-hidden hover:border-[var(--gold-base)]/40 transition-all duration-500"
+                            className="group max-w-330 bg-zinc-950 border rounded-3xl overflow-hidden hover:border-black transition-all duration-500"
                         >
                             <div className="overflow-hidden">
                                 <img
                                     src={card.image}
                                     alt={card.title}
-                                    className="w-full h-[420px] object-cover group-hover:scale-105 transition duration-700"
+                                    className="w-full h-[420] object-cover group-hover:scale-105 transition duration-700"
                                 />
                             </div>
 
@@ -71,7 +73,7 @@ export default function AboutUs() {
                 <div className="mt-14 text-center">
                     <div className="inline-flex items-center gap-8 px-8 py-5 rounded-full border border-[var(--gold-base)]/20 bg-zinc-950">
                         <div>
-                            <h4 className="text-[var(--gold-base)] text-2xl font-bold">
+                            <h4 style={{ color: gold.base }} className=" text-2xl font-bold">
                                 500+
                             </h4>
                             <p className="text-gray-500 text-xs">
@@ -82,7 +84,7 @@ export default function AboutUs() {
                         <div className="w-px h-10 bg-[var(--gold-base)]/20" />
 
                         <div>
-                            <h4 className="text-[var(--gold-base)] text-2xl font-bold">
+                            <h4 style={{ color: gold.base }} className=" text-2xl font-bold">
                                 10K+
                             </h4>
                             <p className="text-gray-500 text-xs">
@@ -93,7 +95,7 @@ export default function AboutUs() {
                         <div className="w-px h-10 bg-[var(--gold-base)]/20" />
 
                         <div>
-                            <h4 className="text-[var(--gold-base)] text-2xl font-bold">
+                            <h4 style={{ color: gold.base }} className="text-[var(--gold-base)] text-2xl font-bold">
                                 100%
                             </h4>
                             <p className="text-gray-500 text-xs">

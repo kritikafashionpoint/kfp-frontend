@@ -104,7 +104,7 @@ export default function CategoriesClient() {
     duration-700
     ease-[cubic-bezier(0.22,1,0.36,1)]
     ${showCategories
-                                    ? "max-h-[1000px] opacity-100 translate-y-0"
+                                    ? "max-h-[1000] opacity-100 translate-y-0"
                                     : "max-h-0 opacity-0 -translate-y-10"
                                 }
   `}
