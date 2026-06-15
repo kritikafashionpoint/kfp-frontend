@@ -214,7 +214,7 @@ export default function ProductCard({
 
                             <p
                                 style={{ color: gold.base }}
-                                className="text-2xl font-extrabold"
+                                className="sm:text-2xl text-xl font-extrabold"
                             >
                                 ₹{p_customer_price || 0}
                             </p>

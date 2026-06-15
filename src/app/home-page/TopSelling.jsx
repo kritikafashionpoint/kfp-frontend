@@ -93,7 +93,7 @@ export default function TopSelling() {
                                 WebkitTextFillColor: "transparent",
                             }}
                         >
-                            ✦ Top selling ✦
+                            ✦ Top selling 
                         </span>
 
 

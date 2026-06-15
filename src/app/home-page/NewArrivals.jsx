@@ -93,7 +93,7 @@ export default function NewArrivals() {
                                 WebkitTextFillColor: "transparent",
                             }}
                         >
-                            ✦ New Arrivals ✦
+                            ✦ New Arrivals 
                         </span>
 
                      
