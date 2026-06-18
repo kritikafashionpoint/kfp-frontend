@@ -8,7 +8,7 @@ export default function NoProductFound() {
     return (
         <div className='w-full flex items-center justify-center lg:py-20 md:py-16 sm:py-10 py-5'>
             <div
-                className='max-w-xl w-full text-center border rounded-3xl p-10 backdrop-blur-xl'
+                className='max-w-xl w-full text-center border sm:rounded-3xl p-10 backdrop-blur-xl'
                 style={{
                     borderColor: `${gold.base}30`,
                     background:

@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import MainLayout from "./common/MainLayout";
 import "react-toastify/dist/ReactToastify.css";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,8 +33,13 @@ export default function RootLayout({ children }) {
         </head>
 
         <body className="bg-black w-screen">{children}</body>
+        <Script
+          src="https://checkout.razorpay.com/v1/checkout.js"
+          strategy="lazyOnload"
+        />
 
       </html>
+
     </MainLayout>
   );
 }

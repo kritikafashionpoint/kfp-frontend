@@ -45,7 +45,7 @@ export default function ShopByCategory() {
                         Shop By Category
                     </span>
 
-                    <p className="Poppins text-sm  text-gray-400 max-w-5xl mx-auto  tracking-wide text-center mt-3 ">At Kritika Fashion Point, explore handcrafted Rajasthani Jewellery and Rajputi Bridal Jewellery featuring Aad, Timaniya, Borla, Bajuband and traditional wedding accessories designed for every celebration.</p>
+                    <p className="Poppins text-sm  text-gray-400 max-w-5xl mx-auto  tracking-wide text-center mt-3 px-3 ">At Kritika Fashion Point, explore handcrafted Rajasthani Jewellery and Rajputi Bridal Jewellery featuring Aad, Timaniya, Borla, Bajuband and traditional wedding accessories designed for every celebration.</p>
 
                     {/* Glow Effect
                     <div

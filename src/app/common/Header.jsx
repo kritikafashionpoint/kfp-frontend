@@ -194,7 +194,7 @@ export default function Header() {
                 <MobileHeader />
             </header>
 
-            <FixedButtons />
+            {/* <FixedButtons /> */}
         </>
     )
 }

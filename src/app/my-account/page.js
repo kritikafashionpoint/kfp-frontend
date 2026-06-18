@@ -77,13 +77,13 @@ export default function Dashboard() {
     const [mobileSidebar, setMobileSidebar] =
         useState(false);
 
-    // const handleTabChange = (slug,title) => {
+    const handleTabChange = (slug, title) => {
 
-    //     setActiveTab(slug);
-    //     setMobileSidebar(false);
+        setActiveTab(slug);
+        setMobileSidebar(false);
 
-    //     if(item)
-    // };
+
+    };
 
     return (
         <section className="w-full min-h-screen bg-black py-5 lg:py-10 overflow-hidden">
@@ -266,11 +266,11 @@ export default function Dashboard() {
                                 return (
                                     <li
                                         key={index}
-                                        // onClick={() =>
-                                        //     handleTabChange(
-                                        //         item.slug,item.title
-                                        //     )
-                                        // }
+                                        onClick={() =>
+                                            handleTabChange(
+                                                item.slug, item.title
+                                            )
+                                        }
                                         className={`
                                             flex
                                             items-center

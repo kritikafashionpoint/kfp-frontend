@@ -21,6 +21,11 @@ import ProductCardSkeleton from '../categories/[slug]/ProductSkelaton';
 export default function NewArrivals() {
 
     const [selectedProduct, setSelectedProduct] = useState(null);
+    const [visibleItems, setVisibleItems] = useState(10);
+
+    const handleViewMore = () => {
+        setVisibleItems((prev) => prev + 10);
+    };
 
     //get products and categories
     const { categories, category_loading } = useSelector(
@@ -30,7 +35,7 @@ export default function NewArrivals() {
         (state) => state.products
     );
 
-    const new_arrivals = products.slice(0, 10)
+    const new_arrivals = products.slice(0, visibleItems)
 
 
     const swiperRef = useRef(null)
@@ -112,7 +117,7 @@ export default function NewArrivals() {
 
                 </div>
 
-                <p className="Poppins text-sm  text-gray-400 max-w-5xl mx-auto  tracking-wide text-center mt-3 ">
+                <p className="Poppins text-sm  text-gray-400 max-w-5xl mx-auto  tracking-wide text-center mt-3 px-3 ">
                     Discover the latest women's fashion collection at Kritika Fashion Point, featuring premium ethnic wear, stylish kurtis, elegant dresses, and trendy outfits. Shop high-quality fashion online and find the perfect look for everyday wear, festive occasions, and special celebrations.
                 </p>
             </div>
@@ -153,6 +158,31 @@ export default function NewArrivals() {
                         )
                     }
                 </div>
+
+                {visibleItems < products.length && (
+                    <div className="flex justify-center mt-10">
+                        <button
+                            onClick={handleViewMore}
+                            className="
+                            Poppins
+                px-8
+                py-3
+                rounded-xl
+                font-semibold
+                transition-all
+                duration-300
+                border
+                cursor-pointer
+                border-[#d4af37]
+                text-[#d4af37]
+                hover:bg-[#d4af37]
+                hover:text-black
+            "
+                        >
+                            View More Products
+                        </button>
+                    </div>
+                )}
             </div>
         </section>
     )

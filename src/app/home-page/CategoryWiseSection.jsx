@@ -38,7 +38,7 @@ export default function CategoryWiseSections({ item, index, loading, setLoading,
             <GetNow getNowModel={getNowModel} setGetNowModel={setGetNowModel} selectedProduct={selectedProduct} />
 
             <div className='flex justify-center relative z-50'>
-                <div className="flex items-center gap-5">
+                <div className="flex items-center gap-0">
 
                     <div
                         className="lg:w-28 w-16 h-[1]"

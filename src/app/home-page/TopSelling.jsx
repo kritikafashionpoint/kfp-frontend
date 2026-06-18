@@ -21,6 +21,12 @@ export default function TopSelling() {
 
     const [selectedProduct, setSelectedProduct] = useState(null);
 
+    const [visibleItems, setVisibleItems] = useState(10);
+
+    const handleViewMore = () => {
+        setVisibleItems((prev) => prev + 10);
+    };
+
     const [getNowModel, setGetNowModel] = useState(false)
 
     // const addToCart = (e) => {
@@ -108,6 +114,10 @@ export default function TopSelling() {
 
                 </div>
 
+                <p className="Poppins text-sm  text-gray-400 max-w-5xl mx-auto  tracking-wide text-center mt-3 px-3 ">
+                    Explore our top-selling women's fashion collection featuring best-selling kurtis, ethnic wear, dresses, and customer-favorite styles known for their premium quality, comfort, and timeless elegance
+                </p>
+
                 <div className='my-10'>
                     {products_loading ? (
 
@@ -139,6 +149,31 @@ export default function TopSelling() {
                         )
                     }
                 </div>
+
+                {visibleItems < products.length && (
+                    <div className="flex justify-center mt-10">
+                        <button
+                            onClick={handleViewMore}
+                            className="
+                            Poppins
+                            px-8
+                            py-3
+                            rounded-xl
+                            font-semibold
+                            transition-all
+                            duration-300
+                            border
+                            cursor-pointer
+                            border-[#d4af37]
+                            text-[#d4af37]
+                            hover:bg-[#d4af37]
+                            hover:text-black
+            "
+                        >
+                            View More Products
+                        </button>
+                    </div>
+                )}
             </div>
         </section>
 

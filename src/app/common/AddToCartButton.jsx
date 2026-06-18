@@ -206,8 +206,8 @@ export default function AddToCartButton({
                 disabled:cursor-not-allowed
             `}
             style={{
-                borderColor: gold.dark,
-                color: gold.dark,
+                borderColor: gold.mid,
+                color: gold.light,
             }}
         >
             {loading ? (

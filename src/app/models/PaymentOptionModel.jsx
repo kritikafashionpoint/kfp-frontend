@@ -1,59 +1,130 @@
+'use client'
 import { useState } from "react";
 import { BankTransferModel } from "./BankTransferModel";
-import { QrCodeModel } from "./QrCodeModel";
 import { post_api } from "../api_helper/api_helper";
 import { toast } from "react-toastify";
 import { useSelector } from "react-redux";
+import { useRouter } from "next/navigation";
 
 export function PaymentOption({ paymentOptionModel, setPaymentOptionModel, selectedProduct, selectedTabPaymentTab }) {
     const [bankTransferModel, setBankTransferModel] = useState(null);
-    const [QrCodeOpen, setQrCodeOpen] = useState(false);
 
     const token = useSelector((store) => store.user.token)
+    const user = useSelector((store) => store.user.user);
+    const router = useRouter()
 
 
-    const HandleUpiPayment = async () => {
+    const HandleRazorpayPayment = async () => {
         try {
 
+            console.log(
+                "RAZORPAY KEY",
+                process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID
+            );
             const orderResponse = await post_api({
                 path: "user/create-order",
                 body: {
                     product_id: selectedProduct.id,
-                    payment_type: selectedTabPaymentTab,
-                    payment_status: "pending",
-                    order_status: "pending"
+                    payment_type: selectedTabPaymentTab, // advance | full
                 },
-                token: token
+                token
             });
 
             if (!orderResponse?.data?.success) {
                 return toast.error("Unable to create order");
             }
 
-            const order_id = orderResponse.data.order_id;
+            const data = orderResponse.data;
 
-            const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+            const options = {
+                key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
 
-            const amount =
-                selectedTabPaymentTab === "advance"
-                    ? selectedProduct.p_advance_payment
-                    : selectedProduct.p_customer_price;
+                amount: data.amount,
+                currency: data.currency,
 
-            const upiLink =
-                `upi://pay?pa=mehratarun80@ybl` +
-                `&pn=${encodeURIComponent("Kritika Fashion Point")}` +
-                `&am=${amount}` +
-                `&tn=${encodeURIComponent(`ORDER-${order_id}`)}` +
-                `&cu=INR`;
+                order_id: data.razorpay_order_id,
 
-            if (isMobile) {
-                window.location.href = upiLink;
-            } else {
-                setQrCodeOpen(true);
-            }
+                name: "Kritika Fashion Point",
+
+                description:
+                    selectedTabPaymentTab === "advance"
+                        ? "Advance Payment"
+                        : "Full Payment",
+
+                handler: async function (response) {
+
+                    try {
+
+                        const verifyResponse =
+                            await post_api({
+                                path: "user/verify-order",
+                                token,
+                                body: {
+                                    order_id: data.order_id,
+
+                                    razorpay_order_id:
+                                        response.razorpay_order_id,
+
+                                    razorpay_payment_id:
+                                        response.razorpay_payment_id,
+
+                                    razorpay_signature:
+                                        response.razorpay_signature
+                                }
+                            });
+
+                        if (
+                            verifyResponse?.data?.success
+                        ) {
+
+                            toast.success(
+                                "Payment Successful"
+                            );
+
+                            router.push('/thank-you')
+
+                            setPaymentOptionModel(false)
+                            setBankTransferModel(false)
+
+                        } else {
+
+                            toast.error(
+                                "Payment Verification Failed"
+                            );
+                        }
+
+                    } catch (error) {
+
+                        console.log(error);
+
+                        toast.error(
+                            "Verification Failed"
+                        );
+                    }
+                },
+
+                prefill: {
+                    name: user?.name || "",
+                    email: user?.email || "",
+                    contact: user?.mobile || ""
+                },
+
+                theme: {
+                    color: "#D4AF37"
+                }
+            };
+
+
+
+            const razorpay =
+                new window.Razorpay(options);
+
+            razorpay.open();
 
         } catch (error) {
+
             console.log(error);
+
             toast.error("Something went wrong");
         }
     };
@@ -62,12 +133,7 @@ export function PaymentOption({ paymentOptionModel, setPaymentOptionModel, selec
 
     return (
         <>
-            <QrCodeModel
-                selectedTabPaymentTab={selectedTabPaymentTab}
-                QrCodeOpen={QrCodeOpen}
-                setQrCodeOpen={setQrCodeOpen}
-                selectedProduct={selectedProduct}
-            />
+
             <BankTransferModel
                 bankTransferModel={bankTransferModel}
                 setBankTransferModel={setBankTransferModel}
@@ -213,7 +279,7 @@ export function PaymentOption({ paymentOptionModel, setPaymentOptionModel, selec
                     <div className="space-y-5">
                         {/* UPI */}
                         <button
-                            onClick={HandleUpiPayment}
+                            onClick={HandleRazorpayPayment}
                             className="
                                 w-full
                                 group
@@ -282,18 +348,12 @@ export function PaymentOption({ paymentOptionModel, setPaymentOptionModel, selec
                                     💳
                                 </div>
 
-                                <div onClick={() => createOrder(selectedProduct)}>
+                                <div >
                                     <h3 className="text-[#f5df8b] text-xl font-bold tracking-wide">
-                                        Pay with UPI / Scanner
+                                        Pay with Razorpay
                                     </h3>
-                                    <p className="text-red-400 text-sm tracking-wide mt-2">After Payment Take a Screenshot for confirmation
-                                        <br />
-                                        Check The Name Before Payment (Kritika Fashion Point)</p>
-
-                                    {/* <p className="text-gray-400 text-sm mt-2 leading-6">
-                                        Fast & secure payment using any UPI app or scan QR code
-                                        instantly.
-                                    </p> */}
+                                    <p className="text-white">
+                                        100% Secure Payment</p>
                                 </div>
                             </div>
                         </button>
