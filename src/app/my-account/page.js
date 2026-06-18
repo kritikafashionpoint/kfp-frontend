@@ -81,8 +81,6 @@ export default function Dashboard() {
 
         setActiveTab(slug);
         setMobileSidebar(false);
-
-
     };
 
     return (
