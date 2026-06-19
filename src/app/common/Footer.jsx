@@ -140,7 +140,7 @@ export default function Footer() {
                 <div
                     className='
                         grid
-                        lg:grid-cols-[22%_38%_auto]
+                        lg:grid-cols-[20%_45%_auto]
                         md:grid-cols-2
                         grid-cols-1
                         lg:gap-14
@@ -261,11 +261,11 @@ export default function Footer() {
                             </div>
                         </h2>
 
-                        <ul className='grid sm:grid-cols-2 gap-x-10 gap-y-4'>
-                            {categories.map((item,index) => (
+                        <ul className='grid sm:grid-cols-3 gap-x-10 gap-y-4'>
+                            {categories.map((item, index) => (
                                 <Link key={index} href={`/categories/${item.category_slug}`}>
                                     <li
-                                    key={index}
+                                        key={index}
                                         className='
                                             relative
                                             w-fit
