@@ -15,14 +15,18 @@ import { PaymentOption } from "../models/PaymentOptionModel";
 import Link from "next/link";
 import { post_api } from "../api_helper/api_helper";
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
+import AddressModal from "./AddressModal";
 
 export default function GetNow({ getNowModel, setGetNowModel, selectedProduct, quantity }) {
     const [paymentOptionModel, setPaymentOptionModel] = useState(false);
-
+    const router = useRouter()
     const [selectedTabPaymentTab, setSelectedPaymentTab] = useState(null)
     const actualQuantity = quantity ? quantity : 1
 
     const token = useSelector((store) => store.user.token)
+    const user = useSelector((store) => store.user.user)
 
 
     // const handleAdvancePayment = async (selectedProduct, actualQuantity) => {
@@ -69,11 +73,147 @@ export default function GetNow({ getNowModel, setGetNowModel, selectedProduct, q
     //     }
     // };
 
+    const [addressModal, setAddressModal] = useState(false)
+
+    const HandleRazorpayPayment = async (paymentType) => {
+        try {
+
+            const addressResponse = await post_api({
+                path: "user/check-address",
+                token
+            });
+
+            if (!addressResponse?.data?.success) {
+                toast.error("Unable to verify address");
+                return;
+            }
+
+            if (!addressResponse.data.address_exists) {
+
+                toast.error("Please add delivery address first");
+
+                setAddressModal(true);
+
+                return;
+            }
+
+            const orderResponse = await post_api({
+                path: "user/create-order",
+                body: {
+                    product_id:
+                        selectedProduct.id ||
+                        selectedProduct.product_id,
+
+                    payment_type: paymentType,
+
+                    total_quantity:
+                        selectedProduct.quantity || 1
+                },
+                token
+            });
+
+            if (!orderResponse?.data?.success) {
+                toast.error(
+                    orderResponse?.data?.message ||
+                    "Unable to create order"
+                );
+                return;
+            }
+
+            const data = orderResponse.data;
+
+            const options = {
+                key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
+
+                amount: data.amount,
+
+                currency: data.currency,
+
+                order_id: data.razorpay_order_id,
+
+                name: "Kritika Fashion Point",
+
+                description:
+                    paymentType === "advance"
+                        ? "Advance Payment"
+                        : "Full Payment",
+
+                prefill: {
+                    name: user?.name || "",
+                    email: user?.email || "",
+                    contact: user?.mobile || ""
+                },
+
+                theme: {
+                    color: "#D4AF37"
+                },
+
+                handler: async function (response) {
+
+                    try {
+
+                        const verifyResponse =
+                            await post_api({
+                                path: "user/verify-order",
+                                token,
+                                body: {
+                                    order_id: data.order_id,
+                                    razorpay_order_id:
+                                        response.razorpay_order_id,
+                                    razorpay_payment_id:
+                                        response.razorpay_payment_id,
+                                    razorpay_signature:
+                                        response.razorpay_signature
+                                }
+                            });
+
+                        if (verifyResponse?.data?.success) {
+
+                            toast.success(
+                                "Payment Successful"
+                            );
+
+                            router.push("/thank-you");
+
+                        } else {
+
+                            toast.error(
+                                "Payment Verification Failed"
+                            );
+                        }
+
+                    } catch (error) {
+
+                        console.log(error);
+
+                        toast.error(
+                            "Verification Failed"
+                        );
+                    }
+                }
+            };
+
+            const razorpay =
+                new window.Razorpay(options);
+
+            razorpay.open();
+
+        } catch (error) {
+
+            console.log(error);
+
+            toast.error("Something went wrong");
+        }
+    };
+
+
     return (
         <>
+
+            <AddressModal addressModal={addressModal} setAddressModal={setAddressModal} />
             {/* payment option model */}
             <PaymentOption
-                
+
                 setSelectedPaymentTab={setSelectedPaymentTab}
                 selectedTabPaymentTab={selectedTabPaymentTab}
                 selectedProduct={selectedProduct}
@@ -208,10 +348,7 @@ export default function GetNow({ getNowModel, setGetNowModel, selectedProduct, q
                     <div className="space-y-4">
                         {/* Advance Payment */}
                         <button
-                            onClick={() => {
-                                setPaymentOptionModel(true)
-                                setSelectedPaymentTab('advance')
-                            }}
+                            onClick={() => HandleRazorpayPayment('advance')}
                             className="
                                 w-full
                                 rounded-2xl
@@ -352,10 +489,7 @@ export default function GetNow({ getNowModel, setGetNowModel, selectedProduct, q
 
                         {/* Full Payment */}
                         <button
-                            onClick={() => {
-                                setPaymentOptionModel(true)
-                                setSelectedPaymentTab('full')
-                            }}
+                            onClick={() => HandleRazorpayPayment('full')}
                             className="
                                 w-full
                                 rounded-2xl
