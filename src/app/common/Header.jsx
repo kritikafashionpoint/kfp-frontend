@@ -11,10 +11,14 @@ import { setCartData, setCartDataLoading, setTotalAmountOfCart } from '../redux/
 import { setwishlistData, setwishlistDataLoading } from '../redux/slices/wishlistSlice'
 import { fetchCartData } from '../redux/thunks/cartThunk'
 import { fetchwishlistData } from '../redux/thunks/wishListThunk'
+import { setOrderError, setOrderLoading, setOrders } from '../redux/slices/orderSlice'
 
 export default function Header() {
 
     const dispatch = useDispatch();
+
+    const orders = useSelector((state) => state.order.orders)
+    console.log('orders', orders)
 
     const token = useSelector((state) => state.user.token)
 
@@ -151,6 +155,66 @@ export default function Header() {
             dispatch(setwishlistDataLoading(false));
         }
     }
+
+
+    const fetchOrders = async () => {
+        try {
+
+            dispatch(setOrderLoading(true));
+            dispatch(setOrderError(null));
+
+            const response = await post_api({
+                body: {},
+                params: null,
+                path: 'user/view-orders-by-user-id',
+                token: token
+            });
+
+            if (response?.data?.success) {
+
+                const sortedOrders = (response.data.data || []).sort(
+                    (a, b) => new Date(b.created_at) - new Date(a.created_at)
+                );
+
+                dispatch(setOrders(sortedOrders));
+
+            } else {
+
+                dispatch(
+                    setOrderError(
+                        response?.data?.message || 'Failed to fetch orders'
+                    )
+                );
+
+                dispatch(setOrders([]));
+            }
+
+        } catch (error) {
+
+            console.log(error);
+
+            dispatch(
+                setOrderError(
+                    error?.response?.data?.message ||
+                    error?.message ||
+                    'Something went wrong'
+                )
+            );
+
+            dispatch(setOrders([]));
+
+        } finally {
+
+            dispatch(setOrderLoading(false));
+
+        }
+    };
+
+    useEffect(() => {
+        if (token) {
+            fetchOrders()
+        }
+    }, [])
 
     useEffect(() => {
         if (token) {

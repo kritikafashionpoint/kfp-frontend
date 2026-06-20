@@ -477,7 +477,7 @@ export function UserPoints({
                             text-black
                         "
                                 >
-                                    My Account
+                                    Account
                                 </span>
                             </Link>
                         )

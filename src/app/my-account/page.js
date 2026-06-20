@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import {
     FaBoxOpen,
@@ -18,6 +18,17 @@ import {
     MdDashboard,
     MdKeyboardArrowRight,
 } from "react-icons/md";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
+import { post_api } from "../api_helper/api_helper";
+import BuyNowButton from "../common/BuyNowButton";
+import AddToCartButton from "../common/AddToCartButton";
+import Image from "next/image";
+import { WishlistEmpty } from "../common/WishListModel";
+import Link from "next/link";
+import { gold } from "../colors/color";
+import GetNow from "../common/GetNow";
+import { logout } from "../redux/slices/userSlice";
 
 export default function Dashboard() {
 
@@ -45,30 +56,6 @@ export default function Dashboard() {
             slug: "addresses",
             icon: <FaMapMarkerAlt size={18} />,
         },
-
-        {
-            title: "Profile",
-            slug: "profile",
-            icon: <FaUser size={18} />,
-        },
-
-        {
-            title: "Coupons",
-            slug: "coupons",
-            icon: <FaGift size={18} />,
-        },
-
-        {
-            title: "Support",
-            slug: "support",
-            icon: <FaHeadset size={18} />,
-        },
-
-        {
-            title: "Logout",
-            slug: "logout",
-            icon: <FaSignOutAlt size={18} />,
-        },
     ];
 
     const [activeTab, setActiveTab] =
@@ -82,6 +69,15 @@ export default function Dashboard() {
         setActiveTab(slug);
         setMobileSidebar(false);
     };
+    const dispatch = useDispatch()
+
+    const logoutUser = () => {
+        try {
+            dispatch(logout())
+        } catch (error) {
+
+        }
+    }
 
     return (
         <section className="w-full min-h-screen bg-black py-5 lg:py-10 overflow-hidden">
@@ -311,7 +307,7 @@ export default function Dashboard() {
                                     </li>
                                 );
                             })}
-
+                            <li>hkdf</li>
 
 
                         </ul>
@@ -445,6 +441,8 @@ export default function Dashboard() {
                                 );
                             })}
 
+                            <li onClick={logoutUser} className="w-full h-full bg-red-700 text-white rounded-xl py-3 cursor-pointer mt-3 text-center Poppins capitalize">logout</li>
+
                         </ul>
 
                     </div>
@@ -479,17 +477,6 @@ export default function Dashboard() {
                             <Addresses />
                         )}
 
-                        {activeTab === "profile" && (
-                            <Profile />
-                        )}
-
-                        {activeTab === "coupons" && (
-                            <Coupons />
-                        )}
-
-                        {activeTab === "support" && (
-                            <Support />
-                        )}
 
                     </div>
                 </div>
@@ -503,6 +490,22 @@ export default function Dashboard() {
 ======================================================= */
 
 function UserDashboard() {
+
+    const fetchDashboardData = async () => {
+        try {
+
+        } catch (error) {
+
+        }
+    }
+
+    const token = useSelector((store) => store.user.token)
+
+    useEffect(() => {
+        if (token) {
+            fetchDashboardData()
+        }
+    }, [])
 
     const stats = [
         {
@@ -529,46 +532,45 @@ function UserDashboard() {
     return (
         <div>
 
-            <div className="mb-8">
+            <div className="rounded-3xl border border-[#2a2a2a] bg-[#0a0a0a] p-8 lg:p-12">
 
-                <h2 className="lg:text-4xl text-3xl font-black text-white uppercase">
-                    Dashboard
+                <h2 className="lg:text-5xl text-3xl font-black text-white uppercase">
+                    Welcome Back
                 </h2>
 
-                <p className="text-gray-400 mt-2 text-sm lg:text-base">
-                    Welcome back to Kritika Fashion Point
+                <p className="text-[#D4AF37] text-lg lg:text-xl font-semibold mt-3">
+                    Kritika Fashion Point
                 </p>
 
-            </div>
+                <p className="text-gray-400 mt-6 leading-relaxed max-w-3xl">
+                    Manage your orders, wishlist, saved addresses and account
+                    details from one place. Stay updated with your latest purchases
+                    and enjoy a seamless shopping experience with Kritika Fashion
+                    Point.
+                </p>
 
-            {/* STATS */}
-            <div className="grid xl:grid-cols-4 md:grid-cols-2 gap-5">
+                <div className="mt-8 flex flex-wrap gap-4">
 
-                {stats.map((item, index) => (
-                    <div
-                        key={index}
-                        className="
-                            rounded-3xl
-                            border
-                            border-[#2a2a2a]
-                            bg-linear-to-br
-                            from-[#1a1405]
-                            via-black
-                            to-[#1a1405]
-                            p-6
-                        "
-                    >
-
-                        <p className="text-gray-400 uppercase text-xs tracking-widest">
-                            {item.title}
-                        </p>
-
-                        <h3 className="text-[#D4AF37] text-3xl lg:text-4xl font-black mt-3">
-                            {item.value}
-                        </h3>
-
+                    <div className="px-5 py-3 rounded-2xl bg-[#111111] border border-[#2a2a2a]">
+                        <span className="text-[#D4AF37] font-semibold">
+                            ✨ Premium Fashion Collection
+                        </span>
                     </div>
-                ))}
+
+                    <div className="px-5 py-3 rounded-2xl bg-[#111111] border border-[#2a2a2a]">
+                        <span className="text-[#D4AF37] font-semibold">
+                            🚚 Fast Delivery
+                        </span>
+                    </div>
+
+                    <div className="px-5 py-3 rounded-2xl bg-[#111111] border border-[#2a2a2a]">
+                        <span className="text-[#D4AF37] font-semibold">
+                            💎 Exclusive Offers
+                        </span>
+                    </div>
+
+                </div>
+
             </div>
 
         </div>
@@ -580,68 +582,227 @@ function UserDashboard() {
 ======================================================= */
 
 function Orders() {
+    const orders = useSelector((state) => state.order.orders)
+    const order_loading = useSelector((state) => state.order.order_loading)
+
     return (
-        <div>
+        <div className="space-y-8">
 
-            <h2 className="lg:text-4xl text-3xl font-black text-white uppercase mb-6">
-                My Orders
-            </h2>
+            {order_loading ? (
 
-            <div className="overflow-x-auto rounded-3xl border border-[#1f1f1f]">
+                <div className="text-center py-20 text-gray-400">
+                    Loading Orders...
+                </div>
 
-                <table className="w-full min-w-[650]">
+            ) : orders?.length === 0 ? (
 
-                    <thead className="bg-[#111111]">
+                <div className="text-center py-20 text-gray-400">
+                    No Orders Found
+                </div>
 
-                        <tr>
+            ) : (
 
-                            <th className="p-5 text-left text-[#D4AF37]">
-                                Order ID
-                            </th>
+                orders.map((order) => (
 
-                            <th className="p-5 text-left text-[#D4AF37]">
-                                Date
-                            </th>
+                    <div
+                        key={order.order_id}
+                        className="
+                    bg-[#0f0f0f]
+                    border
+                    border-[#252525]
+                    rounded-3xl
+                    overflow-hidden
+                "
+                    >
 
-                            <th className="p-5 text-left text-[#D4AF37]">
-                                Status
-                            </th>
+                        {/* Header */}
 
-                            <th className="p-5 text-left text-[#D4AF37]">
-                                Amount
-                            </th>
+                        <div
+                            className="
+                        flex
+                        flex-wrap
+                        gap-5
+                        justify-between
+                        items-center
+                        p-6
+                        border-b
+                        border-[#252525]
+                    "
+                        >
 
-                        </tr>
+                            <div>
 
-                    </thead>
+                                <h3 className="text-white text-xl font-bold">
+                                    Order #{order.order_id}
+                                </h3>
 
-                    <tbody>
+                                <p className="text-gray-400 text-sm">
+                                    {new Date(order.created_at).toLocaleString()}
+                                </p>
 
-                        <tr className="border-t border-[#1f1f1f]">
+                            </div>
 
-                            <td className="p-5">
-                                #KF1023
-                            </td>
+                            <div className="flex items-center gap-4">
 
-                            <td className="p-5">
-                                12 Aug 2025
-                            </td>
+                                <span
+                                    className={`
+                                px-4 py-2 Poppins rounded-full text-sm font-medium
+                                ${order.order_status === "delivered"
+                                            ? "bg-green-500/10 text-green-400"
+                                            : order.order_status === "cancelled"
+                                                ? "bg-red-500/10 text-red-400"
+                                                : "bg-green-500 text-black "
+                                        }
+                            `}
+                                >
+                                    {order.order_status}
+                                </span>
 
-                            <td className="p-5 text-green-400">
-                                Delivered
-                            </td>
+                                <div className="text-right">
 
-                            <td className="p-5">
-                                ₹4,500
-                            </td>
+                                    <p className="text-gray-400 text-xs">
+                                        Total Amount
+                                    </p>
 
-                        </tr>
+                                    <p className="text-[#D4AF37] font-bold text-xl">
+                                        ₹{order.total_amount}
+                                    </p>
 
-                    </tbody>
+                                </div>
 
-                </table>
+                            </div>
 
-            </div>
+                        </div>
+
+                        {/* Products */}
+
+                        <div className="p-6">
+
+                            <div className="grid lg:grid-cols-2 gap-5">
+
+                                {order.items.map((item) => (
+
+                                    <div
+                                        key={item.order_item_id}
+                                        className="
+                                    bg-black
+                                    border
+                                    border-[#252525]
+                                    rounded-2xl
+                                    overflow-hidden
+                                "
+                                    >
+
+                                        <div className="flex gap-4 p-4">
+
+                                            <img
+                                                src={item.product.image}
+                                                alt={item.product.title}
+                                                className="
+                                            w-32
+                                            h-32
+                                            object-cover
+                                            rounded-xl
+                                        "
+                                            />
+
+                                            <div className="flex-1">
+
+                                                <h4 className="text-white font-bold text-lg">
+                                                    {item.product.title}
+                                                </h4>
+
+                                                <p className="text-gray-400 text-sm mt-1">
+                                                    {item.product.short_description}
+                                                </p>
+
+                                                <div className="mt-3 flex flex-wrap gap-2">
+
+                                                    <span className="text-xs bg-[#1a1a1a] px-3 py-1 rounded-full text-gray-300">
+                                                        {item.product.material}
+                                                    </span>
+
+                                                    <span className="text-xs bg-[#1a1a1a] px-3 py-1 rounded-full text-gray-300">
+                                                        {item.product.finishing}
+                                                    </span>
+
+                                                    <span className="text-xs bg-[#1a1a1a] px-3 py-1 rounded-full text-gray-300">
+                                                        {item.product.category.name}
+                                                    </span>
+
+                                                </div>
+
+                                                <div className="mt-4">
+
+                                                    <p className="text-sm text-gray-400">
+                                                        Quantity: {item.quantity}
+                                                    </p>
+
+                                                    <p className="text-sm text-gray-400">
+                                                        Ordered Price: ₹{item.ordered_price}
+                                                    </p>
+
+                                                    <div className="flex items-center gap-3 mt-2">
+
+                                                        <span className="text-[#D4AF37] font-bold text-lg">
+                                                            ₹{item.product.customer_price}
+                                                        </span>
+
+                                                        <span className="line-through text-gray-500 text-sm">
+                                                            ₹{item.product.sale_price}
+                                                        </span>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                ))}
+
+                            </div>
+
+
+
+                            {order.order_status !== "cancelled" &&
+                                order.order_status !== "delivered" && (
+
+                                    <div className="mt-6 flex justify-end">
+
+                                        <button
+                                            onClick={() => handleCancelOrder(order.order_id)}
+                                            className="
+                                        px-5
+                                        py-3
+                                        rounded-xl
+                                        bg-red-600
+                                        hover:bg-red-700
+                                        text-white
+                                        font-medium
+                                        transition
+                                    "
+                                        >
+                                            Cancel Order
+                                        </button>
+
+                                    </div>
+
+                                )}
+
+
+                        </div>
+
+
+
+                    </div>
+
+                ))
+
+            )}
 
         </div>
     );
@@ -652,8 +813,16 @@ function Orders() {
 ======================================================= */
 
 function Wishlist() {
+
+    const wishListDataList = useSelector((store) => store.wishlist.wishlistData)
+    const wishListLoading = useSelector((state) => state.wishlist.wishlist_data_loading)
+    const [selectedProduct, setSelectedProduct] = useState(null);
+    const [getNowModel, setGetNowModel] = useState(false)
+
+
     return (
         <div>
+            <GetNow getNowModel={getNowModel} setGetNowModel={setGetNowModel} selectedProduct={selectedProduct} />
 
             <h2 className="lg:text-4xl text-3xl font-black text-white uppercase mb-5">
                 Wishlist
@@ -661,34 +830,235 @@ function Wishlist() {
 
             <div className="grid xl:grid-cols-3 sm:grid-cols-2 gap-5">
 
-                {[1, 2, 3].map((item) => (
-                    <div
-                        key={item}
-                        className="
-                            rounded-3xl
-                            overflow-hidden
-                            border
-                            border-[#1f1f1f]
-                            bg-[#0b0b0b]
+
+                {wishListLoading ?
+                    (<div className="lg:p-10 p-5 text-white text-lg tracking-wide">
+                        Loading Cart...
+                    </div>)
+                    :
+                    (
+
+                        wishListDataList.length == 0 ?
+                            <WishlistEmpty setWishListModelOpen={setWishListModelOpen} />
+                            :
+
+                            wishListDataList.map((item, index) => (
+                                <Link
+                                    onClick={() => setWishListModelOpen(false)}
+                                    key={index}
+                                    href={`/categories/${item.p_slug}`}
+                                    className="block h-fit"
+                                >
+                                    <article
+                                        style={{ borderColor: gold.dark }}
+                                        className="
+                    bg-white
+                    border
+                    cursor-pointer
+                    rounded-xl
+                    shadow-md
+                    transition-all
+                    duration-300
+                    group
+                    h-fit
+                    flex
+                    flex-col
+                    overflow-hidden
+                    relative
+                    hover:shadow-xl
+                "
+                                    >
+
+                                        {/* TOP SELLING BADGE */}
+                                        {item.is_top_selling && (
+                                            <div className="absolute top-3 left-3 z-40">
+                                                <p
+                                                    style={{
+                                                        fontFamily: "Poppins",
+                                                        background: `linear-gradient(
+                        135deg,
+    #7a5a08 0%,
+    #a67c1b 15%,
+    #d4af37 35%,
+    #f5d97b 50%,
+    #d4af37 65%,
+    #a67c1b 85%,
+    #7a5a08 100%
+                    )`,
+                                                    }}
+                                                    className="
+                                text-black
+                                tracking-wide
+                                py-1
+                                px-3
+                                rounded-full
+                                font-semibold
+                                text-sm
+                                shadow-2xl
+                                shadow-black/70
+                            "
+                                                >
+                                                    Top Selling
+                                                </p>
+                                            </div>
+                                        )}
+
+                                        {/* DISCOUNT BADGE */}
+                                        {!!item.p_discount && (
+                                            <div
+                                                style={{
+                                                    background:
+                                                        "linear-gradient(135deg, #CC1B1B, #540202)",
+                                                    fontFamily: "Poppins",
+                                                }}
+                                                className="
+                            absolute
+                            top-0
+                            right-0
+                            py-1
+                            px-2
+                            rounded-bl-lg
+                            tracking-wider
+                            text-white
+                            z-50
+                            text-[13px]
+                            font-normal
                         "
-                    >
+                                            >
+                                                -{item.p_discount}%
+                                            </div>
+                                        )}
 
-                        <div className="h-72 bg-[#111111]"></div>
+                                        {/* IMAGE */}
+                                        <div className="bg-black relative">
+                                            <div className="relative h-[190] overflow-hidden">
 
-                        <div className="p-5">
+                                                <Image
+                                                    loading='lazy'
 
-                            <h3 className="text-xl font-bold text-white">
-                                Gold Necklace
-                            </h3>
+                                                    src={item.index_image || "/images/no-image.png"}
+                                                    alt={item.p_title || "Product Image"}
+                                                    fill
+                                                    sizes="
+                                (max-width: 640px) 100vw,
+                                (max-width: 1024px) 50vw,
+                                25vw
+                            "
+                                                    className="
+                                object-cover
+                                object-center
+                                duration-500
+                                group-hover:scale-105
+                            "
+                                                />
+                                            </div>
+                                        </div>
 
-                            <p className="text-[#D4AF37] mt-2">
-                                ₹2,500
-                            </p>
+                                        {/* CONTENT */}
+                                        <div style={{ borderColor: gold.dark }}
+                                            className="sm:border-x sm:border-b">
+                                            <div
+                                                className="
+                                                                  border-t
+                                                                  px-5
+                                                                  pt-5
+                                                                  pb-3
+                                                                  bg-black
+                                                                  flex-1
+                                                                  flex
+                                                                  flex-col
+                                                              "
+                                            >
 
-                        </div>
+                                                {/* TITLE */}
+                                                <div className="flex-1">
 
-                    </div>
-                ))}
+                                                    <h2
+                                                        className="
+                                                                          text-xl
+                                                                          text-[#E6C766]
+                                                                          font-extrabold
+                                                                          relative
+                                                                          line-clamp-1
+                                                                      "
+                                                    >
+                                                        {item.p_title || "Untitled Product"}
+
+                                                        <span
+                                                            style={{
+                                                                background: `
+                                                                                  linear-gradient(
+                                                                                      to left,
+                                                                                      #8c670a,
+                                                                                      #d4af37,
+                                                                                      #f5df8b
+                                                                                  )
+                                                                              `,
+                                                            }}
+                                                            className="
+                                                                              block
+                                                                              w-[50]
+                                                                              h-[2]
+                                                                              mt-2
+                                                                              rounded-full
+                                                                              duration-500
+                                                                              group-hover:w-[90]
+                                                                          "
+                                                        />
+                                                    </h2>
+
+                                                    {/* DESCRIPTION */}
+                                                    <p
+                                                        style={{ fontFamily: "Poppins" }}
+                                                        className="
+                                                                          text-sm
+                                                                          mt-2
+                                                                          text-gray-300
+                                                                          line-clamp-2
+                                                                          min-h-[30]
+                                                                      "
+                                                    >
+                                                        {item.p_short_description || "Best Artificial Premium Jwellery For your special Occasion"}
+                                                    </p>
+                                                </div>
+
+                                                {/* PRICE */}
+                                                <div className="flex items-center sm:gap-3 gap-1.5">
+
+                                                    <p
+                                                        style={{ color: gold.base }}
+                                                        className="sm:text-2xl text-xl font-extrabold"
+                                                    >
+                                                        ₹{item.p_customer_price || 0}
+                                                    </p>
+
+                                                    {!!item.p_customer_price && (
+                                                        <p className="text-sm text-gray-400 line-through">
+                                                            ₹{item.p_sale_price}
+                                                        </p>
+                                                    )}
+                                                </div>
+                                            </div>
+
+                                            {/* BUTTONS */}
+                                            <div className="grid grid-cols-2 sm:gap-2 gap-4 px-5 pb-5 bg-black">
+
+                                                <AddToCartButton item={item} />
+
+                                                <BuyNowButton
+                                                    setSelectedProduct={setSelectedProduct}
+                                                    item={item}
+                                                    getNowModel={getNowModel}
+                                                    setGetNowModel={setGetNowModel}
+                                                />
+                                            </div>
+                                        </div>
+
+                                    </article>
+                                </Link>
+                            ))
+                    )
+                }
             </div>
 
         </div>
@@ -699,7 +1069,17 @@ function Wishlist() {
    ADDRESSES
 ======================================================= */
 
-function Addresses() {
+
+export function Addresses() {
+
+    const token = useSelector((store) => store.user.token)
+    const [formData, setFormData] = useState({
+        name: "",
+        mobile: "",
+        city: "",
+        pincode: "",
+        address: "",
+    });
 
     const inputClass = `
         w-full
@@ -714,43 +1094,132 @@ function Addresses() {
         duration-300
     `;
 
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+        });
+    };
+
+    const getUserAddress = async () => {
+        try {
+            const response = await post_api({
+                body: {},
+                params: null,
+                path: "user/get-user-address",
+                token: token,
+            });
+
+            if (response?.data?.success) {
+                setFormData({
+                    name: response.data.data.name || "",
+                    mobile: response.data.data.mobile || "",
+                    city: response.data.data.city || "",
+                    pincode: response.data.data.pincode || "",
+                    address: response.data.data.address || "",
+                });
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    useEffect(() => {
+        if (token) {
+            getUserAddress();
+        }
+    }, [token]);
+
+    const handleSaveAddress = async () => {
+        try {
+            if (
+                !formData.name ||
+                !formData.mobile ||
+                !formData.city ||
+                !formData.pincode ||
+                !formData.address
+            ) {
+                return toast.error("Please fill all fields");
+            }
+
+            const response = await post_api({
+                body: formData,
+                params: null,
+                path: "user/save-address",
+                token: token
+            });
+
+            if (response?.data?.success) {
+                toast.success(
+                    response?.data?.message || "Address saved successfully"
+                );
+
+            } else {
+                toast.error(
+                    response?.data?.message || "Failed to save address"
+                );
+            }
+        } catch (error) {
+            console.error(error);
+
+            toast.error(
+                error?.response?.data?.message ||
+                error?.message ||
+                "Something went wrong"
+            );
+        }
+    };
+
     return (
         <div>
-
             <h2 className="lg:text-4xl text-3xl font-black text-white uppercase mb-6">
                 Addresses
             </h2>
 
             <div className="grid lg:grid-cols-2 gap-5">
-
                 <input
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
                     placeholder="Full Name"
                     className={inputClass}
                 />
 
                 <input
+                    name="mobile"
+                    value={formData.mobile}
+                    onChange={handleChange}
                     placeholder="Phone Number"
                     className={inputClass}
                 />
 
                 <input
+                    name="city"
+                    value={formData.city}
+                    onChange={handleChange}
                     placeholder="City"
                     className={inputClass}
                 />
 
                 <input
+                    name="pincode"
+                    value={formData.pincode}
+                    onChange={handleChange}
                     placeholder="Pincode"
                     className={inputClass}
                 />
 
                 <textarea
+                    name="address"
+                    value={formData.address}
+                    onChange={handleChange}
                     placeholder="Full Address"
                     className={`${inputClass} lg:col-span-2 min-h-40`}
                 />
-
             </div>
 
             <button
+                onClick={handleSaveAddress}
                 className="
                     mt-6
                     bg-[#D4AF37]
@@ -765,80 +1234,11 @@ function Addresses() {
             >
                 Save Address
             </button>
-
         </div>
     );
 }
 
-/* =======================================================
-   PROFILE
-======================================================= */
 
-function Profile() {
-
-    const inputClass = `
-        w-full
-        rounded-2xl
-        bg-[#111111]
-        border
-        border-[#2a2a2a]
-        p-4
-        outline-none
-        text-white
-        focus:border-[#D4AF37]
-        duration-300
-    `;
-
-    return (
-        <div>
-
-            <h2 className="lg:text-4xl text-3xl font-black text-white uppercase mb-6">
-                Profile
-            </h2>
-
-            <div className="grid lg:grid-cols-2 gap-5">
-
-                <input
-                    placeholder="Full Name"
-                    className={inputClass}
-                />
-
-                <input
-                    placeholder="Email Address"
-                    className={inputClass}
-                />
-
-                <input
-                    placeholder="Phone Number"
-                    className={inputClass}
-                />
-
-                <input
-                    placeholder="Date Of Birth"
-                    className={inputClass}
-                />
-
-            </div>
-
-            <button
-                className="
-                    mt-6
-                    bg-[#D4AF37]
-                    text-black
-                    px-8
-                    py-4
-                    rounded-2xl
-                    font-bold
-                    w-full
-                    sm:w-fit
-                "
-            >
-                Update Profile
-            </button>
-
-        </div>
-    );
-}
 
 /* =======================================================
    COUPONS
@@ -877,50 +1277,3 @@ function Coupons() {
     );
 }
 
-/* =======================================================
-   SUPPORT
-======================================================= */
-
-function Support() {
-    return (
-        <div>
-
-            <h2 className="lg:text-4xl text-3xl font-black text-white uppercase mb-6">
-                Support
-            </h2>
-
-            <textarea
-                placeholder="Describe your issue..."
-                className="
-                    w-full
-                    min-h-52
-                    rounded-3xl
-                    bg-[#111111]
-                    border
-                    border-[#2a2a2a]
-                    p-5
-                    outline-none
-                    focus:border-[#D4AF37]
-                    duration-300
-                "
-            />
-
-            <button
-                className="
-                    mt-5
-                    bg-[#D4AF37]
-                    text-black
-                    px-8
-                    py-4
-                    rounded-2xl
-                    font-bold
-                    w-full
-                    sm:w-fit
-                "
-            >
-                Submit Ticket
-            </button>
-
-        </div>
-    );
-}

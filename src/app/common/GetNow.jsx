@@ -73,7 +73,7 @@ export default function GetNow({ getNowModel, setGetNowModel, selectedProduct, q
         <>
             {/* payment option model */}
             <PaymentOption
-
+                
                 setSelectedPaymentTab={setSelectedPaymentTab}
                 selectedTabPaymentTab={selectedTabPaymentTab}
                 selectedProduct={selectedProduct}
@@ -198,7 +198,7 @@ export default function GetNow({ getNowModel, setGetNowModel, selectedProduct, q
                                     color: "#d4af37",
                                 }}
                             >
-                                <span> ₹{selectedProduct?.p_customer_price}</span>
+                                <span> ₹{selectedProduct?.p_customer_price * actualQuantity}</span>
 
                             </h2>
                         </div>
@@ -265,7 +265,7 @@ export default function GetNow({ getNowModel, setGetNowModel, selectedProduct, q
                                     color: "#d4af37",
                                 }}
                             >
-                                ₹{selectedProduct?.p_advance_payment}.00
+                                ₹{selectedProduct?.p_advance_payment * actualQuantity}.00
                             </span>
                         </button>
 

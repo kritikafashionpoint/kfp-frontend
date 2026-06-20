@@ -13,6 +13,7 @@ export function PaymentOption({ paymentOptionModel, setPaymentOptionModel, selec
     const user = useSelector((store) => store.user.user);
     const router = useRouter()
 
+    console.log('selectedProduct', selectedProduct?.quantity)
 
     const HandleRazorpayPayment = async () => {
         try {
@@ -24,8 +25,9 @@ export function PaymentOption({ paymentOptionModel, setPaymentOptionModel, selec
             const orderResponse = await post_api({
                 path: "user/create-order",
                 body: {
-                    product_id: selectedProduct.id,
+                    product_id: selectedProduct.id || selectedProduct.product_id,
                     payment_type: selectedTabPaymentTab, // advance | full
+                    total_quantity: selectedProduct.quantity ? selectedProduct.quantity : 1
                 },
                 token
             });
