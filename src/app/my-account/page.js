@@ -29,8 +29,11 @@ import Link from "next/link";
 import { gold } from "../colors/color";
 import GetNow from "../common/GetNow";
 import { logout } from "../redux/slices/userSlice";
+import { useRouter } from "next/navigation";
 
 export default function Dashboard() {
+    const router = useRouter();
+
 
     const user_points = [
         {
@@ -71,13 +74,27 @@ export default function Dashboard() {
     };
     const dispatch = useDispatch()
 
-    const logoutUser = () => {
-        try {
-            dispatch(logout())
-        } catch (error) {
 
+
+    const logoutUser = () => {
+        const confirmLogout = window.confirm(
+            "Are you sure you want to logout?"
+        );
+
+        if (!confirmLogout) return;
+
+        try {
+            dispatch(logout());
+
+            toast.success("Logged out successfully!");
+
+            setTimeout(() => {
+                router.push("/");
+            }, 1500);
+        } catch (error) {
+            toast.error("Failed to logout");
         }
-    }
+    };
 
     return (
         <section className="w-full min-h-screen bg-black py-5 lg:py-10 overflow-hidden">

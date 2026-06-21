@@ -15,11 +15,6 @@ export default function Faq() {
                 "Our premium jewellery collections are crafted with high-quality plating and finishing to provide long-lasting shine. Proper care helps maintain the beauty for a longer time.",
         },
         {
-            question: "Do you offer Cash on Delivery?",
-            answer:
-                "Yes, Cash on Delivery is available on selected locations across India.",
-        },
-        {
             question: "How many days does delivery take?",
             answer:
                 "Orders are usually dispatched within 2-3 working days and delivered within 5-7 business days depending on your location.",

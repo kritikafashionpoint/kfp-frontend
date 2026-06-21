@@ -14,33 +14,13 @@ import { toast } from "react-toastify";
 export const RegisterForm = ({ setActiveTab }) => {
 
 
-    const [resendTimer, setResendTimer] = useState(0);
-    const [otpSent, setOtpSent] = useState(false);
-    const [showOtp, setShowOtp] = useState(false)
-    const [otpVerified, setOtpVerified] = useState(false);
     const [loading, setLoading] = useState(false);
-    const [otpLoading, setOtpLoading] = useState(false);
-    const [verifyOtpLoading, setverifyOtpLoading] = useState(false)
 
 
-
-    useEffect(() => {
-        let interval;
-
-        if (resendTimer > 0) {
-            interval = setInterval(() => {
-                setResendTimer((prev) => prev - 1);
-            }, 1000);
-        }
-
-        return () => clearInterval(interval);
-    }, [resendTimer]);
 
     const [registerData, setRegisterData] = useState({
         name: "",
         mobile: "",
-        email: "",
-        otp: "",
         password: "",
     });
 
@@ -60,7 +40,6 @@ export const RegisterForm = ({ setActiveTab }) => {
             name,
             mobile,
             email,
-            otp,
             password,
         } = registerData;
 
@@ -76,14 +55,6 @@ export const RegisterForm = ({ setActiveTab }) => {
             return toast.warning("Please enter valid mobile number");
         }
 
-        if (!email.trim()) {
-            return toast.warning("Please enter email");
-        }
-
-        if (!otp.trim()) {
-            return toast.warning("Please enter OTP");
-        }
-
         if (!password.trim()) {
             return toast.warning("Please enter password");
         }
@@ -91,12 +62,6 @@ export const RegisterForm = ({ setActiveTab }) => {
         if (password.length < 6) {
             return toast.warning(
                 "Password must be at least 6 characters"
-            );
-        }
-
-        if (!otpVerified) {
-            return toast.warning(
-                "Please verify OTP before registration"
             );
         }
 
@@ -116,15 +81,11 @@ export const RegisterForm = ({ setActiveTab }) => {
                 setRegisterData({
                     name: "",
                     mobile: "",
-                    email: "",
-                    otp: "",
                     password: "",
                 });
 
                 setActiveTab('login')
 
-                setShowOtp(false);
-                setOtpVerified(false);
 
             } else {
                 toast.error(response.data.message);
@@ -145,104 +106,8 @@ export const RegisterForm = ({ setActiveTab }) => {
         }
     };
 
-    const sendOtp = async () => {
-        const { name, mobile, email } = registerData;
-
-        try {
-            setOtpLoading(true);
-
-            const response = await post_api({
-                body: {
-                    name,
-                    mobile,
-                    email,
-                },
-                params: null,
-                path: "user/send-otp",
-            });
 
 
-            if (response.data.status) {
-                toast.success(response.data.message);
-
-                setShowOtp(true);
-                setOtpSent(true);
-                setResendTimer(60);
-
-                // Reset verification on resend
-                setOtpVerified(false);
-
-                // Clear old OTP
-                setRegisterData((prev) => ({
-                    ...prev,
-                    otp: "",
-                }));
-            }
-        } catch (error) {
-            console.log(error);
-            toast.error(
-                error?.response?.data?.message ||
-                "Failed to send OTP"
-            );
-        } finally {
-            setOtpLoading(false);
-        }
-    };
-
-    const verifyOtp = async () => {
-
-        if (!registerData.email.trim()) {
-            return toast.warning("Please enter email");
-        }
-
-        if (!registerData.otp.trim()) {
-            return toast.warning("Please enter OTP");
-        }
-
-        try {
-            setverifyOtpLoading(true);
-
-            const response = await post_api({
-                body: {
-                    email: registerData.email,
-                    otp: registerData.otp,
-                },
-                params: null,
-                path: "user/verify-otp",
-            });
-
-            switch (response.data.code) {
-
-                case 200:
-                    toast.success(response.data.message);
-                    setOtpVerified(true);
-                    break;
-
-                case 401:
-                    toast.error(response.data.message);
-                    break;
-
-                case 404:
-                    toast.error(response.data.message);
-                    break;
-
-                case 410:
-                    toast.error(response.data.message);
-                    break;
-
-                default:
-                    toast.error(response.data.message);
-            }
-
-        } catch (error) {
-            toast.error(
-                error?.response?.data?.message ||
-                "OTP verification failed"
-            );
-        } finally {
-            setverifyOtpLoading(false);
-        }
-    };
 
 
     return (
@@ -414,212 +279,6 @@ export const RegisterForm = ({ setActiveTab }) => {
                     </div>
 
                 </div>
-
-                {/* Email + OTP Button */}
-                <div>
-
-                    <label className="text-[#f5df8b] text-sm tracking-wide mb-3 block">
-                        Email Address
-                    </label>
-
-                    <div className="grid sm:grid-cols-[1fr_150px] gap-4">
-
-                        {/* Email */}
-                        <div
-                            className="
-                                flex
-                                items-center
-                                rounded-2xl
-                                border
-                                px-5
-                                bg-[#0d0d0d]
-                                hover:border-[#d4af37]
-                                focus-within:border-[#e6c766]
-                                duration-300
-                            "
-                            style={{
-                                borderColor: "rgba(212,175,55,0.15)"
-                            }}
-                        >
-
-                            <input
-                                name="email"
-
-                                onChange={handleChange}
-                                value={registerData.email}
-                                type="email"
-                                placeholder="Enter your email"
-                                className="
-                                    w-full
-                                    bg-transparent
-                                    outline-none
-                                    py-3
-                                    tracking-wide
-                                    text-lg
-                                    text-white
-                                    placeholder:text-gray-500
-                                "
-                            />
-
-                        </div>
-
-                        {/* Send OTP */}
-                        <button
-                            type="button"
-                            onClick={() => {
-                                sendOtp()
-                                setShowOtp(true)
-                            }}
-                            disabled={
-                                otpLoading ||
-                                resendTimer > 0 ||
-                                otpVerified
-                            }
-                            className="
-                                relative
-                                overflow-hidden
-                                rounded-2xl
-                                font-semibold
-                                text-black
-                                cursor-pointer
-                                hover:scale-[1.02]
-                                active:scale-[0.98]
-                                duration-300
-                                py-3
-                            "
-                            style={{
-                                background: `
-                                    linear-gradient(
-                                        135deg,
-                                        #5c4300 0%,
-                                        #8c670a 15%,
-                                        #b8860b 35%,
-                                        #d4af37 50%,
-                                        #e6c766 62%,
-                                        #c9971a 78%,
-                                        #7a5a08 100%
-                                    )
-                                `
-                            }}
-                        >
-
-
-
-                            <span className="relative z-10">
-                                {
-                                    otpLoading
-                                        ? "Sending..."
-                                        : resendTimer > 0
-                                            ? `Resend (${resendTimer}s)`
-                                            : otpSent
-                                                ? "Resend OTP"
-                                                : "Send OTP"
-                                }                            </span>
-
-                        </button>
-
-                    </div>
-
-                </div>
-
-                {/* OTP Input */}
-                {
-                    showOtp && (
-                        <div className="animate-in fade-in duration-300 mt-4">
-
-                            <label className="text-[#f5df8b] text-sm tracking-wide mb-3 block">
-                                Enter OTP
-                            </label>
-
-                            <div className="grid sm:grid-cols-[1fr_150px] gap-4 items-center">
-                                <div
-                                    className="
-                    flex
-                    items-center
-                    rounded-2xl
-                    border
-                    px-5
-                    bg-[#0d0d0d]
-                    hover:border-[#d4af37]
-                    focus-within:border-[#e6c766]
-                    duration-300
-                "
-                                    style={{
-                                        borderColor: "rgba(212,175,55,0.15)"
-                                    }}
-                                >
-
-                                    <input
-                                        name="otp"
-                                        onChange={handleChange}
-                                        value={registerData.otp}
-                                        type="text"
-                                        placeholder="Enter OTP"
-                                        className="
-                        w-full
-                        bg-transparent
-                        outline-none
-                        py-3
-                        text-white
-                        tracking-[8px]
-                        placeholder:text-gray-500
-                    "
-                                    />
-
-                                </div>
-
-                                <button
-                                    type="button"
-                                    onClick={verifyOtp}
-                                    disabled={verifyOtpLoading || otpVerified}
-                                    className="
-                                relative
-                                overflow-hidden
-                                rounded-2xl
-                                font-semibold
-                                text-black
-                                cursor-pointer
-                                hover:scale-[1.02]
-                                active:scale-[0.98]
-                                duration-300
-                                py-3
-                            "
-                                    style={{
-                                        background: `
-                                    linear-gradient(
-                                        135deg,
-                                        #5c4300 0%,
-                                        #8c670a 15%,
-                                        #b8860b 35%,
-                                        #d4af37 50%,
-                                        #e6c766 62%,
-                                        #c9971a 78%,
-                                        #7a5a08 100%
-                                    )
-                                `
-                                    }}
-                                >
-
-
-
-                                    <span className="relative z-10">
-                                        {
-                                            otpVerified
-                                                ? "Verified ✓"
-                                                : verifyOtpLoading
-                                                    ? "Verifying..."
-                                                    : "Verify OTP"
-                                        }                                    </span>
-
-                                </button>
-
-                            </div>
-
-
-
-                        </div>
-                    )
-                }
 
 
                 {/* password */}
