@@ -36,7 +36,7 @@ export default function CategoryWiseSections({ item, index, loading, setLoading,
                 sizes="full"
                 alt="designs"
                 fill
-                className="absolute opacity-[0.02] bottom-0 right-0 w-screen h-full object-cover object-top"
+                className="absolute -z-10 opacity-[0.02] bottom-0 right-0 w-screen h-full object-cover object-top"
             />
 
             {getNowModel && <Overlay />}
@@ -142,7 +142,6 @@ export default function CategoryWiseSections({ item, index, loading, setLoading,
                             onClick={handleViewMore}
                             className="
                             relative
-
                             z-200
                             Poppins
                             px-8
