@@ -141,6 +141,9 @@ export default function CategoryWiseSections({ item, index, loading, setLoading,
                         <button
                             onClick={handleViewMore}
                             className="
+                            relative
+
+                            z-200
                             Poppins
                             px-8
                             py-3
