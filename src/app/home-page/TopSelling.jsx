@@ -21,6 +21,7 @@ export default function TopSelling() {
 
     const [selectedProduct, setSelectedProduct] = useState(null);
 
+
     const [visibleItems, setVisibleItems] = useState(10);
 
     const handleViewMore = () => {
@@ -135,16 +136,18 @@ export default function TopSelling() {
                         :
                         (
                             <div className='grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-3 grid-cols-2 sm:gap-x-5 gap-y-8'>
-                                {top_selling?.map((item, index) => (
-                                    <ProductCard
-                                        key={index}
-                                        setSelectedProduct={setSelectedProduct}
-                                        item={item}
-                                        index={index}
-                                        getNowModel={getNowModel}
-                                        setGetNowModel={setGetNowModel}
-                                    />
-                                ))}
+                                {top_selling
+                                    ?.slice(0, visibleItems)
+                                    .map((item, index) => (
+                                        <ProductCard
+                                            key={index}
+                                            setSelectedProduct={setSelectedProduct}
+                                            item={item}
+                                            index={index}
+                                            getNowModel={getNowModel}
+                                            setGetNowModel={setGetNowModel}
+                                        />
+                                    ))}
                             </div>
                         )
                     }

@@ -19,6 +19,11 @@ export default function CategoryWiseSections({ item, index, loading, setLoading,
 
     const [selectedProduct, setSelectedProduct] = useState(null);
 
+    const [visibleItems, setVisibleItems] = useState(10);
+
+    const handleViewMore = () => {
+        setVisibleItems((prev) => prev + 10);
+    };
 
     const swiperRef = useRef(null)
     const [getNowModel, setGetNowModel] = useState(false)
@@ -104,31 +109,59 @@ export default function CategoryWiseSections({ item, index, loading, setLoading,
                     <div className='grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-3 grid-cols-2 sm:gap-x-5 sm:gap-y-8 sm:my-10'>
                         {category_products_loading
                             ? Array.from({ length: 5 }).map((_, index) => (
-                                <SwiperSlide key={index}>
-                                    <ProductCardSkeleton />
-                                </SwiperSlide>
+                                <ProductCardSkeleton />
                             ))
-                            : item?.products?.map((product, index) => (
-                                (
+                            :
+                            item?.products
+                                ?.slice(0, visibleItems)
+                                .map((product, index) => (
+                                    (
 
 
-                                    <ProductCard
-                                    key={index}
-                                        setSelectedProduct={setSelectedProduct}
-                                        item={{
-                                            ...product,
-                                            index_image: product.images?.index_image,
-                                            gallery_images: product.images?.gallery_images || []
-                                        }}
-                                        index={index}
-                                        getNowModel={getNowModel}
-                                        setGetNowModel={setGetNowModel}
-                                    />
-                                )
-                            ))}
+                                        <ProductCard
+                                            key={index}
+                                            setSelectedProduct={setSelectedProduct}
+                                            item={{
+                                                ...product,
+                                                index_image: product.images?.index_image,
+                                                gallery_images: product.images?.gallery_images || []
+                                            }}
+                                            index={index}
+                                            getNowModel={getNowModel}
+                                            setGetNowModel={setGetNowModel}
+                                        />
+                                    )
+
+                                ))}
                     </div>
 
                 </div>
+                {visibleItems < item?.products?.length && (
+                    <div className="flex justify-center mt-10">
+                        <button
+                            onClick={handleViewMore}
+                            className="
+                            Poppins
+                            px-8
+                            py-3
+                            rounded-xl
+                            font-semibold
+                            transition-all
+                            duration-300
+                            border
+                            cursor-pointer
+                            border-[#d4af37]
+                            text-[#d4af37]
+                            hover:bg-[#d4af37]
+                            hover:text-black
+            "
+                        >
+                            View More Products
+                        </button>
+                    </div>
+                )}
+
+
             </div>
         </section>
     )
