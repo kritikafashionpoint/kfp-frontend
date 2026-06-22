@@ -292,6 +292,7 @@ export default function ProductDetailClient() {
 
                                     {/* Buy Now */}
                                     <BuyNowButton
+                                    quantity={quantity}
                                         setSelectedProduct={setSelectedProduct} item={ProductBySlug} getNowModel={getNowModel} setGetNowModel={setGetNowModel} customClasses={'py-3'} />
                                 </div>
 

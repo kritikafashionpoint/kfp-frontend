@@ -418,7 +418,7 @@ export default function WishListModel({ wishListModelOpen, setWishListModelOpen 
 
 export function WishlistEmpty({ setWishListModelOpen }) {
     return (
-        <div className="flex flex-col items-center justify-center h-[68vh] py-10 px-6 text-center">
+        <div className="w-full flex flex-col items-center justify-center h-[68vh] py-10 px-6 text-center">
             {/* Icon */}
             <div
                 className="

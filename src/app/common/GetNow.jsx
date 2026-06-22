@@ -27,7 +27,7 @@ export default function GetNow({ getNowModel, setGetNowModel, selectedProduct, q
 
     const token = useSelector((store) => store.user.token)
     const user = useSelector((store) => store.user.user)
-
+    console.log('selectedProduct from frontend', selectedProduct)
 
 
     const [addressModal, setAddressModal] = useState(false)
@@ -64,7 +64,7 @@ export default function GetNow({ getNowModel, setGetNowModel, selectedProduct, q
                     payment_type: paymentType,
 
                     total_quantity:
-                        selectedProduct.quantity || 1
+                        actualQuantity
                 },
                 token
             });
@@ -78,6 +78,7 @@ export default function GetNow({ getNowModel, setGetNowModel, selectedProduct, q
             }
 
             const data = orderResponse.data;
+            console.log("Backend Response:", data);
 
             const options = {
                 key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,

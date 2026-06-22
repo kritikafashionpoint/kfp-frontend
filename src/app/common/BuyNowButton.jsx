@@ -4,7 +4,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
 
-export default function BuyNowButton({ setQuantity, getNowModel, item, setGetNowModel, customClasses, setSelectedProduct }) {
+export default function BuyNowButton({quantity, setQuantity, getNowModel, item, setGetNowModel, customClasses, setSelectedProduct }) {
 
     const user = useSelector((store) => store.user.user)
 
