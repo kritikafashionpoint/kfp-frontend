@@ -36,7 +36,7 @@ export default function page() {
 
 
     return (
-        <div className='w-full lg:my-20 my-10'>
+        <div className='w-full lg:my-16 my-10'>
             <div className='max-w-330 mx-auto lg:px-6 sm:px-4 '>
 
                 <div className="text-center">

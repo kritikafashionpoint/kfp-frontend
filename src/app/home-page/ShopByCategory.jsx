@@ -275,7 +275,7 @@ export default function ShopByCategory() {
                                     return (
                                         <SwiperSlide key={item.category_id}>
 
-                                            <Link href={'/categories'}>
+                                            <Link href={`/categories/${item.category_slug}`}>
 
                                                 <div className="flex flex-col items-center group cursor-pointer">
 
