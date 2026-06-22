@@ -7,7 +7,7 @@ import {
     ArrowRight,
     PhoneCall
 } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
@@ -70,6 +70,7 @@ export const LoginForm = ({ PremiumIcon, premiumGoldGradient }) => {
                         token: response.data.token,
                     })
                 );
+                redirect('/shop-now')
                 // setTimeout(() => {
                 //     router.push("/dashboard");
                 // }, 1000);
