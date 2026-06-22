@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
 import { fetchCartData } from '../redux/thunks/cartThunk'
 import { fetchwishlistData } from '../redux/thunks/wishListThunk'
+import { redirect } from 'next/navigation'
 
 export default function WishListButton({ ProductBySlug }) {
 
@@ -21,6 +22,12 @@ export default function WishListButton({ ProductBySlug }) {
 
     const dispatch = useDispatch()
     const addtoWishList = async (id) => {
+
+        if (!user?.user_id) {
+            toast.warning("Please login to add products to cart");
+            redirect('/login')
+        }
+
         try {
             const response = await post_api({
                 body: {},
