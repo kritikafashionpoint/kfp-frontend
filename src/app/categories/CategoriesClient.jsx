@@ -8,11 +8,11 @@ import AddToCartButton from '../common/AddToCartButton'
 import Overlay from '../common/Overlay'
 import GetNow from '../common/GetNow'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import ProductCard from './[slug]/ProductCard'
+import ProductCard from '../product/[slug]/ProductCard'
 import { NoNewArrFound } from '../home-page/NewArrivals'
 import { Autoplay } from 'swiper/modules'
 import { useSelector } from 'react-redux'
-import ProductCardSkeleton from './[slug]/ProductSkelaton'
+import ProductCardSkeleton from '../product/[slug]/ProductSkelaton'
 import { ChevronDown } from "lucide-react";
 
 export default function CategoriesClient() {

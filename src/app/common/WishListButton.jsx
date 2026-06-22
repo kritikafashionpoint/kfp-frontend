@@ -8,14 +8,12 @@ import { fetchCartData } from '../redux/thunks/cartThunk'
 import { fetchwishlistData } from '../redux/thunks/wishListThunk'
 
 export default function WishListButton({ ProductBySlug }) {
-    console.log(ProductBySlug)
 
     const token = useSelector((store) => store.user.token)
 
     const wishlist = useSelector(
         (store) => store.wishlist.wishlistData
     );
-    console.log('wishlist', wishlist)
 
     const wishlistCheck = wishlist?.some(
         (item) => item.id === ProductBySlug.id

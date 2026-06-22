@@ -11,8 +11,8 @@ import BuyNowButton from '../common/BuyNowButton';
 import { FilterModel } from '../common/FilterModel';
 import { BiSolidCategory } from 'react-icons/bi';
 import { useSelector } from 'react-redux';
-import ProductCard from '../categories/[slug]/ProductCard';
-import ProductCardSkeleton from '../categories/[slug]/ProductSkelaton';
+import ProductCard from '../product/[slug]/ProductCard';
+import ProductCardSkeleton from '../product/[slug]/ProductSkelaton';
 import NoProductFound from './NoProductFound';
 import { useSearchParams } from 'next/navigation';
 

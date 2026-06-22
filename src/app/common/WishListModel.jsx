@@ -154,7 +154,7 @@ export default function WishListModel({ wishListModelOpen, setWishListModelOpen 
                                     <Link
                                         onClick={() => setWishListModelOpen(false)}
                                         key={index}
-                                        href={`/categories/${item.p_slug}`}
+                                        href={`/product/${item.p_slug}`}
                                         className="block h-fit"
                                     >
                                         <article

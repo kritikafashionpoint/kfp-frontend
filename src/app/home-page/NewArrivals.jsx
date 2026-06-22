@@ -10,12 +10,12 @@ import Overlay from '../common/Overlay';
 import { DecorativeLine } from '../common/DecorativeLine';
 import BuyNowButton from '../common/BuyNowButton';
 import AddToCartButton from '../common/AddToCartButton';
-import ProductCard from '../categories/[slug]/ProductCard';
+import ProductCard from '../product/[slug]/ProductCard';
 import { get_api } from '../api_helper/api_helper';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCategories, setCategoryLoading } from '../redux/slices/categorySlice';
 import { setProductLoading, setProducts } from '../redux/slices/productSlice';
-import ProductCardSkeleton from '../categories/[slug]/ProductSkelaton';
+import ProductCardSkeleton from '../product/[slug]/ProductSkelaton';
 
 
 export default function NewArrivals() {
@@ -202,7 +202,7 @@ export function NoNewArrFound({ title }) {
                 className='
             relative
             overflow-hidden
-            rounded-3xl
+            sm:rounded-3xl
             border
             border-[#5c4308]
             bg-black

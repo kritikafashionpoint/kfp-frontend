@@ -11,10 +11,10 @@ import GetNow from '../common/GetNow';
 import { DecorativeLine } from '../common/DecorativeLine';
 import BuyNowButton from '../common/BuyNowButton';
 import AddToCartButton from '../common/AddToCartButton';
-import ProductCard from '../categories/[slug]/ProductCard';
+import ProductCard from '../product/[slug]/ProductCard';
 import { useSelector } from 'react-redux';
 import { NoNewArrFound } from './NewArrivals';
-import ProductCardSkeleton from '../categories/[slug]/ProductSkelaton';
+import ProductCardSkeleton from '../product/[slug]/ProductSkelaton';
 
 export default function TopSelling() {
     const swiperRef = useRef(null)

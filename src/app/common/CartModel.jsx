@@ -202,7 +202,7 @@ export default function CartModel({ cartModelOpen, setCartModelOpen }) {
 
                                                 <Link
                                                     key={index}
-                                                    href={`/categories/${item.p_slug}`}
+                                                    href={`/product/${item.p_slug}`}
                                                     className="block h-fit"
                                                 >
                                                     <article

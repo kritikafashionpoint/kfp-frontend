@@ -32,7 +32,7 @@ export default function ProductCard({
 
     return (
         <Link
-            href={`/categories/${p_slug}`}
+            href={`/product/${p_slug}`}
             className="h-fit"
         >
             <article

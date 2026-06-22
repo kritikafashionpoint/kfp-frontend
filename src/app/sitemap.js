@@ -9,7 +9,7 @@ export default async function sitemap() {
     // const products = json.data || [];
 
     // const productUrls = products.map((product) => ({
-    //     url: `https://www.kritikafashionpoint.com/categories/${product.p_slug}`,
+    //     url: `https://www.kritikafashionpoint.com/product/${product.p_slug}`,
     //     lastModified: new Date(),
     // }));
 

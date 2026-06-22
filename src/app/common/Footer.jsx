@@ -13,10 +13,10 @@ export default function Footer() {
 
     const QuickLinks = [
         { title: 'home', link: '/' },
-        { title: 'shop now', link: '/' },
-        { title: 'categories', link: '/' },
-        { title: 'about', link: '/' },
-        { title: 'contact us', link: '/' },
+        { title: 'shop now', link: '/shop-now' },
+        { title: 'categories', link: '/categories' },
+        { title: 'about', link: '/about' },
+        { title: 'contact us', link: '/contact-us' },
     ]
 
     const { products, products_loading } = useSelector(

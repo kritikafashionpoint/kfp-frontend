@@ -10,9 +10,9 @@ import Overlay from '../common/Overlay';
 import { DecorativeLine } from '../common/DecorativeLine';
 import BuyNowButton from '../common/BuyNowButton';
 import AddToCartButton from '../common/AddToCartButton';
-import ProductCard from '../categories/[slug]/ProductCard';
+import ProductCard from '../product/[slug]/ProductCard';
 import { get_api } from '../api_helper/api_helper';
-import ProductCardSkeleton from '../categories/[slug]/ProductSkelaton';
+import ProductCardSkeleton from '../product/[slug]/ProductSkelaton';
 
 
 export default function CategoryWiseSections({ item, index, loading, setLoading, category_products_loading }) {

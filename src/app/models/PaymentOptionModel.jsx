@@ -13,7 +13,6 @@ export function PaymentOption({ paymentOptionModel, setPaymentOptionModel, selec
     const user = useSelector((store) => store.user.user);
     const router = useRouter()
 
-    console.log('selectedProduct', selectedProduct?.quantity)
 
     const HandleRazorpayPayment = async () => {
         try {

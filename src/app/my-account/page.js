@@ -862,7 +862,7 @@ function Wishlist() {
                             wishListDataList.map((item, index) => (
                                 <Link
                                     key={index}
-                                    href={`/categories/${item.p_slug}`}
+                                    href={`/product/${item.p_slug}`}
                                     className="block h-fit"
                                 >
                                     <article
