@@ -1,4 +1,5 @@
 'use client'
+import { gold } from '@/app/colors/color'
 import { NoNewArrFound } from '@/app/home-page/NewArrivals'
 import ProductCard from '@/app/product/[slug]/ProductCard'
 import ProductCardSkeleton from '@/app/product/[slug]/ProductSkelaton'
@@ -30,12 +31,29 @@ export default function page() {
         (product) => product.category_id === slugCategory?.category_id
     );
 
-    console.log('category_product', category_product);
+
+    console.log('slug_categoroy', slugCategory);
 
 
     return (
         <div className='w-full lg:my-20 my-10'>
             <div className='max-w-330 mx-auto lg:px-6 sm:px-4 '>
+
+                <div className="text-center">
+                    <span className="inline-block px-4 py-2 rounded-full border border-yellow-500/30 bg-yellow-500/10 text-yellow-400 text-sm tracking-widest uppercase">
+                        Premium Collection
+                    </span>
+
+                    <h1 style={{ color: gold.base }} className="mt-6 text-5xl md:text-7xl font-bold">
+                        {slugCategory?.category_name}
+                    </h1>
+
+                    <p className="max-w-3xl mx-auto my-6 text-gray-300 text-lg leading-relaxed">
+                        Discover elegant and trendy artificial jewellery crafted to enhance every
+                        occasion. Explore our premium collection designed with style, beauty, and
+                        affordability in mind.
+                    </p>
+                </div>
 
                 <div>
                     {products_loading ? (
