@@ -29,49 +29,6 @@ export default function GetNow({ getNowModel, setGetNowModel, selectedProduct, q
     const user = useSelector((store) => store.user.user)
 
 
-    // const handleAdvancePayment = async (selectedProduct, actualQuantity) => {
-    //     try {
-
-    //         const response = await post_api({
-    //             path: "payment/create-order",
-    //             token,
-    //             body: {
-    //                 amount: selectedProduct.p_advance_payment,
-    //                 product_id: selectedProduct.id,
-    //                 actualQuantity,
-    //                 payment_type: 'advance'
-    //             }
-    //         });
-
-
-    //         window.location.href = response.data.paymentUrl;
-
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // };
-
-    // const handleFullPayment = async ({ selectedProduct, actualQuantity }) => {
-    //     try {
-    //         const totalAmount =
-    //             selectedProduct.p_customer_price * actualQuantity;
-
-    //         const response = await post_api({
-    //             path: "payment/create-order",
-    //             token,
-    //             body: {
-    //                 amount: totalAmount,
-    //                 product_id: selectedProduct.id,
-    //                 actualQuantity,
-    //                 payment_type: "full",
-    //             },
-    //         });
-
-    //         window.location.href = response.data.paymentUrl;
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // };
 
     const [addressModal, setAddressModal] = useState(false)
 
@@ -125,7 +82,7 @@ export default function GetNow({ getNowModel, setGetNowModel, selectedProduct, q
             const options = {
                 key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
 
-                amount: data.amount,
+                amount: data.amount * actualQuantity,
 
                 currency: data.currency,
 
