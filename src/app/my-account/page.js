@@ -787,7 +787,7 @@ function Orders() {
 
 
 
-                            {order.order_status !== "cancelled" &&
+                            {/* {order.order_status !== "cancelled" &&
                                 order.order_status !== "delivered" && (
 
                                     <div className="mt-6 flex justify-end">
@@ -810,7 +810,7 @@ function Orders() {
 
                                     </div>
 
-                                )}
+                                )} */}
 
 
                         </div>
