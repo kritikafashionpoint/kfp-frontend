@@ -95,6 +95,9 @@ export default function Dashboard() {
             toast.error("Failed to logout");
         }
     };
+    const user_data = useSelector((store) => store.user.user)
+    const user_name = user_data.name
+    console.log(user_data)
 
     return (
         <section className="w-full min-h-screen bg-black py-5 lg:py-10 overflow-hidden">
@@ -257,7 +260,7 @@ export default function Dashboard() {
                             </div>
 
                             <h2 className="text-xl font-bold text-white">
-                                Tarun Mehra
+                                {user_name}
                             </h2>
 
                             <p className="text-gray-400 text-sm mt-1">
@@ -385,8 +388,8 @@ export default function Dashboard() {
                                 T
                             </div>
 
-                            <h2 className="text-2xl font-bold text-white">
-                                Tarun Mehra
+                            <h2 className="text-2xl font-bold text-white capitalize">
+                                {user_name}
                             </h2>
 
                             <p className="text-gray-400 text-sm mt-1">
