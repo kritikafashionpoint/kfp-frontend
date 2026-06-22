@@ -96,8 +96,7 @@ export default function Dashboard() {
         }
     };
     const user_data = useSelector((store) => store.user.user)
-    const user_name = user_data.name
-    console.log(user_data)
+    const user_name = user_data?.name || 'User'
 
     return (
         <section className="w-full min-h-screen bg-black py-5 lg:py-10 overflow-hidden">
