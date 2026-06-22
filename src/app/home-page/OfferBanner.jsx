@@ -28,7 +28,7 @@ export default function OfferBanner() {
                     />
 
                     <span
-                        className="relative sm:uppercase z-10 block lg:text-4xl md:text-3xl text-2xl font-black tracking-wider "
+                        className="relative capitalize sm:uppercase z-10 block lg:text-4xl md:text-3xl text-2xl font-black tracking-wider "
                         style={{
                             fontFamily: "serif",
                             background: `linear-gradient(
@@ -42,7 +42,7 @@ export default function OfferBanner() {
                             WebkitTextFillColor: "transparent",
                         }}
                     >
-                        ✦ Get Up To 50% off
+                        ✦ <span className='sm:inline hidden'>get</span> Up To 50% off
                     </span>
 
 
@@ -62,7 +62,7 @@ export default function OfferBanner() {
                 />
 
             </div>
-            <p className="Poppins text-sm text-gray-400 max-w-5xl leading-normal mx-auto tracking-wide text-center mt-3 px-3">
+            <p className="Poppins mb-3 text-sm text-gray-400 max-w-5xl leading-normal mx-auto tracking-wide text-center mt-3 px-3">
                 Shop authentic Rajputi Jewellery and Rajasthani Bridal Jewellery including Aad, Timaniya, Borla, Bajuband, Kundan Sets, and traditional wedding accessories crafted with royal heritage and timeless elegance.
 
             </p>
