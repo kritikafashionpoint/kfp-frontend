@@ -4,7 +4,8 @@ import { loginSuccess } from "@/app/redux/slices/userSlice";
 import {
     Mail,
     Lock,
-    ArrowRight
+    ArrowRight,
+    PhoneCall
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -22,7 +23,7 @@ export const LoginForm = ({ PremiumIcon, premiumGoldGradient }) => {
     const [loading, setLoading] = useState(false);
 
     const [loginData, setLoginData] = useState({
-        email: "",
+        phone: "",
         password: "",
     });
 
@@ -38,10 +39,10 @@ export const LoginForm = ({ PremiumIcon, premiumGoldGradient }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const { email, password } = loginData;
+        const { phone, password } = loginData;
 
-        if (!email.trim()) {
-            return toast.warning("Please enter email");
+        if (!phone.trim()) {
+            return toast.warning("Please enter phone");
         }
 
         if (!password.trim()) {
@@ -114,11 +115,11 @@ export const LoginForm = ({ PremiumIcon, premiumGoldGradient }) => {
                 onSubmit={handleSubmit}
                 className="space-y-6">
 
-                {/* Email */}
+                {/* phone */}
                 <div>
 
                     <label className="text-sm text-[#d6d6d6] mb-3 block">
-                        Email Address
+                        Phone Number
                     </label>
 
                     <div
@@ -140,18 +141,18 @@ export const LoginForm = ({ PremiumIcon, premiumGoldGradient }) => {
                     >
 
                         <PremiumIcon>
-                            <Mail
+                            <PhoneCall
                                 size={17}
                                 className="text-black"
                             />
                         </PremiumIcon>
 
                         <input
-                            name="email"
-                            value={loginData.email}
+                            name="phone"
+                            value={loginData.phone}
                             onChange={handleChange}
-                            type="email"
-                            placeholder="Enter your email"
+                            type="phone"
+                            placeholder="Enter your Phone Number"
                             className="
                                                     w-full
                                                     bg-transparent

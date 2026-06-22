@@ -122,7 +122,7 @@ export default function AddressModal({
             className="
                 fixed
                 inset-0
-                z-[9999]
+                z-9999
                 bg-black/70
                 backdrop-blur-sm
                 flex

@@ -24,7 +24,7 @@ import { post_api } from "../api_helper/api_helper";
 import BuyNowButton from "../common/BuyNowButton";
 import AddToCartButton from "../common/AddToCartButton";
 import Image from "next/image";
-import { WishlistEmpty } from "../common/WishListModel";
+import WishListModel, { WishlistEmpty } from "../common/WishListModel";
 import Link from "next/link";
 import { gold } from "../colors/color";
 import GetNow from "../common/GetNow";
@@ -836,9 +836,9 @@ function Wishlist() {
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [getNowModel, setGetNowModel] = useState(false)
 
-
     return (
         <div>
+
             <GetNow getNowModel={getNowModel} setGetNowModel={setGetNowModel} selectedProduct={selectedProduct} />
 
             <h2 className="lg:text-4xl text-3xl font-black text-white uppercase mb-5">
@@ -856,12 +856,11 @@ function Wishlist() {
                     (
 
                         wishListDataList.length == 0 ?
-                            <WishlistEmpty setWishListModelOpen={setWishListModelOpen} />
+                            <WishlistEmpty />
                             :
 
                             wishListDataList.map((item, index) => (
                                 <Link
-                                    onClick={() => setWishListModelOpen(false)}
                                     key={index}
                                     href={`/categories/${item.p_slug}`}
                                     className="block h-fit"
