@@ -32,7 +32,7 @@ export default function ShopByCategory() {
 
                     {/* Main Heading */}
                     <span
-                        className="relative z-10 lg:text-4xl text-3xl font-extrabold tracking-wide inline-block bg-clip-text text-transparent"
+                        className="relative uppercase z-10 lg:text-3xl text-2xl font-extrabold tracking-wide inline-block bg-clip-text text-transparent"
                         style={{
                             backgroundImage:
                                 `linear-gradient(90deg,${gold.dark},${gold.base},${gold.dark})`,
@@ -42,7 +42,7 @@ export default function ShopByCategory() {
                             fontFamily: "serif",
                         }}
                     >
-                        Shop By Category
+                        ✦ Shop By Category  ✦
                     </span>
 
                     <p className="Poppins text-sm  text-gray-400 max-w-5xl mx-auto  tracking-wide text-center mt-3 px-3 ">At Kritika Fashion Point, explore handcrafted Rajasthani Jewellery and Rajputi Bridal Jewellery featuring Aad, Timaniya, Borla, Bajuband and traditional wedding accessories designed for every celebration.</p>
