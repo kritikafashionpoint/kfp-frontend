@@ -11,7 +11,9 @@ import { redirect } from 'next/navigation'
 export default function WishListButton({ ProductBySlug }) {
 
     const token = useSelector((store) => store.user.token)
-
+    const user = useSelector(
+        (state) => state.user.user
+    );
     const wishlist = useSelector(
         (store) => store.wishlist.wishlistData
     );
