@@ -165,7 +165,7 @@ export default function ProductCard({
 
                 {/* CONTENT */}
                 <div
-                    className="sm:border-x sm:border-b">
+                    className="">
                     <div
                         className="
                         px-5
@@ -195,7 +195,7 @@ export default function ProductCard({
                                 <span
                                     className="
         block
-        h-[2px]
+        h-[2]
         w-12
         rounded-full
         mt-2
@@ -231,7 +231,7 @@ export default function ProductCard({
                                 className="
             text-2xl
             font-black
-            bg-gradient-to-r
+            bg-linear-to-r
             from-[#D4AF37]
             via-[#F5DF8B]
             to-[#D4AF37]

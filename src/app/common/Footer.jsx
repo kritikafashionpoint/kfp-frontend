@@ -8,6 +8,7 @@ import { BiLocationPlus } from 'react-icons/bi'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useSelector } from 'react-redux'
+import { BsWhatsapp } from 'react-icons/bs'
 
 export default function Footer() {
 
@@ -554,6 +555,56 @@ export default function Footer() {
                                     >
                                         Open Live Location
                                     </span>
+
+                                </div>
+                            </Link>
+
+                            <Link target="_blank" href={'https://wa.me/6378370372'}>
+                                <div className='flex gap-4 items-center group my-5'>
+
+                                    <div
+                                        className='
+                                        min-w-12
+                                        h-12
+                                        rounded-2xl
+                                        flex
+                                        items-center
+                                        justify-center
+                                        border
+                                        group-hover:scale-110 duration-300
+                                        
+                                    '
+                                        style={{
+                                            borderColor: '#c9971a',
+                                            background: `
+                                            linear-gradient(
+                                                135deg,
+                                                #4d3900 0%,
+                                                #8c670a 25%,
+                                                #d4af37 50%,
+                                                #f5df8b 65%,
+                                                #8c670a 100%
+                                            )
+                                        `
+                                        }}
+                                    >
+                                        <BsWhatsapp
+                                            className='text-black '
+                                            size={18}
+                                        />
+                                    </div>
+
+                                    <p
+                                        className='
+                                        text-[#d9d9d9]
+                                        hover:text-[#f5df8b]
+                                        duration-300
+                                        break-all
+                                        text-lg
+                                    '
+                                    >
+                                        +91 6378370372
+                                    </p>
 
                                 </div>
                             </Link>

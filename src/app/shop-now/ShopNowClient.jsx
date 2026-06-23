@@ -183,7 +183,7 @@ export default function ShopNowClient() {
 
                         ) : (
 
-                            <div className='grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 grid-cols-2 sm:gap-x-5 sm:gap-y-8'>
+                            <div className='lg:px-6 px-4 grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 grid-cols-2 sm:gap-x-5 sm:gap-y-8'>
                                 {filteredProducts.map((item, index) => (
                                     <ProductCard
                                         key={index}
