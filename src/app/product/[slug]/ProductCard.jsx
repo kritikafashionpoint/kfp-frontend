@@ -37,24 +37,45 @@ export default function ProductCard({
         >
             <article
                 className="
-                    bg-transparent
-                    sm:border
-                    border-[#8A6A12]
-                    cursor-pointer
-                    sm:rounded-xl
-                    shadow-sm
-                    shadow-gray-950
-                    transition-all
-                    duration-300
-                    group
-                    h-full
-                    flex
-                    flex-col
-                    overflow-hidden
-                    relative
-                    hover:shadow-xl
-                "
+    bg-[#050505]
+    sm:border
+    border-[#8A6A12]/40
+    sm:rounded-2xl
+    overflow-hidden
+    flex flex-col
+    h-full
+    relative
+    transition-all
+    duration-500
+    ease-out
+    hover:-translate-y-2
+    hover:border-[#D4AF37]
+    hover:shadow-[0_5px_10px_rgba(212,175,55,0.18)]
+"
             >
+
+                <div
+                    className="
+        absolute
+        inset-0
+        opacity-0
+        group-hover:opacity-100
+        transition-opacity
+        duration-500
+        pointer-events-none
+    "
+                >
+                    <div
+                        className="
+            absolute
+            inset-0
+            bg-linear-to-br
+            from-[#D4AF37]/5
+            via-transparent
+            to-[#F5DF8B]/10
+        "
+                    />
+                </div>
 
                 {/* TOP SELLING BADGE */}
                 {is_top_selling && (
@@ -117,36 +138,36 @@ export default function ProductCard({
                 )}
 
                 {/* IMAGE */}
-                <div className="bg-white relative overflow-hidden">
-                    <div className="relative h-[230] bg-white overflow-hidden ">
+                <div className="relative h-[200] overflow-hidden bg-white">
+                    <Image
+                        loading="lazy"
+                        src={index_image || "/images/no-image.png"}
+                        alt={p_title}
+                        fill
+                        className="
+            object-cover
+            duration-700
+            ease-out
+            group-hover:scale-110
+        "
+                    />
 
-                        <Image
-                            loading='lazy'
-
-                            src={index_image || "/images/no-image.png"}
-                            alt={p_title || "Product Image"}
-                            fill
-                            sizes="
-                                (max-width: 640px) 100vw,
-                                (max-width: 1024px) 50vw,
-                                25vw
-                            "
-                            className="
-                                object-cover
-                                object-center
-                                duration-500
-                                group-hover:scale-105
-                            "
-                        />
-                    </div>
+                    <div
+                        className="
+            absolute
+            inset-0
+            bg-linear-to-t
+            from-black/10
+            to-transparent
+        "
+                    />
                 </div>
 
                 {/* CONTENT */}
-                <div style={{ borderColor: gold.dark }}
+                <div
                     className="sm:border-x sm:border-b">
                     <div
                         className="
-                        border-t
                         px-5
                         pt-5
                         pb-3
@@ -172,25 +193,20 @@ export default function ProductCard({
                                 {p_title || "Untitled Product"}
 
                                 <span
-                                    style={{
-                                        background: `
-                                        linear-gradient(
-                                            to left,
-                                            #8c670a,
-                                            #d4af37,
-                                            #f5df8b
-                                        )
-                                    `,
-                                    }}
                                     className="
-                                    block
-                                    w-[50]
-                                    h-[2]
-                                    mt-2
-                                    rounded-full
-                                    duration-500
-                                    group-hover:w-[90]
-                                "
+        block
+        h-[2px]
+        w-12
+        rounded-full
+        mt-2
+        bg-linear-to-r
+        from-[#8A6A12]
+        via-[#D4AF37]
+        to-[#F5DF8B]
+        transition-all
+        duration-500
+        group-hover:w-24
+    "
                                 />
                             </h2>
 
@@ -210,20 +226,25 @@ export default function ProductCard({
                         </div>
 
                         {/* PRICE */}
-                        <div className="flex items-center sm:gap-3 gap-1.5">
-
+                        <div className="flex items-center gap-3 mt-3">
                             <p
-                                style={{ color: gold.base }}
-                                className="sm:text-2xl text-xl font-extrabold"
+                                className="
+            text-2xl
+            font-black
+            bg-gradient-to-r
+            from-[#D4AF37]
+            via-[#F5DF8B]
+            to-[#D4AF37]
+            bg-clip-text
+            text-transparent
+        "
                             >
-                                ₹{p_customer_price || 0}
+                                ₹{p_customer_price}
                             </p>
 
-                            {!!p_customer_price && (
-                                <p className="text-sm text-gray-400 line-through">
-                                    ₹{p_sale_price}
-                                </p>
-                            )}
+                            <p className="text-gray-500 line-through text-sm">
+                                ₹{p_sale_price}
+                            </p>
                         </div>
                     </div>
 

@@ -44,11 +44,11 @@ export default function page() {
                         Premium Collection
                     </span>
 
-                    <h1 style={{ color: gold.base }} className="mt-6 text-5xl md:text-7xl font-bold">
+                    <h1 style={{ color: gold.base }} className="mt-6 text-5xl md:text-6xl font-bold">
                         {slugCategory?.category_name}
                     </h1>
 
-                    <p className="max-w-3xl mx-auto my-6 text-gray-300 text-lg leading-relaxed">
+                    <p className="Poppins max-w-3xl mx-auto my-7 tracking-wider text-gray-300 text-md leading-relaxed">
                         Discover elegant and trendy artificial jewellery crafted to enhance every
                         occasion. Explore our premium collection designed with style, beauty, and
                         affordability in mind.
