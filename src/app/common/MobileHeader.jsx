@@ -220,14 +220,6 @@ export function MobileMenu({ mobileMenu, setMobileMenu, premiumGoldGradient }) {
             border: "#ec4899",
             glow: "rgba(236,72,153,.25)",
             bg: "from-pink-500/10 to-transparent"
-        },
-        {
-            title: "Dashboard",
-            link: "/dashboard",
-            icon: LayoutDashboard,
-            border: "#f97316",
-            glow: "rgba(249,115,22,.25)",
-            bg: "from-orange-500/10 to-transparent"
         }
     ];
 
