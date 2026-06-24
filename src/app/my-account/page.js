@@ -330,7 +330,7 @@ export default function Dashboard() {
                                     </li>
                                 );
                             })}
-                            <li>hkdf</li>
+                            <li onClick={logoutUser} className="w-full h-full bg-red-700 text-white rounded-xl py-3 cursor-pointer mt-3 text-center Poppins capitalize">logout</li>
 
 
                         </ul>
