@@ -34,7 +34,7 @@ export const RegisterForm = ({ setActiveTab }) => {
     };
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
+        e.preventDefault()
 
         const name = registerData.name.trim();
         const password = registerData.password.trim();
