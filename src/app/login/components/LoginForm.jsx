@@ -225,7 +225,6 @@ export const LoginForm = ({ PremiumIcon, premiumGoldGradient }) => {
 
                 </div>
 
-                <p className="text-right text-lg hover:text-amber-300 duration-300 cursor-pointer">Forgot Password ?</p>
 
 
                 {/* Button */}

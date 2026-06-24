@@ -486,57 +486,6 @@ export default function CartModel({ cartModelOpen, setCartModelOpen }) {
                                 }
                             </div>
 
-                            {/* Footer */}
-                            <div
-                                style={{
-                                    borderTop: `1px solid ${gold.base}20`,
-                                }}
-                                className="
-        w-full
-        flex
-        justify-center
-        items-center
-        py-4 sm:py-5
-        px-4
-        bg-black/40
-        backdrop-blur-xl
-    "
-                            >
-                                <Link href="/cart" className="w-full sm:w-auto flex justify-center">
-                                    <button
-                                        style={{
-                                            background: `
-                    linear-gradient(
-                        135deg,
-                        #4d3900 0%,
-                        #7a5a08 18%,
-                        #b8860b 38%,
-                        #d4af37 50%,
-                        #f5df8b 58%,
-                        #c9971a 72%,
-                        #7a5a08 88%,
-                        #4d3900 100%
-                    )
-                `,
-                                        }}
-                                        className="
-                w-full sm:w-auto
-                px-6 sm:px-10 md:px-20
-                py-3
-                rounded-full
-                text-black
-                font-bold
-                text-base sm:text-lg
-                tracking-wide
-                hover:scale-[1.02]
-                transition-transform
-                duration-300
-            "
-                                    >
-                                        Explore Cart
-                                    </button>
-                                </Link>
-                            </div>
                         </div>
                     )
                 }

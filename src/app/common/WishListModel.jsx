@@ -371,45 +371,6 @@ export default function WishListModel({ wishListModelOpen, setWishListModelOpen 
 
                 </div>
 
-                {/* Footer */}
-                <div
-                    style={{
-                        borderTop: `1px solid ${gold.base}20`
-                    }}
-                    className='px-5 py-5 bg-black/40 backdrop-blur-xl'
-                >
-                    <Link href={'/wishlist'}>
-                        <button
-                            style={{
-                                background: `linear-gradient(
-                                135deg,
-                                #4d3900 0%,
-                                #7a5a08 18%,
-                                #b8860b 38%,
-                                #d4af37 50%,
-                                #f5df8b 58%,
-                                #c9971a 72%,
-                                #7a5a08 88%,
-                                #4d3900 100%
-                            )`
-                            }}
-                            className='
-                            w-full
-                            py-3
-                            rounded-full
-                            text-black
-                            font-bold
-                            text-lg
-                            tracking-wide
-                            hover:scale-[1.01]
-                            duration-300
-                            cursor-pointer
-                        '
-                        >
-                            Explore Wishlist
-                        </button>
-                    </Link>
-                </div>
 
             </div>
         </>

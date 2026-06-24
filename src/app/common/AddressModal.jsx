@@ -68,22 +68,77 @@ export default function AddressModal({
 
     const handleSaveAddress = async () => {
         try {
-            if (
-                !formData.name ||
-                !formData.mobile ||
-                !formData.city ||
-                !formData.pincode ||
-                !formData.address
-            ) {
+
+            const name = formData.name.trim();
+            const city = formData.city.trim();
+            const address = formData.address.trim();
+
+            // Normalize mobile
+            let mobile = formData.mobile.replace(/\D/g, "");
+
+            if (mobile.length === 12 && mobile.startsWith("91")) {
+                mobile = mobile.slice(2);
+            }
+
+            const pincode = formData.pincode.replace(/\D/g, "");
+
+            if (!name) {
+                return toast.error("Please enter full name");
+            }
+
+            if (name.length < 2) {
+                return toast.error("Name must be at least 2 characters");
+            }
+
+            if (!mobile) {
+                return toast.error("Please enter mobile number");
+            }
+
+            if (!/^[6-9]\d{9}$/.test(mobile)) {
                 return toast.error(
-                    "Please fill all fields"
+                    "Please enter a valid Indian mobile number"
+                );
+            }
+
+            if (!city) {
+                return toast.error("Please enter city");
+            }
+
+            if (city.length < 2) {
+                return toast.error("Please enter a valid city");
+            }
+
+            if (!pincode) {
+                return toast.error("Please enter pincode");
+            }
+
+            if (!/^\d{6}$/.test(pincode)) {
+                return toast.error(
+                    "Please enter a valid 6 digit pincode"
+                );
+            }
+
+            if (!address) {
+                return toast.error("Please enter address");
+            }
+
+            if (address.length < 10) {
+                return toast.error(
+                    "Address should be at least 10 characters"
                 );
             }
 
             setLoading(true);
 
             const response = await post_api({
-                body: formData,
+                body: {
+                    ...formData,
+                    mobile,
+                    pincode,
+                    name,
+                    city,
+                    address,
+                },
                 params: null,
                 path: "user/save-address",
                 token,
@@ -102,6 +157,7 @@ export default function AddressModal({
                     "Failed to save address"
                 );
             }
+
         } catch (error) {
             console.log(error);
 
@@ -123,10 +179,9 @@ export default function AddressModal({
                 fixed
                 inset-0
                 z-9999
-                bg-black/70
-                backdrop-blur-sm
                 flex
                 items-center
+                bg-black/10
                 justify-center
                 p-4
                 animate-fadeIn
@@ -203,6 +258,7 @@ export default function AddressModal({
                     />
 
                     <input
+                        maxLength={15}
                         name="mobile"
                         value={formData.mobile}
                         onChange={handleChange}
@@ -219,6 +275,7 @@ export default function AddressModal({
                     />
 
                     <input
+                        maxLength={6}
                         name="pincode"
                         value={formData.pincode}
                         onChange={handleChange}
@@ -228,6 +285,7 @@ export default function AddressModal({
 
                     <textarea
                         name="address"
+                        minLength={10}
                         value={formData.address}
                         onChange={handleChange}
                         placeholder="Full Address"
