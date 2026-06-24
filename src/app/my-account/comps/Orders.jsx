@@ -1,11 +1,54 @@
+import { useState } from "react";
 import { useSelector } from "react-redux";
+import Loading from "../../../../Loading";
+import { post_api } from "@/app/api_helper/api_helper";
+import ReplaceForm from "./ReplaceForm";
 
 export function Orders() {
     const orders = useSelector((state) => state.order.orders)
     const order_loading = useSelector((state) => state.order.order_loading)
 
+    const [replaceModel, setReplaceModel] = useState(false)
+    const [loading, setloading] = useState(false)
+
+    const handleReplaceForm = (order) => {
+        try {
+            setloading(true)
+
+        } catch (error) {
+            console.log(error.message)
+        }
+        finally {
+            setloading(false)
+        }
+    }
+
+    const HandleReplcaeRequest = async (order) => {
+        try {
+            setReplaceModel(true)
+            handleReplaceForm(order)
+        } catch (error) {
+            console.log(error.message)
+        }
+        finally {
+            setloading(false)
+        }
+    }
+
+
+
+    const response = post_api({
+        body: {},
+        params: null,
+        path: 'user/replace-order',
+    })
+
     return (
         <div className="space-y-8 ">
+
+            {loading && <Loading />}
+
+            <ReplaceForm replaceModel={replaceModel} setReplaceModel={setReplaceModel} />
 
             {order_loading ? (
 
@@ -198,6 +241,7 @@ export function Orders() {
                                             {order.order_status == 'out_for_delivery' &&
                                                 (
                                                     <button
+                                                        onClick={() => HandleReplcaeRequest(order)}
 
                                                         className="bg-green-700 hover:bg-green-800 duration-100  Poppins cursor-pointer text-white px-3 py-1.5 rounded-md text-md">
                                                         Replace

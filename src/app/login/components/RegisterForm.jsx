@@ -36,26 +36,36 @@ export const RegisterForm = ({ setActiveTab }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const {
-            name,
-            mobile,
-            email,
-            password,
-        } = registerData;
+        const name = registerData.name.trim();
+        const password = registerData.password.trim();
 
-        if (!name.trim()) {
+        // Remove spaces, +, -, brackets etc.
+        let mobile = registerData.mobile.replace(/\D/g, "");
+
+        // Handle +91 / 91 prefix
+        if (mobile.length === 12 && mobile.startsWith("91")) {
+            mobile = mobile.slice(2);
+        }
+
+        if (!name) {
             return toast.warning("Please enter your name");
         }
 
-        if (!mobile.trim()) {
+        if (name.length < 2) {
+            return toast.warning("Name must be at least 2 characters");
+        }
+
+        if (!mobile) {
             return toast.warning("Please enter mobile number");
         }
 
         if (!/^[6-9]\d{9}$/.test(mobile)) {
-            return toast.warning("Please enter valid mobile number");
+            return toast.warning(
+                "Please enter a valid Indian mobile number"
+            );
         }
 
-        if (!password.trim()) {
+        if (!password) {
             return toast.warning("Please enter password");
         }
 
@@ -69,12 +79,15 @@ export const RegisterForm = ({ setActiveTab }) => {
             setLoading(true);
 
             const response = await post_api({
-                body: registerData,
+                body: {
+                    ...registerData,
+                    mobile, // send normalized mobile
+                },
                 params: null,
                 path: "user/create-user",
             });
 
-            if (response.data.status) {
+            if (response?.data?.status) {
 
                 toast.success(response.data.message);
 
@@ -84,22 +97,24 @@ export const RegisterForm = ({ setActiveTab }) => {
                     password: "",
                 });
 
-                setActiveTab('login')
-
+                setActiveTab("login");
 
             } else {
-                toast.error(response.data.message);
+                toast.error(
+                    response?.data?.message || "Registration failed"
+                );
             }
 
         } catch (error) {
 
             console.error(error);
 
-            toast.error(
+            const message =
                 error?.response?.data?.message ||
                 error?.message ||
-                "Something went wrong"
-            );
+                "Something went wrong";
+
+            toast.error(message);
 
         } finally {
             setLoading(false);
