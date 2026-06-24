@@ -1,7 +1,9 @@
+import { gold } from "@/app/colors/color";
 import AddToCartButton from "@/app/common/AddToCartButton";
 import BuyNowButton from "@/app/common/BuyNowButton";
 import GetNow from "@/app/common/GetNow";
 import { WishlistEmpty } from "@/app/common/WishListModel";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { useSelector } from "react-redux";
@@ -42,9 +44,9 @@ export function Wishlist() {
                                         className="block h-fit"
                                     >
                                         <article
-                                            style={{ borderColor: gold.dark }}
                                             className="
                     bg-white
+                    border-amber-950
                     border
                     cursor-pointer
                     rounded-xl
@@ -147,8 +149,7 @@ export function Wishlist() {
                                             </div>
 
                                             {/* CONTENT */}
-                                            <div style={{ borderColor: gold.dark }}
-                                                className="sm:border-x sm:border-b">
+                                            <div>
                                                 <div
                                                     className="
                                                                   border-t
