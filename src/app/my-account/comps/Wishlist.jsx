@@ -2,6 +2,7 @@ import AddToCartButton from "@/app/common/AddToCartButton";
 import BuyNowButton from "@/app/common/BuyNowButton";
 import GetNow from "@/app/common/GetNow";
 import { WishlistEmpty } from "@/app/common/WishListModel";
+import Link from "next/link";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 
