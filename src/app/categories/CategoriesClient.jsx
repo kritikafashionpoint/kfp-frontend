@@ -59,13 +59,13 @@ export default function CategoriesClient() {
 
                     {/* categoy modal */}
                     <div
-                        className="w-fit h-fit lg:mb-5 mb-3 z-50 rounded-3xl lg:mx-6 mx-4 px-6 py-5 relative overflow-hidden border border-gray-950 backdrop-blur-2xl"
+                        className="w-full h-fit lg:mb-5 mb-3 z-50 rounded-3xl py-5 relative overflow-hidden border border-gray-950 backdrop-blur-2xl"
 
                     >
                         {/* Heading */}
                         <div
                             onClick={() => setShowCategories(!showCategories)}
-                            className="flex items-center justify-between mb-8 relative z-10 ">
+                            className="w-full flex items-center justify-between mb-8 relative z-10 ">
                             <div className="flex items-center gap-4 ">
                                 <div
                                     className="w-2 h-10 rounded-full shadow-lg"
