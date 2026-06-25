@@ -87,7 +87,7 @@ export default function ProductDetailClient() {
 
                 <Link
                     href="/shop-now"
-                    className="px-8 py-3 rounded-xl bg-linear-to-b from-amber-300 to-amber-800 text-black font-semibold hover:bg-amber-400 transition"
+                    className="px-8 py-3 bg-linear-to-b from-amber-300 to-amber-800 text-black font-semibold hover:bg-amber-400 transition rounded-full"
                 >
                     Continue Shopping
                 </Link>
