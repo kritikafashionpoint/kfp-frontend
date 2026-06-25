@@ -1,17 +1,18 @@
 export default async function sitemap() {
-    // const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE;
+    const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE;
 
-    // const res = await fetch(
-    //     `${apiBaseUrl}/admin/product/view-products`
-    // );
+    const res = await fetch(
+        `${apiBaseUrl}/admin/product/view-products`
+    );
 
-    // const json = await res.json();
-    // const products = json.data || [];
+    const json = await res.json();
+    console.log('json', json)
+    const products = json.data || [];
 
-    // const productUrls = products.map((product) => ({
-    //     url: `https://www.kritikafashionpoint.com/product/${product.p_slug}`,
-    //     lastModified: new Date(),
-    // }));
+    const productUrls = products.map((product) => ({
+        url: `https://www.kritikafashionpoint.com/product/${product.p_slug}`,
+        lastModified: new Date(),
+    }));
 
     return [
         {
@@ -34,6 +35,6 @@ export default async function sitemap() {
             url: 'https://www.kritikafashionpoint.com/shop-now',
             lastModified: new Date(),
         },
-        // ...productUrls,
+        ...productUrls,
     ];
 }

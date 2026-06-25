@@ -27,7 +27,7 @@ export default function GetNow({ getNowModel, setGetNowModel, selectedProduct, q
 
     const token = useSelector((store) => store.user.token)
     const user = useSelector((store) => store.user.user)
-    console.log('selectedProduct from frontend', selectedProduct)
+    // console.log('selectedProduct from frontend', selectedProduct)
 
 
     const [addressModal, setAddressModal] = useState(false)
