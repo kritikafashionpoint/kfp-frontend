@@ -59,7 +59,7 @@ export default function CategoriesClient() {
 
                     {/* categoy modal */}
                     <div
-                        className="w-full h-fit lg:mb-5 mb-3 z-50 rounded-3xl py-5 relative overflow-hidden border border-gray-950 backdrop-blur-2xl"
+                        className="w-full h-fit lg:mb-5 mb-3 z-50 rounded-3xl py-5 relative overflow-hidden backdrop-blur-2xl"
 
                     >
                         {/* Heading */}
@@ -75,15 +75,16 @@ export default function CategoriesClient() {
                                 />
 
                                 <h1
-                                    className="text-3xl font-bold tracking-[6px] capitalize Poppins"
+                                    className="text-3xl Poppins font-bold tracking-[6px] capitalize Poppins"
                                     style={{
                                         color: gold.light,
                                         textShadow: `0 0 20px ${gold.base}40`,
                                     }}
                                 >
-                                    <span className="sm:inline hidden">All</span> Categories
+                                    <span className="sm:inline hidden Poppins">All</span> Categories
                                 </h1>
                             </div>
+
 
                             <button
                                 className="text-white hover:scale-110 transition-all duration-300"
@@ -95,6 +96,9 @@ export default function CategoriesClient() {
                                 />
                             </button>
                         </div>
+
+
+
 
                         {/* Categories */}
                         <div
@@ -173,6 +177,12 @@ export default function CategoriesClient() {
                                 ))}
                             </ul>
                         </div>
+                    </div>
+
+                    <div className='mb-10'>
+                        <p className='text-gray-300 Poppins'>Buy stylish artificial jewellery online featuring Bajuband, Kamarband, Rings, Earrings, Maang Tikka, Necklaces, Bangles, and Bridal Jewellery. Our collection combines traditional craftsmanship with modern fashion to suit weddings, festivals, and daily wear. Find the perfect imitation jewellery pieces to elevate your look at the best prices.</p>
+
+                        <p className='text-gray-300 Poppins mt-2'> Explore our exclusive collection of artificial jewellery designed for every style and occasion. From traditional Bajuband and Kamarband to elegant rings, earrings, and bridal sets, discover timeless fashion accessories. Shop premium-quality imitation jewellery online with nationwide delivery.</p>
                     </div>
 
                     <div className="lg:mb-5 mb-5 lg:p-0">

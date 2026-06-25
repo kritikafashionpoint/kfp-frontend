@@ -26,8 +26,6 @@ export default async function sitemap() {
     const category = cat_json.data || [];
     console.log('cat_json', cat_json)
 
-
-
     const categoryUrls = category.map((category) => ({
         url: `https://www.kritikafashionpoint.com/categories/${category.category_slug}`,
         lastModified: new Date()

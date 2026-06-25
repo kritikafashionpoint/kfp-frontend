@@ -137,14 +137,14 @@ export default function ProductDetailClient() {
                     <div className="flex items-center gap-2 text-lg text-white mb-5">
                         <Link href={'/'} className="hover:text-[#FFF2B3] cursor-pointer"><span>Home</span></Link>
                         <span>/</span>
-                        <Link href={'/categories'}><span className="hover:text-[#FFF2B3] cursor-pointer">Category</span></Link>
+                        <Link href={'/categories'}><span className="hover:text-[#FFF2B3] cursor-pointer">Category </span></Link>
                         <span>/</span>
                         <span className="capitalize" style={{ color: gold.light }}>
                             {p_title}
                         </span>
                     </div>
 
-                    {/* Main Section */}
+                    {/* Mai Section */}
                     <div className="grid grid-cols-1 sm:grid-cols-[35%_auto] gap-10">
 
                         {/* LEFT IMAGES */}
