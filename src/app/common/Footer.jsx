@@ -615,6 +615,10 @@ export default function Footer() {
 
                 </div>
 
+                <h3 className='text-center text-sm text-gray-400 Poppins mb-5 tracking-wider'>
+                    Kritika Fashion Point is your trusted destination for premium fashion accessories, artificial jewellery, bridal jewellery sets, traditional jewellery, ethnic fashion accessories, designer necklaces, earrings, bangles, maang tikka, bridal choker sets, wedding jewellery, festive jewellery, and stylish accessories for women. We bring together elegance, quality, and affordability to help you find the perfect jewellery for weddings, engagements, parties, festivals, and special occasions.
+                </h3>
+
                 {/* Bottom */}
                 <div
                     className='
