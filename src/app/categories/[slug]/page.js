@@ -44,7 +44,7 @@ export default function page() {
                         Premium Collection
                     </span>
 
-                    <h1 style={{ color: gold.base }} className="mt-6 text-5xl md:text-6xl font-bold">
+                    <h1 style={{ color: gold.base }} className="mt-6 text-5xl capitalize md:text-6xl font-bold">
                         {slugCategory?.category_name}
                     </h1>
 
