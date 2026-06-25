@@ -48,10 +48,8 @@ export default function page() {
                         {slugCategory?.category_name}
                     </h1>
 
-                    <p className="Poppins max-w-3xl mx-auto my-7 tracking-wider text-gray-300 text-md leading-relaxed">
-                        Discover elegant and trendy artificial jewellery crafted to enhance every
-                        occasion. Explore our premium collection designed with style, beauty, and
-                        affordability in mind.
+                    <p className="Poppins my-7 tracking-widest leading-6 text-gray-300 text-md">
+                        Explore our exclusive collection of artificial jewellery and fashion accessories, including Baju Band, Kamar Band, Rings, Necklace Sets, Aad Jewellery, Borla, Bangles, Earrings, Bajuband Jodi, and Bridal Jewellery Sets. Kritika Fashion Point offers traditional Rajputi jewellery and modern fashion accessories designed for weddings, festivals, parties.
                     </p>
                 </div>
 
