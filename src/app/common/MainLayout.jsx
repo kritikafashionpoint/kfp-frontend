@@ -19,6 +19,7 @@ export default function MainLayout({ children }) {
                 newestOnTop
                 closeOnClick
                 pauseOnHover
+                style={{ zIndex: 999999 }}
                 draggable
                 theme="dark"
             />

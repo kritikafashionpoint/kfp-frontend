@@ -34,6 +34,7 @@ import { Orders } from "./comps/Orders";
 import { Addresses } from "./comps/Addresses";
 import { UserDashboard } from "./comps/UserDashboard";
 import { Wishlist } from "./comps/Wishlist";
+import { fetchOrders } from "../redux/thunks/orderThunk";
 
 export default function Dashboard() {
     const router = useRouter();
@@ -65,11 +66,10 @@ export default function Dashboard() {
         },
     ];
 
-    const [activeTab, setActiveTab] =
-        useState("dashboard");
+    const token = useSelector((store) => store.user.token)
+    const [activeTab, setActiveTab] = useState("dashboard");
 
-    const [mobileSidebar, setMobileSidebar] =
-        useState(false);
+    const [mobileSidebar, setMobileSidebar] = useState(false);
 
     const handleTabChange = (slug, title) => {
 
@@ -78,6 +78,11 @@ export default function Dashboard() {
     };
     const dispatch = useDispatch()
 
+    useEffect(() => {
+        if (token) {
+            dispatch(fetchOrders(token));
+        }
+    }, [token, dispatch]);
 
 
     const logoutUser = () => {
@@ -101,6 +106,10 @@ export default function Dashboard() {
     };
     const user_data = useSelector((store) => store.user.user)
     const user_name = user_data?.name || 'User'
+
+    const refreshOrder = () => {
+        dispatch(fetchOrders(token));
+    }
 
     return (
         <section className="w-full min-h-screen bg-black py-5 lg:py-10 overflow-hidden">
@@ -283,10 +292,14 @@ export default function Dashboard() {
                                 return (
                                     <li
                                         key={index}
-                                        onClick={() =>
+                                        onClick={() => {
+                                            if (item.slug === "orders") {
+                                                refreshOrder();
+                                            }
                                             handleTabChange(
                                                 item.slug, item.title
                                             )
+                                        }
                                         }
                                         className={`
                                             flex
@@ -412,10 +425,14 @@ export default function Dashboard() {
                                 return (
                                     <li
                                         key={index}
-                                        onClick={() =>
-                                            setActiveTab(
-                                                item.slug
+                                        onClick={() => {
+                                            if (item.slug === "orders") {
+                                                refreshOrder();
+                                            }
+                                            handleTabChange(
+                                                item.slug, item.title
                                             )
+                                        }
                                         }
                                         className={`
                                             flex

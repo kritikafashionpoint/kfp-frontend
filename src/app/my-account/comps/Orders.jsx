@@ -3,52 +3,35 @@ import { useSelector } from "react-redux";
 import Loading from "../../../../Loading";
 import { post_api } from "@/app/api_helper/api_helper";
 import ReplaceForm from "./ReplaceForm";
+import { fetchOrders } from "@/app/redux/thunks/orderThunk";
 
 export function Orders() {
     const orders = useSelector((state) => state.order.orders)
+    console.log(orders)
     const order_loading = useSelector((state) => state.order.order_loading)
 
     const [replaceModel, setReplaceModel] = useState(false)
     const [loading, setloading] = useState(false)
+    const [selectedOrder, setSelectedOrder] = useState(null)
 
-    const handleReplaceForm = (order) => {
-        try {
-            setloading(true)
+    const HandleReplcaeRequest = (order, item) => {
+        setSelectedOrder({
+            order_id: order.order_id,
+            order_item_id: item.order_item_id,
+            product: item.product,
+        });
 
-        } catch (error) {
-            console.log(error.message)
-        }
-        finally {
-            setloading(false)
-        }
-    }
-
-    const HandleReplcaeRequest = async (order) => {
-        try {
-            setReplaceModel(true)
-            handleReplaceForm(order)
-        } catch (error) {
-            console.log(error.message)
-        }
-        finally {
-            setloading(false)
-        }
-    }
+        setReplaceModel(true);
+    };
 
 
-
-    const response = post_api({
-        body: {},
-        params: null,
-        path: 'user/replace-order',
-    })
 
     return (
         <div className="space-y-8 ">
 
             {loading && <Loading />}
 
-            <ReplaceForm replaceModel={replaceModel} setReplaceModel={setReplaceModel} />
+            <ReplaceForm selectedOrder={selectedOrder} replaceModel={replaceModel} setReplaceModel={setReplaceModel} />
 
             {order_loading ? (
 
@@ -94,11 +77,11 @@ export function Orders() {
 
                             <div>
 
-                                <h3 className="text-white text-xl font-bold">
+                                <h3 className="text-white Poppins text-xl font-bold">
                                     Order #{order.order_id}
                                 </h3>
 
-                                <p className="text-gray-400 text-sm">
+                                <p className="text-gray-400 Poppins text-sm">
                                     {new Date(order.created_at).toLocaleString()}
                                 </p>
 
@@ -108,7 +91,7 @@ export function Orders() {
 
                                 <span
                                     className={`
-                                px-4 py-2 Poppins rounded-full text-sm font-medium
+                                px-4 py-2 Poppins capitalize rounded-full text-sm font-medium
                                 ${order.order_status === "delivered"
                                             ? "bg-green-500/10 text-green-400"
                                             : order.order_status === "cancelled"
@@ -117,16 +100,18 @@ export function Orders() {
                                         }
                             `}
                                 >
-                                    {order.order_status}
+                                    {order.order_status
+                                        ?.replace(/_/g, " ")
+                                        ?.replace(/\b\w/g, (char) => char.toUpperCase())}
                                 </span>
 
                                 <div className="text-right">
 
-                                    <p className="text-gray-400 text-xs">
+                                    <p className="Poppins text-gray-400 text-xs">
                                         Total Amount
                                     </p>
 
-                                    <p className="text-[#D4AF37] font-bold text-xl">
+                                    <p className="Poppins text-[#D4AF37] font-bold text-xl">
                                         ₹{order.total_amount}
                                     </p>
 
@@ -214,7 +199,7 @@ export function Orders() {
                                         <div className="p-3 flex items-center gap-4">
 
                                             {/* cancel button */}
-                                            {order.order_status !== "cancelled" &&
+                                            {/* {order.order_status !== "cancelled" &&
                                                 order.order_status !== "delivered" && (
 
                                                     <button
@@ -236,14 +221,14 @@ export function Orders() {
                                                         Cancel
                                                     </button>
 
-                                                )}
+                                                )} */}
 
                                             {order.order_status == 'out_for_delivery' &&
                                                 (
                                                     <button
-                                                        onClick={() => HandleReplcaeRequest(order)}
-
-                                                        className="bg-green-700 hover:bg-green-800 duration-100  Poppins cursor-pointer text-white px-3 py-1.5 rounded-md text-md">
+                                                        onClick={() => HandleReplcaeRequest(order, item)}
+                                                        className="bg-green-700 hover:bg-green-800 duration-100 Poppins cursor-pointer text-white px-3 py-1.5 rounded-md text-md"
+                                                    >
                                                         Replace
                                                     </button>
                                                 )
