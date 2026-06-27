@@ -91,14 +91,43 @@ export function Orders() {
 
                                 <span
                                     className={`
-                                px-4 py-2 Poppins capitalize rounded-full text-sm font-medium
-                                ${order.order_status === "delivered"
+        px-4 py-2 Poppins capitalize rounded-full text-sm font-medium
+
+        ${
+                                        // Positive
+                                        [
+                                            "delivered",
+                                            "approved",
+                                            "replacement_approved",
+                                            "completed"
+                                        ].includes(order.order_status)
                                             ? "bg-green-500/10 text-green-400"
-                                            : order.order_status === "cancelled"
+
+                                            // Negative
+                                            : [
+                                                "cancelled",
+                                                "rejected",
+                                                "replacement_rejected",
+                                                "replace_rejected",
+                                                "failed",
+                                                "returned"
+                                            ].includes(order.order_status)
                                                 ? "bg-red-500/10 text-red-400"
-                                                : "bg-green-500 text-black "
+
+                                                // Warning
+                                                : [
+                                                    "pending",
+                                                    "processing",
+                                                    "out_for_delivery",
+                                                    "replace_requested",
+                                                    "replacement_requested"
+                                                ].includes(order.order_status)
+                                                    ? "bg-yellow-500/10 text-yellow-400"
+
+                                                    // Default
+                                                    : "bg-gray-500/10 text-gray-400"
                                         }
-                            `}
+    `}
                                 >
                                     {order.order_status
                                         ?.replace(/_/g, " ")
@@ -197,31 +226,6 @@ export function Orders() {
 
 
                                         <div className="p-3 flex items-center gap-4">
-
-                                            {/* cancel button */}
-                                            {/* {order.order_status !== "cancelled" &&
-                                                order.order_status !== "delivered" && (
-
-                                                    <button
-                                                        onClick={() => handleCancelOrder(order.order_id)}
-                                                        className="
-                                        px-4
-                                        py-2
-                                        
-                                        rounded-md
-                                        bg-red-600
-                                        Poppins
-                                        text-sm cursor-pointer
-                                        hover:bg-red-700
-                                        text-white
-                                        font-medium
-                                        transition
-                                    "
-                                                    >
-                                                        Cancel
-                                                    </button>
-
-                                                )} */}
 
                                             {order.order_status == 'out_for_delivery' &&
                                                 (
