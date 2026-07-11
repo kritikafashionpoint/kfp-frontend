@@ -17,7 +17,7 @@ export default function ShopByCategory() {
     );
 
     return (
-        <section className="w-screen bg-black h-full lg:my-16 sm:my-12 my-10 relative">
+        <section className="w-screen bg-white h-full lg:py-16 sm:py-12 py-10 relative">
 
             {/* <div style={{background:gold.dark}} className="absolute top-0 left-1/2 -translate-1/2 w-[200] h-[5] rounded-full "></div> */}
 
@@ -28,76 +28,47 @@ export default function ShopByCategory() {
             <div className="max-w-330 mx-auto lg:px-6 px-4">
 
                 {/* Heading */}
-                <h2 className="relative flex flex-col items-center justify-center lg:mb-14 mb-8">
-
-                    {/* Main Heading */}
-                    <span
-                        className="relative uppercase z-10 lg:text-3xl text-2xl font-extrabold tracking-wide inline-block bg-clip-text text-transparent"
-                        style={{
-                            backgroundImage:
-                                `linear-gradient(90deg,${gold.dark},${gold.base},${gold.dark})`,
-                            WebkitBackgroundClip: "text",
-                            WebkitTextFillColor: "transparent",
-                            display: "inline-block",
-                            fontFamily: "serif",
-                        }}
-                    >
-                        ✦ Shop By Category  ✦
-                    </span>
-
-                    <p className="Poppins text-sm  text-gray-400 max-w-5xl mx-auto  tracking-wide text-center mt-3 px-3 ">At Kritika Fashion Point, explore handcrafted Rajasthani Jewellery and Rajputi Bridal Jewellery featuring Aad, Timaniya, Borla, Bajuband and traditional wedding accessories designed for every celebration.</p>
-
-                    {/* Glow Effect
+                <div className="flex items-center justify-center sm:gap-5 gap-0">
                     <div
-                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 blur-3xl opacity-20 w-72 h-16 rounded-full"
-                        style={{
-                            background: "linear-gradient(90deg, #d4af37, #fff2b3, #d4af37)"
-                        }}
-                    /> */}
+                        className="lg:w-28 w-20 h-[1] bg-linear-to-r from-transparent via-black to-transparent"
 
-                    {/* Decorative Line */}
-                    <DecorativeLine />
-                </h2>
+                    />
+                    {/* Main Heading */}
+                    <h2 className="relative flex items-center justify-center lg:mb-14 mb-8">
+
+                        {/* Main Heading */}
+                        <span
+                            className="relative Poppins z-10 lg:text-3xl text-xl font-semibold tracking-wide inline-block text-black"
+                        >
+                            Shop By Category
+                        </span>
+
+                    </h2>
+
+                    <div
+                        className="lg:w-28 w-20 h-[1] bg-linear-to-r from-transparent via-black to-transparent"
+                    />
+                </div>
 
 
-                {/* Slider */}
-                <Swiper
-                    modules={[Autoplay]}
-                    spaceBetween={20}
-                    loop={true}
-                    speed={500}
-                    autoplay={{
-                        delay: 1000,
-                        disableOnInteraction: false,
-                    }}
-                    breakpoints={{
-                        320: {
-                            slidesPerView: 2,
-                        },
-                        480: {
-                            slidesPerView: 3,
-                        },
-                        640: {
-                            slidesPerView: 4,
-                        },
-                        1024: {
-                            slidesPerView: 6,
-                        },
-                    }}
-                >
-
-                    {
+                <div
+                    className="
+    flex items-center gap-5
+    w-screen lg:w-full
+    overflow-x-auto lg:overflow-visible
+    flex-nowrap lg:flex-wrap
+  "
+                >                    {
                         category_loading
                             ?
 
                             [...Array(6)].map((_, index) => (
-                                <SwiperSlide key={index}>
 
-                                    <div className="flex flex-col gap-10 items-center animate-pulse">
+                                <div className="flex flex-col gap-10 items-center animate-pulse">
 
-                                        {/* IMAGE SKELETON */}
-                                        <div
-                                            className="
+                                    {/* IMAGE SKELETON */}
+                                    <div
+                                        className="
                             relative
                            lg:w-[120]
                             lg:h-[120]
@@ -105,8 +76,8 @@ export default function ShopByCategory() {
                             md:h-[150]
                             sm:w-[130]
                             sm:h-[130]
-                            w-[150]
-                            h-[150]
+                            w-[120]
+                            h-[120]
                             rounded-full
                             overflow-hidden 
                             bg-linear-to-br
@@ -114,11 +85,11 @@ export default function ShopByCategory() {
                             via-[#2b2b2b]
                             to-[#1a1a1a]
                         "
-                                        />
+                                    />
 
-                                        {/* TITLE SKELETON */}
-                                        <div
-                                            className="
+                                    {/* TITLE SKELETON */}
+                                    <div
+                                        className="
                             mt-5
                             h-4
                             w-24
@@ -128,11 +99,10 @@ export default function ShopByCategory() {
                             via-[#b8860b]
                             to-[#5c4308]
                         "
-                                        />
+                                    />
 
-                                    </div>
+                                </div>
 
-                                </SwiperSlide>
                             )
 
                             )
@@ -150,8 +120,6 @@ export default function ShopByCategory() {
                         relative
                         overflow-hidden
                         rounded-3xl
-                        border
-                        border-[#5c4308]
                         bg-black
                         px-10
                         py-14
@@ -273,60 +241,54 @@ export default function ShopByCategory() {
 
                                 categories?.map((item) => {
                                     return (
-                                        <SwiperSlide key={item.category_id}>
 
-                                            <Link href={`/categories/${item.category_slug}`}>
+                                        <Link href={`/categories/${item.category_slug}`}>
 
-                                                <div className="flex flex-col items-center group cursor-pointer">
+                                            <div className="flex flex-col items-center group cursor-pointer">
 
-                                                    {/* IMAGE CIRCLE */}
-                                                    <div
-                                                        style={{
-                                                            borderColor: gold.dark,
-                                                        }}
-                                                        className="
+                                                {/* IMAGE CIRCLE */}
+                                                <div
+                                                    className="
                                         relative 
-                                        lg:w-[140]
-                                        lg:h-[140]
-                                        md:w-[150]
-                                        md:h-[150]
-                                        sm:w-[150]
-                                        sm:h-[150]
-                                        w-[115]
-                                        h-[115]
+                                        lg:w-[110]
+                                        lg:h-[110]
+                                        md:w-[110]
+                                        md:h-[110]
+                                        sm:w-[110]
+                                        sm:h-[110]
+                                        w-[90]
+                                        h-[90]
                                         rounded-full 
                                         overflow-hidden 
-                                        border-2
+                                        border
+                                        border-gray-400
                                         duration-500
                                         hover:scale-105
                                         hover:rotate-3
                                         shadow-[0_0_10px_rgba(212,175,55,0.15)]
                                         hover:shadow-[0_0_25px_rgba(212,175,55,0.55)]
                                     "
-                                                    >
+                                                >
 
-                                                        {/* GLOW RING */}
-                                                        <div className="absolute inset-0 rounded-full border border-[#fff2b3]/30 z-20 scale-90 group-hover:scale-100 duration-500" />
+                                                    {/* IMAGE */}
+                                                    <Image
+                                                        loading='lazy'
 
-                                                        {/* IMAGE */}
-                                                        <Image
-                                                            loading='lazy'
-
-                                                            src={item.category_image}
-                                                            fill
-                                                            sizes="full"
-                                                            alt={item.category_name}
-                                                            className="
+                                                        src={item.category_image}
+                                                        fill
+                                                        sizes="full"
+                                                        alt={item.category_name}
+                                                        className="
                                             object-cover
                                             object-center
                                             group-hover:scale-125
                                             duration-700
                                             w-full h-full
                                         "
-                                                        />
+                                                    />
 
-                                                        {/* OVERLAY */}
-                                                        <div className="
+                                                    {/* OVERLAY */}
+                                                    <div className="
                                         absolute 
                                         inset-0 
                                         bg-linear-to-t 
@@ -338,31 +300,28 @@ export default function ShopByCategory() {
                                         duration-500
                                     " />
 
-                                                    </div>
+                                                </div>
 
-                                                    {/* TITLE */}
-                                                    <h2
-                                                        className="
+                                                {/* TITLE */}
+                                                <h2
+                                                    className="
                                         mt-5
                                         text-center
-                                        tracking-[0.18em]
-                                        uppercase
+                                        capitalize
                                         text-sm
                                         sm:text-base
+                                        Poppins
                                         font-semibold
                                         duration-300
                                         group-hover:scale-110
                                     "
-                                                        style={{
-                                                            color: gold.base,
-                                                        }}
-                                                    >
-                                                        {item.category_name}
-                                                    </h2>
+                                                >
+                                                    {item.category_name}
+                                                </h2>
 
-                                                    {/* UNDERLINE */}
-                                                    <div
-                                                        className="
+                                                {/* UNDERLINE */}
+                                                <div
+                                                    className="
                                         mt-2
                                         h-0.5
                                         w-0
@@ -370,20 +329,17 @@ export default function ShopByCategory() {
                                         duration-500
                                         rounded-full
                                     "
-                                                        style={{
-                                                            background:
-                                                                "linear-gradient(to right, #8a6a12, #d4af37, #fff2b3)",
-                                                        }}
-                                                    />
-                                                </div>
 
-                                            </Link>
+                                                />
+                                            </div>
 
-                                        </SwiperSlide>
+                                        </Link>
+
                                     );
                                 })
                     }
-                </Swiper>
+                </div>
+
 
             </div>
         </section>

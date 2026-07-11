@@ -4,7 +4,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
 
-export default function BuyNowButton({quantity, setQuantity, getNowModel, item, setGetNowModel, customClasses, setSelectedProduct }) {
+export default function BuyNowButton({ quantity, setQuantity, getNowModel, item, setGetNowModel, customClasses, setSelectedProduct }) {
 
     const user = useSelector((store) => store.user.user)
 
@@ -28,28 +28,10 @@ export default function BuyNowButton({quantity, setQuantity, getNowModel, item, 
                 setQuantity && setQuantity(item.quantity)
 
             }}
-            className={`${customClasses} relative px-6 py-2 text-black font-bold rounded-full cursor-pointer overflow-hidden transition-all duration-300 hover:scale-105 active:scale-95`}
-            style={{
-                background: `
-                linear-gradient(
-                                                    145deg,
-                                                    #3a2a00 0%,
-                                                    #5a4200 12%,
-                                                    #7a5a08 24%,
-                                                    #a8790a 36%,
-                                                    #c9971a 46%,
-                                                    #dcb94a 54%,
-                                                    #e8cf6a 60%,
-                                                    #dcb94a 66%,
-                                                    #c9971a 74%,
-                                                    #8c670a 86%,
-                                                    #5a4200 94%,
-                                                    #3a2a00 100%
-                                                )
-                                            `
-            }}
+            className={`${customClasses} relative px-6 py-2 bg-amber-400 text-black font-bold cursor-pointer overflow-hidden transition-all duration-300 hover:scale-105 active:scale-95`}
+
         >
-            <span className="relative z-10 uppercase font-extrabold">Buy</span>
+            <span className="relative z-10 uppercase font-extrabold">खरीदें</span>
 
             {/* Shine Effect */}
             <span

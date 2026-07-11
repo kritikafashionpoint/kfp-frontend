@@ -43,7 +43,7 @@ export default function NewArrivals() {
     const [getNowModel, setGetNowModel] = useState(false)
 
     return (
-        <section className="w-full bg-black pt-10 lg:mt-10 md:mt-10 mt-5 overflow-hidden relative">
+        <section className="w-full bg-white lg:py-10 py-5 overflow-hidden relative">
             {getNowModel && <Overlay />}
             <GetNow
                 selectedProduct={selectedProduct}
@@ -52,85 +52,42 @@ export default function NewArrivals() {
             />
 
             {/* Premium Heading */}
-            <div className="relative flex flex-col items-center lg:mb-16 mb-10 overflow-hidden">
-
-                {/* Luxury Label */}
-                <div
-                    className="uppercase tracking-[0.4em] text-xs mb-3 font-semibold"
-                    style={{ color: gold.base }}
-                >
-                    Latest Collection
-                </div>
+            <div className="relative flex flex-col items-center overflow-hidden">
 
                 {/* Side Lines */}
-                <div className="flex items-center sm:gap-5 gap-0">
-
+                <div className="flex items-center  justify-center sm:gap-5 gap-0">
                     <div
-                        className="lg:w-28 w-16 h-[1]"
-                        style={{
-                            background: `linear-gradient(to right, transparent, ${gold.base})`
-                        }}
+                        className="lg:w-28 w-20 h-[1] bg-linear-to-r from-transparent via-black to-transparent"
+
                     />
-
                     {/* Main Heading */}
-                    <h2 className="relative">
+                    <h2 className="relative flex items-center justify-center lg:mb-14 mb-8">
 
-                        {/* Glow */}
-                        <div
-                            className="absolute inset-0 blur-3xl opacity-40"
-                            style={{
-                                background: `radial-gradient(circle, ${gold.base}60, transparent 70%)`
-                            }}
-                        />
-
+                        {/* Main Heading */}
                         <span
-                            className="relative sm:uppercase z-10 block lg:text-4xl md:text-3xl text-2xl font-black tracking-wider "
-                            style={{
-                                fontFamily: "serif",
-                                background: `linear-gradient(
-                        180deg,
-                        #fff5c2 0%,
-                        ${gold.light} 25%,
-                        ${gold.base} 50%,
-                        ${gold.dark} 100%
-                    )`,
-                                WebkitBackgroundClip: "text",
-                                WebkitTextFillColor: "transparent",
-                            }}
+                            className="relative Poppins z-10 lg:text-3xl text-2xl font-semibold tracking-wide inline-block text-black"
                         >
-                            ✦ New Arrivals
+                            New Arrivals
                         </span>
-
-
-
 
                     </h2>
 
-
-
                     <div
-                        className="lg:w-28 w-16 h-[1]"
-                        style={{
-                            background: `linear-gradient(to left, transparent, ${gold.base})`
-                        }}
+                        className="lg:w-28 w-20 h-[1] bg-linear-to-r from-transparent via-black to-transparent"
                     />
-
                 </div>
 
-                <p className="Poppins text-sm  text-gray-400 max-w-5xl mx-auto  tracking-wide text-center mt-3 px-3 ">
-                    Discover the latest women's fashion collection at Kritika Fashion Point, featuring premium ethnic wear, stylish kurtis, elegant dresses, and trendy outfits. Shop high-quality fashion online and find the perfect look for everyday wear, festive occasions, and special celebrations.
-                </p>
             </div>
 
 
 
 
-            <div className='max-w-330 mx-auto lg:px-6 sm:px-4 '>
+            <div className='max-w-330 mx-auto lg:px-6 px-4 '>
 
                 <div>
                     {products_loading ? (
 
-                        <div className='grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 sm:gap-x-5 gap-y-8'>
+                        <div className='grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 sm:gap-x-5 sm:gap-y-8  gap-y-5'>
                             {[...Array(5)].map((_, index) => (
                                 <ProductCardSkeleton key={index} />
                             ))}
@@ -143,7 +100,7 @@ export default function NewArrivals() {
                     ) :
 
                         (
-                            <div className='grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 sm:gap-x-5 gap-y-8'>
+                            <div className='grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 sm:gap-x-5 gap-x-4 sm:gap-y-8 gap-y-5'>
                                 {new_arrivals?.map((item, index) => (
                                     <ProductCard
                                         key={index}
@@ -160,23 +117,22 @@ export default function NewArrivals() {
                 </div>
 
                 {visibleItems < products.length && (
-                    <div className="flex justify-center mt-10">
+                    <div className="flex justify-end mt-10">
                         <button
                             onClick={handleViewMore}
                             className="
                             Poppins
-                px-8
-                py-3
-                rounded-xl
+                sm:px-8
+                sm:py-3
+                px-4
+                py-2
                 font-semibold
                 transition-all
                 duration-300
                 border
+                border-gray-700
                 cursor-pointer
-                border-[#d4af37]
-                text-[#d4af37]
-                hover:bg-[#d4af37]
-                hover:text-black
+                text-black
             "
                         >
                             View More Products

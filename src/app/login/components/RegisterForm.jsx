@@ -157,11 +157,10 @@ export const RegisterForm = ({ setActiveTab }) => {
                         uppercase
                         tracking-[6px]
                         text-xs
+                        text-black
+                        font-semibold
                         mb-3
                     "
-                    style={{
-                        color: "#c9971a"
-                    }}
                 >
                     Premium Account
                 </p>
@@ -172,14 +171,13 @@ export const RegisterForm = ({ setActiveTab }) => {
                         sm:text-4xl
                         font-bold
                         leading-tight
+                        text-black
+                        Poppins
                     "
                 >
                     Create Your
                     <span
-                        className="ml-3"
-                        style={{
-                            color: "#e6c766"
-                        }}
+                        className="ml-3 text-black Poppins"
                     >
                         Account
                     </span>
@@ -206,8 +204,8 @@ export const RegisterForm = ({ setActiveTab }) => {
                 {/* Full Name */}
                 <div>
 
-                    <label className="text-[#f5df8b] text-sm tracking-wide mb-3 block">
-                        Full Name
+                    <label className="text-black Poppins font-semibold text-md tracking-wide mb-3 block">
+                        अपना पूरा नाम दर्ज करें
                     </label>
 
                     <div
@@ -217,14 +215,10 @@ export const RegisterForm = ({ setActiveTab }) => {
                             rounded-2xl
                             border
                             px-5
-                            bg-[#0d0d0d]
-                            hover:border-[#d4af37]
-                            focus-within:border-[#e6c766]
+                            bg-white
+                            border-gray-300
                             duration-300
                         "
-                        style={{
-                            borderColor: "rgba(212,175,55,0.15)"
-                        }}
                     >
 
                         <input
@@ -240,7 +234,8 @@ export const RegisterForm = ({ setActiveTab }) => {
                                 py-3
                                 tracking-wider
                                 text-lg
-                                text-white
+                                text-black
+                                Poppins
                                 placeholder:text-gray-500
                             "
                         />
@@ -252,8 +247,8 @@ export const RegisterForm = ({ setActiveTab }) => {
                 {/* Mobile */}
                 <div>
 
-                    <label className="text-[#f5df8b] text-sm tracking-wide mb-3 block">
-                        Mobile Number
+                    <label className="text-black Poppins font-semibold text-md tracking-wide mb-3 block">
+                        अपना फोन नंबर दर्ज करें
                     </label>
 
                     <div
@@ -263,14 +258,10 @@ export const RegisterForm = ({ setActiveTab }) => {
                             rounded-2xl
                             border
                             px-5
-                            bg-[#0d0d0d]
-                            hover:border-[#d4af37]
-                            focus-within:border-[#e6c766]
+                            bg-white
+                            border-gray-300
                             duration-300
-                        "
-                        style={{
-                            borderColor: "rgba(212,175,55,0.15)"
-                        }}
+                        "                       
                     >
 
                         <input
@@ -286,7 +277,8 @@ export const RegisterForm = ({ setActiveTab }) => {
                                 py-3
                                 tracking-wider
                                 text-lg
-                                text-white
+                                text-black
+                                Poppins
                                 placeholder:text-gray-500
                             "
                         />
@@ -299,8 +291,8 @@ export const RegisterForm = ({ setActiveTab }) => {
                 {/* password */}
                 <div>
 
-                    <label className="text-[#f5df8b] text-sm tracking-wide mb-3 block">
-                        Create a Strong Password
+                    <label className="text-black Poppins font-semibold text-md tracking-wide mb-3 block">
+                        एक मजबूत पासवर्ड बनाएं
                     </label>
 
                     <div
@@ -310,14 +302,10 @@ export const RegisterForm = ({ setActiveTab }) => {
                             rounded-2xl
                             border
                             px-5
-                            bg-[#0d0d0d]
-                            hover:border-[#d4af37]
-                            focus-within:border-[#e6c766]
+                            bg-white
+                            border-gray-300
                             duration-300
                         "
-                        style={{
-                            borderColor: "rgba(212,175,55,0.15)"
-                        }}
                     >
 
                         <input
@@ -333,7 +321,8 @@ export const RegisterForm = ({ setActiveTab }) => {
                                 py-3
                                 tracking-wider
                                 text-lg
-                                text-white
+                                text-black
+                                Poppins
                                 placeholder:text-gray-500
                             "
                         />

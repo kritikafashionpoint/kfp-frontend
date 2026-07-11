@@ -45,9 +45,9 @@ export default function MobileHeader() {
 
             <div
                 // style={{ background: 'rgba(44, 15, 58, 1)', borderBottomColor: gold.base }}
-                style={{ background: 'black', borderColor: gold.base }}
+                style={{ background: 'white' }}
 
-                className='lg:hidden block w-full h-full py-3.5 border-b px-4'>
+                className='lg:hidden block w-full h-full py-3.5 border-b border-gray-300 px-4'>
                 <div className='flex items-center justify-between'>
                     <div className='absolute top-0 left-0 w-full h-full pointer-events-none z-0 overflow-hidden'>
                         <Image src={'/designs/d2.png'} sizes='full' alt='designs' fill className='opacity-[0.05] w-full h-full object-cover object-top' />
@@ -58,84 +58,21 @@ export default function MobileHeader() {
                             <div className='flex items-center sm:gap-5 gap-3'>
 
                                 <div onClick={() => setMobileMenu(true)}>
-                                    <FaBarsStaggered style={{ color: gold.base }} size={20} />
+                                    <FaBarsStaggered className='text-black' size={20} />
                                 </div>
 
                                 {/* Premium Diamond */}
-                                <div
-                                    className='
-                                        relative
-                                        w-9
-                                        h-9
-                                        rounded-full
-                                        flex
-                                        items-center
-                                        justify-center
-                                        overflow-hidden
-                                        border
-                                        duration-300
-                                        group-hover:scale-110
-                                        group-hover:rotate-6
-                                    '
-                                    style={{
-                                        background: premiumGoldGradient,
-                                        borderColor: '#e6c766',
-                                        boxShadow: '0 0 25px rgba(245,223,139,0.18)'
-                                    }}
-                                >
 
-                                    {/* Shine */}
-                                    <div
-                                        className='
-                                        absolute
-                                        top-0
-                                        -left-full
-                                        w-full
-                                        h-full
-                                        rotate-12
-                                        group-hover:left-full
-                                        duration-700
-                                    '
-                                        style={{
-                                            background:
-                                                'linear-gradient(120deg, transparent, rgba(255,255,255,0.45), transparent)'
-                                        }}
-                                    />
-
-                                    <IoDiamond
-                                        className='relative z-10 text-black'
-                                        size={22}
-                                    />
-                                </div>
 
                                 {/* Logo Text */}
                                 <div
                                     className='
                                             text-[20px]
-                                            sm:tracking-[2]
-                                            tracking-[3]
-                                            font-extrabold
+                                            font-semibold
                                             duration-300
                                             '
-                                    style={{
-                                        color: '#f5df8b',
-                                        textShadow: `
-            0 2px 4px rgba(0,0,0,0.9),
-            0 6px 12px rgba(0,0,0,0.8),
-            0 0 25px rgba(0,0,0,0.7)
-        `
-
-                                    }}
                                 >
-
-                                    <span style={{ color: '#fff2b3' }}>K</span>
-                                    <span className='sm:inline hidden'>ritika{" "}</span>
-
-                                    <span style={{ color: '#fff2b3' }}>F</span>
-                                    <span className='sm:inline hidden'>ashion{" "}</span>
-
-                                    <span style={{ color: '#fff2b3' }}>P</span>
-                                    <span className='sm:inline hidden'>oint</span>
+                                    <span className='text-black Poppins'>Kritika Fashion Point</span>
 
                                 </div>
 
@@ -144,8 +81,12 @@ export default function MobileHeader() {
                         </div>
                     </Link>
 
-                    <div>
+                    {/* <div>
                         <UserPoints ismobile={true} token={token} cartData={cartData} premiumGoldGradient={premiumGoldGradient} setSearch={setSearch} setWishListModelOpen={setWishListModelOpen} setCartModelOpen={setCartModelOpen} />
+                    </div> */}
+
+                    <div onClick={()=>setCartModelOpen(true)} className='text-black'>
+                        <BsCartCheck size={21} ismobile={true} token={token} cartData={cartData} premiumGoldGradient={premiumGoldGradient} setSearch={setSearch} setWishListModelOpen={setWishListModelOpen} setCartModelOpen={setCartModelOpen} />
                     </div>
                 </div>
 
@@ -167,8 +108,10 @@ import {
     Phone,
     User,
     LayoutDashboard,
-    ChevronRight
+    ChevronRight,
+    ShoppingBagIcon
 } from "lucide-react";
+import { BsCartCheck } from 'react-icons/bs'
 
 export function MobileMenu({ mobileMenu, setMobileMenu, premiumGoldGradient }) {
 
@@ -234,7 +177,7 @@ export function MobileMenu({ mobileMenu, setMobileMenu, premiumGoldGradient }) {
                 transition-transform duration-300 ease-in-out
                 w-full h-[85vh] overflow-y-scroll
                 custom-scrollbar
-                bg-black text-white border-b-4
+                bg-white text-black border-b-4
                 lg:hidden block
                 transform-gpu
                 z-100

@@ -253,7 +253,7 @@ export default function Header() {
 
                 </div>
             </div>
-            <header className='sticky top-0 z-100'>
+            <header className='sticky top-0 z-100 shadow-lg'>
                 <PcHeader />
                 <MobileHeader />
             </header>

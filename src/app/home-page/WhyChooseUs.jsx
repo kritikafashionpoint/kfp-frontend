@@ -32,7 +32,7 @@ export default function WhyChooseUs() {
         <section className='
             relative
             w-full
-            bg-black
+            bg-white
             lg:py-20
             py-10
             overflow-hidden
@@ -40,20 +40,6 @@ export default function WhyChooseUs() {
 
             {/* Heading */}
             <div className='text-center px-5'>
-
-                <p
-                    className='
-                        lg:text-2xl
-                        text-md
-                        md:text-xl
-                        tracking-[5px]
-                        mb-5
-                        uppercase
-                    '
-                    style={{ color: gold.mid }}
-                >
-                    Why Choose Us
-                </p>
 
                 <h2
                     className='

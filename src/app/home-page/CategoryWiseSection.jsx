@@ -18,18 +18,10 @@ import ProductCardSkeleton from '../product/[slug]/ProductSkelaton';
 export default function CategoryWiseSections({ item, index, loading, setLoading, category_products_loading }) {
 
     const [selectedProduct, setSelectedProduct] = useState(null);
-
-    const [visibleItems, setVisibleItems] = useState(10);
-
-    const handleViewMore = () => {
-        setVisibleItems((prev) => prev + 10);
-    };
-
-    const swiperRef = useRef(null)
     const [getNowModel, setGetNowModel] = useState(false)
 
     return (
-        <section className="w-full bg-black relative">
+        <section className="w-full bg-white relative">
 
             <img
                 src={'/designs/d4.png'}
@@ -46,25 +38,14 @@ export default function CategoryWiseSections({ item, index, loading, setLoading,
                 <div className="flex items-center gap-0">
 
                     <div
-                        className="lg:w-28 w-16 h-[1]"
-                        style={{
-                            background: `linear-gradient(to right, transparent, ${gold.base})`
-                        }}
+                        className="lg:w-28 w-20 h-[1] bg-linear-to-r from-transparent via-black to-transparent"
+
                     />
 
                     <span style={{
                         fontFamily: 'Poppins',
-                        background: `
-                    linear-gradient(
-                        to left,
-                        #8a6a12 0%,
-                        #b8860b 20%,
-                        #d4af37 40%,
-                        #fff2b3 50%,
-                        #d4af37 60%,
-                        #b8860b 80%,
-                        #8a6a12 100%
-                    )`}} className='font-bold rounded-full text-black lg:text-2xl md:text-xl text-lg lg:py-2 py-1.5 lg:px-16 md:px-12 px-10 lg:my-10 my-10 capitalize '> ✦ {item.category_name} ✦
+                    }}
+                        className='font-bold rounded-full bg-[gold] text-black lg:text-2xl md:text-xl text-lg lg:py-2 py-1.5 lg:px-16 md:px-12 px-10 lg:my-10 my-10 capitalize '> {item.category_name}
                         <div
                             className="
                                     absolute
@@ -93,75 +74,42 @@ export default function CategoryWiseSections({ item, index, loading, setLoading,
                     </span>
 
                     <div
-                        className="lg:w-28 w-16 h-[1]"
-                        style={{
-                            background: `linear-gradient(to left, transparent, ${gold.base})`
-                        }}
+                        className="lg:w-28 w-20 h-[1] bg-linear-to-r from-transparent via-black to-transparent"
                     />
 
                 </div>
 
             </div>
 
-            <div className='max-w-330 mx-auto lg:px-6 sm:px-4 '>
+            <div className='max-w-330 mx-auto lg:px-6 px-4 '>
 
                 <div className='lg:mb-5 mb-5'>
-                    <div className='grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-3 grid-cols-2 sm:gap-x-5 sm:gap-y-8 sm:my-10'>
+                    <div className='grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-3 grid-cols-2 sm:gap-x-5 gap-x-3 sm:gap-y-8 gap-y-5 sm:my-10'>
                         {category_products_loading
                             ? Array.from({ length: 5 }).map((_, index) => (
                                 <ProductCardSkeleton />
                             ))
                             :
-                            item?.products
-                                ?.slice(0, visibleItems)
-                                .map((product, index) => (
-                                    (
+                            item?.products.map((product, index) => (
+                                (
+                                    <ProductCard
+                                        key={index}
+                                        setSelectedProduct={setSelectedProduct}
+                                        item={{
+                                            ...product,
+                                            index_image: product.images?.index_image,
+                                            gallery_images: product.images?.gallery_images || []
+                                        }}
+                                        index={index}
+                                        getNowModel={getNowModel}
+                                        setGetNowModel={setGetNowModel}
+                                    />
+                                )
 
-
-                                        <ProductCard
-                                            key={index}
-                                            setSelectedProduct={setSelectedProduct}
-                                            item={{
-                                                ...product,
-                                                index_image: product.images?.index_image,
-                                                gallery_images: product.images?.gallery_images || []
-                                            }}
-                                            index={index}
-                                            getNowModel={getNowModel}
-                                            setGetNowModel={setGetNowModel}
-                                        />
-                                    )
-
-                                ))}
+                            ))}
                     </div>
 
                 </div>
-                {visibleItems < item?.products?.length && (
-                    <div className="flex justify-center mt-10">
-                        <button
-                            onClick={handleViewMore}
-                            className="
-                            relative
-                            z-200
-                            Poppins
-                            px-8
-                            py-3
-                            rounded-xl
-                            font-semibold
-                            transition-all
-                            duration-300
-                            border
-                            cursor-pointer
-                            border-[#d4af37]
-                            text-[#d4af37]
-                            hover:bg-[#d4af37]
-                            hover:text-black
-            "
-                        >
-                            View More Products
-                        </button>
-                    </div>
-                )}
 
 
             </div>

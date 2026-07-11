@@ -7,7 +7,7 @@ export default function OfferBanner() {
     return (
 
         <>
-            <div className="flex items-center justify-center sm:gap-5 gap-0">
+            <div className="flex items-center justify-center sm:gap-5 gap-0 bg-white">
 
                 <div
                     className="lg:w-28 w-16 h-[1]"

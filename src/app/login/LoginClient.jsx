@@ -63,32 +63,9 @@ export default function LoginClient() {
                 overflow-hidden
                 relative
             "
-            style={{
-                background: `
-                    radial-gradient(circle at top, rgba(212,175,55,0.08), transparent 30%),
-                    linear-gradient(to bottom, #020202, #000000, #050505)
-                `
-            }}
         >
 
-            {/* Glow */}
-            <div
-                className="
-                    absolute
-                    top-1/2
-                    left-1/2
-                    -translate-x-1/2
-                    -translate-y-1/2
-                    w-[700]
-                    h-[700]
-                    rounded-full
-                    blur-3xl
-                    opacity-10
-                "
-                style={{
-                    background: "#d4af37"
-                }}
-            />
+
 
             {/* Main Card */}
             <div
@@ -103,17 +80,6 @@ export default function LoginClient() {
                     lg:grid-cols-2
                     border-amber-300                    
                 "
-                style={{
-                    // borderColor: "rgba(230,199,102,0.25)",
-                    background: `
-                        linear-gradient(
-                            145deg,
-                            rgba(5,5,5,0.96) 0%,
-                            rgba(15,15,15,0.98) 45%,
-                            rgba(26,20,5,1) 100%
-                        )
-                    `
-                }}
             >
 
                 {/* Left */}
@@ -134,15 +100,12 @@ export default function LoginClient() {
                         <div
                             className="
                                 flex
-                                rounded-2xl
+                            rounded-2xl
                                 p-1.5
                                 mb-10
                                 border
-                                bg-[#0b0b0b]
+                                bg-[#ffffff]
                             "
-                            style={{
-                                borderColor: "rgba(230,199,102,0.15)"
-                            }}
                         >
 
                             <button
@@ -150,20 +113,20 @@ export default function LoginClient() {
                                 className={`
                                     flex-1
                                     py-3
-                                    rounded-xl
                                     text-md
                                     lg:text-lg
+                                    uppercase
                                     font-semibold
                                     duration-300
                                     ${activeTab === "login"
                                         ? "text-black"
-                                        : "text-[#f5df8b]"
+                                        : "text-black"
                                     }
                                 `}
                                 style={
                                     activeTab === "login"
                                         ? { background: premiumGoldGradient }
-                                        : {}
+                                        : { background: 'white' }
                                 }
                             >
                                 Login
@@ -174,14 +137,14 @@ export default function LoginClient() {
                                 className={`
                                     flex-1
                                     py-3
-                                    rounded-xl
                                     text-md
                                     lg:text-lg
+                                    uppercase
                                     font-semibold
                                     duration-300
                                     ${activeTab === "register"
                                         ? "text-black"
-                                        : "text-[#f5df8b]"
+                                        : "text-black"
                                     }
                                 `}
                                 style={
@@ -204,7 +167,7 @@ export default function LoginClient() {
 
 
                         {/* REGISTER */}
-                        {activeTab === 'register' && <RegisterForm  setActiveTab={setActiveTab} />}
+                        {activeTab === 'register' && <RegisterForm setActiveTab={setActiveTab} />}
 
                     </div>
 
@@ -255,7 +218,7 @@ export default function LoginClient() {
                                 mb-6
                             "
                             style={{
-                                color: "#f5df8b",
+                                color: "black",
                                 letterSpacing: "8px"
                             }}
                         >
@@ -271,7 +234,7 @@ export default function LoginClient() {
                                 lg:leading-[1.15]
                                 leading-normal
                                 mb-8
-                                text-[#f8e7a1]
+                                text-black
                             "
                         >
                             Luxury Jewellery
@@ -283,7 +246,7 @@ export default function LoginClient() {
 
                         <p
                             className="
-                                text-[#b8b8b8]
+                                text-gray-800
                                 text-lg
                                 leading-9
                                 max-w-lg
@@ -294,36 +257,9 @@ export default function LoginClient() {
                             exclusive fashion offers.
                         </p>
 
-                        <div className="mt-14 flex items-center gap-5">
-
-                            <div
-                                className="w-16 h-[2]"
-                                style={{
-                                    background: premiumGoldGradient
-                                }}
-                            />
-
-                            <span
-                                className="
-                                    uppercase
-                                    text-sm
-                                    text-[#f5df8b]
-                                "
-                                style={{
-                                    letterSpacing: "6px"
-                                }}
-                            >
-                                Premium Collection
-                            </span>
-
-                        </div>
-
                     </div>
 
                 </div>
-
-
-
             </div>
 
         </section>

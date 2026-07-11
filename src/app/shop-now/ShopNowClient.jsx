@@ -62,7 +62,7 @@ export default function ShopNowClient() {
     }, [products, search]);
 
     return (
-        <section className='w-full h-full bg-black text-white'>
+        <section className='w-full h-full bg-white text-black'>
 
             <GetNow selectedProduct={selectedProduct} getNowModel={getNowModel} setGetNowModel={setGetNowModel} />
 
@@ -84,7 +84,7 @@ export default function ShopNowClient() {
                     <div className='flex gap-3 justify-between items-center lg:px-6 px-4'>
                         <div>
                             <h2
-                                className='lg:text-5xl md:text-4xl text-3xl  sm:text-center font-semibold tracking-wide text-white leading-tight'
+                                className='lg:text-5xl md:text-4xl text-3xl  sm:text-center font-semibold tracking-wide text-black leading-tight'
                             >
                                 <span className='sm:inline hidden'>Our</span>
                                 <span style={{ color: gold.mid }} className='ml-2'>

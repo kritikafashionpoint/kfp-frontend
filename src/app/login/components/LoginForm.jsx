@@ -102,14 +102,14 @@ export const LoginForm = ({ PremiumIcon, premiumGoldGradient }) => {
                                         lg:text-5xl
                                         font-bold
                                         mb-3
-                                        text-[#f8e7a1]
+                                        text-black
                                     "
             >
                 Welcome Back
             </h2>
 
-            <p className="text-[#9e9e9e] mb-10 text-lg">
-                Login to continue shopping
+            <p className="text-gray-800 Poppins font-semibold my-5 text-lg">
+                खरीदारी जारी रखने के लिए लॉगिन करें
             </p>
 
             <form
@@ -117,10 +117,10 @@ export const LoginForm = ({ PremiumIcon, premiumGoldGradient }) => {
                 className="space-y-6">
 
                 {/* phone */}
-                <div>
+                <div className="">
 
-                    <label className="text-sm text-[#d6d6d6] mb-3 block">
-                        Phone Number
+                    <label className="text-md text-gray-900 Poppins font-semibold mb-3 block">
+                        अपना फोन नंबर दर्ज करें
                     </label>
 
                     <div
@@ -128,17 +128,13 @@ export const LoginForm = ({ PremiumIcon, premiumGoldGradient }) => {
                                                 flex
                                                 items-center
                                                 gap-4
-                                                bg-[#0b0b0b]
+                                                bg-white
                                                 border
+        border-gray-300
                                                 rounded-2xl
                                                 px-5
-                                                hover:border-[#e6c766]
-                                                focus-within:border-[#f5df8b]
                                                 duration-300
                                             "
-                        style={{
-                            borderColor: "rgba(230,199,102,0.18)"
-                        }}
                     >
 
                         <PremiumIcon>
@@ -159,7 +155,8 @@ export const LoginForm = ({ PremiumIcon, premiumGoldGradient }) => {
                                                     bg-transparent
                                                     outline-none
                                                     lg:py-5 py-4
-                                                    text-white
+                                                    text-black
+                                                    Poppins
                                                     tracking-wider
                                                     text-lg
                                                     placeholder:text-[#8f8f8f]
@@ -173,8 +170,8 @@ export const LoginForm = ({ PremiumIcon, premiumGoldGradient }) => {
                 {/* Password */}
                 <div>
 
-                    <label className="text-sm text-[#d6d6d6] mb-3 block">
-                        Password
+                    <label className="text-md text-gray-900 Poppins font-semibold mb-3 block">
+                        अपना पासवर्ड दर्ज करें
                     </label>
 
                     <div
@@ -182,17 +179,13 @@ export const LoginForm = ({ PremiumIcon, premiumGoldGradient }) => {
                                                 flex
                                                 items-center
                                                 gap-4
-                                                bg-[#0b0b0b]
+                                                bg-white
                                                 border
+                                                border-gray-300
                                                 rounded-2xl
-                                                px-5
-                                                hover:border-[#e6c766]
-                                                focus-within:border-[#f5df8b]
+                                                px-5        
                                                 duration-300
                                             "
-                        style={{
-                            borderColor: "rgba(230,199,102,0.18)"
-                        }}
                     >
 
                         <PremiumIcon>
@@ -206,7 +199,7 @@ export const LoginForm = ({ PremiumIcon, premiumGoldGradient }) => {
                             name="password"
                             value={loginData.password}
                             onChange={handleChange}
-                            type="password"
+                            type="text"
                             placeholder="Enter password"
                             className="
                                                     w-full
@@ -215,7 +208,8 @@ export const LoginForm = ({ PremiumIcon, premiumGoldGradient }) => {
                                                     lg:py-5 py-4
                                                     tracking-wider
                                                     text-lg
-                                                    text-white
+                                                    text-black
+                                                    Poppins
                                                     placeholder:text-[#8f8f8f]
                                                 "
                         />

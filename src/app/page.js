@@ -13,7 +13,7 @@ import WhyChooseUs from "./home-page/WhyChooseUs";
 
 export default function Home() {
   return (
-    <div className="bg-black w-screen overflow-x-hidden ">
+    <div className="bg-white w-screen overflow-x-hidden ">
 
       <WishListModel />
       <CartModel />
@@ -21,11 +21,11 @@ export default function Home() {
       <LuxuryGlowBanner />
       <ShopByCategory />
 
-      <OfferBanner/>
+      {/* <OfferBanner/> */}
 
       <NewArrivals />
       {/* <AboutUs /> */}
-      <WhyChooseUs />
+      {/* <WhyChooseUs /> */}
 
       <TopSelling />
       <CategoryIndex />

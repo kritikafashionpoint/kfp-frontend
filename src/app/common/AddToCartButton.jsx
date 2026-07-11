@@ -192,10 +192,10 @@ export default function AddToCartButton({
             className={`
                 ${customClasses}
                 py-1
-                rounded-full
                 text-lg
                 border
                 flex
+                text-black
                 items-center
                 justify-center
                 cursor-pointer
@@ -205,10 +205,6 @@ export default function AddToCartButton({
                 disabled:opacity-70
                 disabled:cursor-not-allowed
             `}
-            style={{
-                borderColor: gold.mid,
-                color: gold.light,
-            }}
         >
             {loading ? (
                 <Loader2
@@ -220,8 +216,8 @@ export default function AddToCartButton({
             )}
 
             {loading
-                ? "Adding..."
-                : "Cart"}
+                ? "लोडिंग..."
+                : "कार्ट"}
         </button>
     );
 }

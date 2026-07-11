@@ -57,7 +57,7 @@ export default function Faq() {
     ];
 
     return (
-        <section className="w-screen overflow-x-hidden bg-black lg:my-15 md:my-10 my-5 relative">
+        <section className="w-screen overflow-x-hidden bg-white lg:my-15 md:my-16 my-10 relative">
 
             {/* Background Glow */}
             <div
@@ -73,65 +73,17 @@ export default function Faq() {
                 {/* Heading */}
                 <div className="text-center lg:mb-14 mb-10">
 
-                    {/* Heading */}
-                    <h2 className="relative flex flex-col items-center justify-center lg:mb-14 mb-8">
+                   <h2 className="relative flex flex-col items-center justify-center lg:mb-14 mb-8">
 
-                        {/* Main Heading */}
-                        <span
-                            className="relative z-10 lg:text-4xl text-3xl font-extrabold tracking-wide inline-block bg-clip-text text-transparent"
-                            style={{
-                                backgroundImage:
-                                    "linear-gradient(90deg, #7a5a0a 0%, #b8860b 25%, #d4af37 50%, #c9971a 75%, #8a6a12 100%)",
-                                WebkitBackgroundClip: "text",
-                                WebkitTextFillColor: "transparent",
-                                display: "inline-block",
-                                fontFamily: "serif",
-                                textShadow: "0px 2px 10px rgba(212,175,55,0.22)"
-                            }}
-                        >
-                            Frequently Asked Questions
-                        </span>
+                    {/* Main Heading */}
+                    <span
+                        className="capitalize relative Poppins z-10 lg:text-3xl text-2xl font-semibold tracking-wide inline-block text-black"
+                    >
+                        frequently Asked Questions
+                    </span>
 
-                        {/* Glow Effect
-                    <div
-                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 blur-3xl opacity-20 w-72 h-16 rounded-full"
-                        style={{
-                            background: "linear-gradient(90deg, #d4af37, #fff2b3, #d4af37)"
-                        }}
-                    /> */}
-
-                        {/* Decorative Line */}
-                        <div className="relative mt-5 w-full flex items-center justify-center">
-
-                            {/* Left Line */}
-                            <div
-                                className="h-px lg:w-52 w-20"
-                                style={{
-                                    background:
-                                        "linear-gradient(to right, transparent, #d4af37)"
-                                }}
-                            />
-
-                            {/* Diamond Center */}
-                            <div
-                                className="mx-4 w-3 h-3 rotate-45 rounded-sm"
-                                style={{
-                                    background:
-                                        "linear-gradient(135deg, #fff2b3, #d4af37, #8a6a12)",
-                                    boxShadow: "0 0 12px rgba(212,175,55,0.6)"
-                                }}
-                            />
-
-                            {/* Right Line */}
-                            <div
-                                className="h-px lg:w-52 w-20"
-                                style={{
-                                    background:
-                                        "linear-gradient(to left, transparent, #d4af37)"
-                                }}
-                            />
-                        </div>
-                    </h2>
+                    {/* Decorative Line */}
+                </h2>
 
 
                 </div>
@@ -147,25 +99,15 @@ export default function Faq() {
                             <div
                                 key={index}
                                 className="
-                                    rounded-[28px]
                                     overflow-hidden
                                     border
+                                    border-gray-500
                                     backdrop-blur-xl
                                     transition-all
                                     duration-500
                                     lg:my-7
                                     my-5
                                 "
-                                style={{
-                                    borderColor: isOpen
-                                        ? gold.light
-                                        : "rgba(212,175,55,0.25)",
-                                    background:
-                                        "linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01))",
-                                    boxShadow: isOpen
-                                        ? "0 0 30px rgba(212,175,55,0.18)"
-                                        : "none",
-                                }}
                             >
 
                                 {/* Question */}
@@ -196,9 +138,6 @@ export default function Faq() {
                                             font-semibold
                                             pr-5
                                         "
-                                        style={{
-                                            color: gold.light,
-                                        }}
                                     >
                                         {faq.question}
                                     </h2>
@@ -213,11 +152,6 @@ export default function Faq() {
                                             justify-center
                                             duration-500
                                         "
-                                        style={{
-                                            background: isOpen
-                                                ? "linear-gradient(135deg,#8a6a12,#d4af37,#fff2b3)"
-                                                : "rgba(255,255,255,0.05)",
-                                        }}
                                     >
 
                                         <ChevronDown
@@ -226,11 +160,6 @@ export default function Faq() {
                                                 ? "rotate-180 text-black"
                                                 : ""
                                                 }`}
-                                            style={{
-                                                color: isOpen
-                                                    ? "#000"
-                                                    : gold.light,
-                                            }}
                                         />
 
                                     </div>
@@ -259,7 +188,7 @@ export default function Faq() {
                                                 lg:px-8
                                                 px-5
                                                 pb-5
-                                                text-gray-300
+                                                text-gray-700
                                                 leading-8
                                                 lg:text-base
                                                 text-sm

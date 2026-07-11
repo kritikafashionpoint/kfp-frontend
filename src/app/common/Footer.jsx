@@ -34,9 +34,9 @@ export default function Footer() {
                 relative
                 overflow-hidden
                 border-t
-                border-[#c9971a]/20
-                bg-black
+                bg-white
                 text-white
+                border-gray-300
                 lg:mt-20
                 mt-10
             '
@@ -93,7 +93,7 @@ export default function Footer() {
                             tracking-[8px]
                             text-xs
                             mb-4
-                            text-[#d4af37]
+                            text-black
                         '
                     >
                         Premium Jewellery Collection
@@ -106,34 +106,14 @@ export default function Footer() {
                             text-3xl
                             font-bold
                             tracking-wide
-                            text-white
+                            text-black
                         '
                     >
                         KRITIKA
-                        <span className='text-[#d4af37] ml-3'>
+                        <span className='text-black ml-3'>
                             FASHION POINT
                         </span>
                     </h2>
-
-                    <div className='flex justify-center mt-5'>
-                        <div
-                            className='w-52 h-[2] rounded-full'
-                            style={{
-                                background: `
-                                    linear-gradient(
-                                        to right,
-                                        transparent,
-                                        #8c670a,
-                                        #d4af37,
-                                        #f5df8b,
-                                        #d4af37,
-                                        #8c670a,
-                                        transparent
-                                    )
-                                `
-                            }}
-                        />
-                    </div>
 
                 </div>
 
@@ -158,10 +138,11 @@ export default function Footer() {
                         <h2
                             className='
                                 text-2xl
-                                font-bold
+                                font-semibold
                                 lg:mb-8
                                 mb-2
-                                text-[#f5df8b]
+                                text-black
+                                Poppins
                                 relative
                                 w-fit
                             '
@@ -190,8 +171,8 @@ export default function Footer() {
                                         className='
                                             relative
                                             w-fit
-                                            text-[#d9d9d9]
-                                            hover:text-[#f5df8b]
+                                            text-gray-800
+                                            hover:text-black
                                             duration-300
                                             capitalize
                                             cursor-pointer
@@ -237,10 +218,11 @@ export default function Footer() {
                         <h2
                             className='
                                 text-2xl
-                                font-bold
+                                font-semibold
                                 lg:mb-8
                                 mb-7
-                                text-[#f5df8b]
+                                text-black
+                                Poppins
                                 relative
                                 w-fit
                             '
@@ -270,8 +252,8 @@ export default function Footer() {
                                         className='
                                             relative
                                             w-fit
-                                            text-[#d9d9d9]
-                                            hover:text-[#f5df8b]
+                                            text-gray-800
+                                            hover:text-black
                                             duration-300
                                             capitalize
                                             cursor-pointer
@@ -316,10 +298,11 @@ export default function Footer() {
                         <h2
                             className='
                                 text-2xl
-                                font-bold
+                                font-semibold
                                 lg:mb-8
                                 mb-7
-                                text-[#f5df8b]
+                                text-black
+                                Poppins
                                 relative
                                 w-fit
                             '
@@ -391,7 +374,7 @@ export default function Footer() {
                                         />
                                     </div>
 
-                                    <p className='text-[#d9d9d9] text-lg leading-7 group-hover:text-white duration-300'>
+                                    <p className='text-gray-800 group-hover:text-black text-lg leading-7  duration-300'>
                                         Shop No.4 Inda Market Pal Pasu Mela Road Pal Jodhpur, Rajasthan
                                     </p>
 
@@ -431,7 +414,7 @@ export default function Footer() {
                                     />
                                 </div>
 
-                                <div className='text-[#d9d9d9] text-lg leading-8 flex items-center gap-1'>
+                                <div className='text-gray-800 group-hover:text-black text-lg leading-8 flex items-center gap-1'>
                                     <a
                                         href='tel:+916378853062'
                                         className='hover:text-[#f5df8b] duration-300 block'
@@ -440,7 +423,7 @@ export default function Footer() {
                                     </a>
                                     <a
                                         href='tel:+916378370372'
-                                        className='hover:text-[#f5df8b] duration-300 block'
+                                        className='text-gray-800 group-hover:text-black duration-300 block'
                                     >
                                         6378370372
                                     </a>
@@ -486,11 +469,10 @@ export default function Footer() {
                                 <a
                                     href='mailto:kritikafashionpoint6@gmail.com'
                                     className='
-                                        text-[#d9d9d9]
-                                        hover:text-[#f5df8b]
                                         duration-300
                                         break-all
                                         text-lg
+                                        text-gray-800 group-hover:text-black
                                     '
                                 >
                                     kritikafashionpoint6@gmail.com
@@ -547,8 +529,7 @@ export default function Footer() {
 
                                     <span
                                         className='
-                                            text-[#d9d9d9]
-                                            group-hover:text-[#f5df8b]
+                                            text-gray-800 group-hover:text-black
                                             duration-300
                                             text-lg
                                         '
@@ -596,8 +577,7 @@ export default function Footer() {
 
                                     <p
                                         className='
-                                        text-[#d9d9d9]
-                                        hover:text-[#f5df8b]
+                                        text-gray-800 group-hover:text-black
                                         duration-300
                                         break-all
                                         text-lg
@@ -615,7 +595,7 @@ export default function Footer() {
 
                 </div>
 
-                <h3 className='text-center leading-7 text-sm text-gray-400 Poppins mb-5 tracking-wider'>
+                <h3 className='text-justify leading-7 text-sm text-gray-800 Poppins mb-5 tracking-wider'>
                     Kritika Fashion Point is your trusted destination for premium fashion accessories, artificial jewellery, bridal jewellery sets, traditional jewellery, ethnic fashion accessories, designer necklaces, earrings, bangles, maang tikka, bridal choker sets, wedding jewellery, festive jewellery, and stylish accessories for women. We bring together elegance, quality, and affordability to help you find the perfect jewellery for weddings, engagements, parties, festivals, and special occasions.
                 </h3>
 
@@ -635,11 +615,11 @@ export default function Footer() {
                     '
                 >
 
-                    <p className='text-[#8b8b8b] text-sm tracking-wide'>
+                    <p className='text-gray-900 text-sm tracking-wide'>
                         © 2026 Kritika Fashion Point. All Rights Reserved.
                     </p>
 
-                    <p className='text-[#d4af37] text-sm tracking-[4px] uppercase'>
+                    <p className='text-black text-sm tracking-[4px] uppercase'>
                         Luxury • Royal • Premium
                     </p>
 

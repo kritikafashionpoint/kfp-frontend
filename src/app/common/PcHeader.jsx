@@ -49,57 +49,18 @@ export default function PcHeader() {
                 className='
                     lg:block hidden
                     w-full
-                    border-b
                     relative
                     overflow-hidden
+                    bg-white
+                    border
+                    border-gray-300
                     z-50
                     backdrop-blur-2xl
                     
                 '
-                style={{
-                    borderBottomColor: 'rgba(230,199,102,0.18)',
-                    background: `
-                        linear-gradient(
-                            to bottom,
-                            rgba(5,5,5,0.98),
-                            rgba(0,0,0,0.98)
-                        )
-                    `,
-                    boxShadow: '0 10px 40px rgba(0,0,0,0.35)'
-                }}
             >
 
-                {/* Premium Background Glow */}
-                <div
-                    className='
-                        absolute
-                        top-[-120]
-                        left-1/2
-                        -translate-x-1/2
-                        w-[600]
-                        h-[300]
-                        rounded-full
-                        blur-3xl
-                        opacity-10
-                        pointer-events-none
-                    '
-                    style={{
-                        background: '#d4af37'
-                    }}
-                />
-
-                {/* Texture */}
-                <div className='absolute top-0 left-0 w-full h-full pointer-events-none -z-10 overflow-hidden'>
-                    <Image
-                        src={'/designs/d2.png'}
-                        sizes='full'
-                        alt='designs'
-                        fill
-                        className='opacity-[0.01] w-full h-full object-cover object-top'
-                    />
-                </div>
-
-                <div className='max-w-330 mx-auto lg:px-6 px-4 lg:py-4 py-3'>
+                <div className='max-w-330 mx-auto lg:px-6 px-4 lg:py-1 py-3'>
                     <div className='flex items-center justify-between'>
 
                         <Logo premiumGoldGradient={premiumGoldGradient} />
@@ -188,14 +149,7 @@ export function Logo({ premiumGoldGradient }) {
                         }}
                     >
 
-                        <span style={{ color: '#fff2b3' }}>K</span>
-                        ritika{" "}
-
-                        <span style={{ color: '#fff2b3' }}>F</span>
-                        ashion{" "}
-
-                        <span style={{ color: '#fff2b3' }}>P</span>
-                        oint
+                        <span className='uppercase text-black '>Kritika Fashion Point</span>
 
                     </div>
 
@@ -221,23 +175,19 @@ function NavBar() {
             className={`
                 duration-500
                 transition-all
+                bg-white
             `}
-        >            <ul
-            className='
+        >
+            <ul
+                className='
                     flex
                     items-center
                     gap-5
-                    bg-[#080808]
-                    border
-                    rounded-full
+                    bg-white
                     px-3
                     py-2
-                    backdrop-blur-xl
                 '
-            style={{
-                borderColor: 'rgba(230,199,102,0.10)'
-            }}
-        >
+            >
 
                 {nav_bar_data.map((item, index) => {
 
@@ -253,8 +203,8 @@ function NavBar() {
                                     text-[16px]
                                     tracking-wide
                                     font-semibold
-                                    capitalize
-                                    text-[#f5df8b]
+                                    text-black
+                                    uppercase
                                     overflow-hidden
                                     cursor-pointer
                                     duration-300
@@ -264,50 +214,8 @@ function NavBar() {
                                 '
                             >
 
-                                {/* Background Hover */}
-                                <div
-                                    className='
-                                        absolute
-                                        inset-0
-                                        scale-0
-                                        group-hover:scale-100
-                                        duration-300
-                                        rounded-full
-                                    '
-                                    style={{
-                                        background: `
-                                            linear-gradient(
-                                                135deg,
-                                                #4d3900 0%,
-                                                #8c670a 20%,
-                                                #d4af37 45%,
-                                                #f5df8b 55%,
-                                                #c9971a 75%,
-                                                #6a4f00 100%
-                                            )
-                                        `
-                                    }}
-                                />
 
-                                {/* Shine */}
-                                <div
-                                    className='
-                                        absolute
-                                        top-0
-                                        -left-full
-                                        w-full
-                                        h-full
-                                        rotate-12
-                                        group-hover:left-full
-                                        duration-700
-                                    '
-                                    style={{
-                                        background:
-                                            'linear-gradient(120deg, transparent, rgba(255,255,255,0.45), transparent)'
-                                    }}
-                                />
-
-                                <span className='relative z-10'>
+                                <span className='relative z-10 Poppins'>
                                     {item.title}
                                 </span>
 
@@ -343,19 +251,18 @@ export function UserPoints({
                     h-10
                     rounded-full
                     flex
+                    text-black
                     items-center
                     justify-center
                     border
-                    bg-[#0b0b0b]
+                    bg-white
+                    border-gray-300
                     cursor-pointer
                     overflow-hidden
                     duration-300
                     hover:scale-110
                     hover:border-[#f5df8b]
                 "
-                style={{
-                    borderColor: "rgba(230,199,102,0.18)",
-                }}
             >
                 <div
                     className="
@@ -365,15 +272,11 @@ export function UserPoints({
                         hover:opacity-100
                         duration-500
                     "
-                    style={{
-                        background:
-                            "radial-gradient(circle, rgba(255,235,160,0.20) 0%, transparent 70%)",
-                    }}
                 />
 
                 <FaSearch
                     size={17}
-                    className="relative z-10 text-[#f5df8b]"
+                    className="relative z-10 text-black"
                 />
             </div>
 
@@ -391,20 +294,17 @@ export function UserPoints({
                             items-center
                             justify-center
                             border
-                            bg-[#0b0b0b]
+                            bg-white
+                            border-gray-300
                             cursor-pointer
                             overflow-hidden
                             duration-300
                             hover:scale-110
-                            hover:border-[#f5df8b]
                         "
-                        style={{
-                            borderColor: "rgba(230,199,102,0.18)",
-                        }}
                     >
                         <FaRegHeart
                             size={17}
-                            className="relative z-10 text-[#f5df8b]"
+                            className="relative z-10 text-black "
                         />
                     </div>
 
@@ -420,15 +320,13 @@ export function UserPoints({
                             items-center
                             justify-center
                             border
-                            bg-[#0b0b0b]
+                            bg-white
+                            text-black
                             cursor-pointer
+                            border-gray-300
                             duration-300
                             hover:scale-110
-                            hover:border-[#f5df8b]
                         "
-                        style={{
-                            borderColor: "rgba(230,199,102,0.18)",
-                        }}
                     >
                         <span
                             style={{ background: premiumGoldGradient }}
@@ -452,7 +350,7 @@ export function UserPoints({
 
                         <FaShoppingCart
                             size={20}
-                            className="relative z-10 text-[#f5df8b]"
+                            className="relative z-10 text-black"
                         />
                     </div>
 
@@ -460,24 +358,25 @@ export function UserPoints({
                         !ismobile &&
 
                         (
-                            <Link href={'/my-account'}>
+                            <Link href="/my-account">
                                 <span
                                     style={{
                                         background: premiumGoldGradient,
                                         fontFamily: "Poppins",
                                     }}
                                     className="
-                            rounded-full
-                            hover:scale-[1.03]
-                            duration-100
-                            font-bold
-                            cursor-pointer
-                            px-5
-                            py-2
-                            text-black
-                        "
+      rounded-full
+      hover:scale-[1.03]
+      duration-100
+      cursor-pointer
+      p-3
+      text-black
+      flex
+      items-center
+      justify-center
+    "
                                 >
-                                    Account
+                                    <FaUser size={18} />
                                 </span>
                             </Link>
                         )
@@ -491,22 +390,18 @@ export function UserPoints({
                             relative
                             w-10
                             h-10
+                            border
+                            border-gray-400
                             flex
                             items-center
                             justify-center
                             rounded-full
-                            border
                             overflow-hidden
                             cursor-pointer
                             group
                             duration-300
                             hover:scale-110
-                            hover:shadow-[0_0_25px_rgba(245,223,139,0.28)]
                         "
-                        style={{
-                            borderColor: "#c9971a",
-                            background: premiumGoldGradient,
-                        }}
                     >
                         <div
                             className="
@@ -516,10 +411,6 @@ export function UserPoints({
                                 group-hover:opacity-100
                                 duration-500
                             "
-                            style={{
-                                background:
-                                    "radial-gradient(circle, rgba(255,235,160,0.35) 0%, transparent 70%)",
-                            }}
                         />
 
                         <div
@@ -533,10 +424,6 @@ export function UserPoints({
                                 group-hover:left-full
                                 duration-700
                             "
-                            style={{
-                                background:
-                                    "linear-gradient(120deg, transparent, rgba(255,255,255,0.45), transparent)",
-                            }}
                         />
 
                         <FaUser

@@ -19,6 +19,8 @@ export default function ProductCard({
 
     if (!item) return null;
 
+    console.log('items check check', item)
+
     const {
         p_slug,
         p_title,
@@ -37,9 +39,10 @@ export default function ProductCard({
         >
             <article
                 className="
-    bg-[#050505]
-    sm:border
-    border-[#8A6A12]/40
+    bg-white
+    rounded-md
+    border
+    border-gray-300
     sm:rounded-2xl
     overflow-hidden
     flex flex-col
@@ -146,6 +149,7 @@ export default function ProductCard({
                         fill
                         className="
             object-cover
+            rounded-t-md
             duration-700
             ease-out
             group-hover:scale-110
@@ -171,7 +175,7 @@ export default function ProductCard({
                         px-5
                         pt-5
                         pb-3
-                        bg-black
+                        bg-white
                         flex-1
                         flex
                         flex-col
@@ -183,73 +187,37 @@ export default function ProductCard({
 
                             <h2
                                 className="
-                                text-xl
-                                text-[#E6C766]
-                                font-extrabold
+                                text-md
+                                text-black
                                 relative
-                                line-clamp-1
+                                Poppins
                             "
                             >
                                 {p_title || "Untitled Product"}
-
-                                <span
-                                    className="
-        block
-        h-[2]
-        w-12
-        rounded-full
-        mt-2
-        bg-linear-to-r
-        from-[#8A6A12]
-        via-[#D4AF37]
-        to-[#F5DF8B]
-        transition-all
-        duration-500
-        group-hover:w-24
-    "
-                                />
                             </h2>
 
-                            {/* DESCRIPTION */}
-                            <p
-                                style={{ fontFamily: "Poppins" }}
-                                className="
-                                text-sm
-                                mt-2
-                                text-gray-300
-                                line-clamp-2
-                                min-h-[30]
-                            "
-                            >
-                                {p_short_description || "Best Artificial Premium Jwellery For your special Occasion"}
-                            </p>
                         </div>
 
                         {/* PRICE */}
-                        <div className="flex items-center gap-3 mt-3">
+                        <div className="flex items-center gap-3">
                             <p
                                 className="
             text-2xl
             font-black
-            bg-linear-to-r
-            from-[#D4AF37]
-            via-[#F5DF8B]
-            to-[#D4AF37]
-            bg-clip-text
-            text-transparent
+            
         "
                             >
                                 ₹{p_customer_price}
                             </p>
 
-                            <p className="text-gray-500 line-through text-sm">
+                            <p className="text-gray-700 line-through text-sm">
                                 ₹{p_sale_price}
                             </p>
                         </div>
                     </div>
 
                     {/* BUTTONS */}
-                    <div className="grid sm:grid-cols-2  sm:gap-2 gap-4 px-5 pb-5 bg-black">
+                    <div className="grid sm:grid-cols-2  sm:gap-2 gap-4 px-5 pb-5 bg-white">
 
                         <AddToCartButton item={item} />
 
