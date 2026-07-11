@@ -202,15 +202,17 @@ export default function ProductCard({
                         <div className="flex items-center gap-3">
                             <p
                                 className="
-            text-2xl
-            font-black
+            sm:text-2xl
+            text-lg
+            font-semibold
+            Poppins
             
         "
                             >
                                 ₹{p_customer_price}
                             </p>
 
-                            <p className="text-gray-700 line-through text-sm">
+                            <p className="text-gray-700 Poppins line-through text-sm">
                                 ₹{p_sale_price}
                             </p>
                         </div>
