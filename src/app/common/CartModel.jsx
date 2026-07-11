@@ -103,22 +103,13 @@ export default function CartModel({ cartModelOpen, setCartModelOpen }) {
                     lg:w-[350] md:w-[300] sm:w-[300] w-[300]
                     h-screen
                     z-110
+                    bg-white
                     duration-500
                     overflow-hidden
                     ${cartModelOpen ? "translate-x-0" : "translate-x-full"}
                   
                 `}
-                style={{
-                    background: `
-                        linear-gradient(
-                            180deg,
-                            #050505 0%,
-                            #0b0b0b 35%,
-                            #120d02 100%
-                        )
-                    `,
-                    borderLeft: `1px solid ${gold.base}40`,
-                }}
+
             >
                 {/* Glow */}
                 <div
@@ -154,11 +145,11 @@ export default function CartModel({ cartModelOpen, setCartModelOpen }) {
                         </div>
 
                         <div>
-                            <h2 className="text-2xl font-bold text-[#F5D97A] tracking-wide">
+                            <h2 className="text-2xl font-bold text-black Poppins tracking-wide">
                                 Cart
                             </h2>
 
-                            <p className="text-sm text-gray-400 tracking-wide">
+                            <p className="text-sm text-black tracking-wide">
                                 Your Premium Collection
                             </p>
                         </div>
@@ -169,10 +160,10 @@ export default function CartModel({ cartModelOpen, setCartModelOpen }) {
                         className="
                             w-10 h-10
                             rounded-full
-                            bg-white/5
+                            bg-black/5
                             border border-white/10
                             flex items-center justify-center
-                            text-[#F5D97A]
+                            text-black
                             hover:rotate-90
                             hover:bg-[#d4af37]
                             hover:text-black
@@ -207,10 +198,10 @@ export default function CartModel({ cartModelOpen, setCartModelOpen }) {
                                                 >
                                                     <article
                                                         key={`${item.cart_id}-${index}`}
-                                                        style={{ borderColor: gold.dark }}
                                                         className="
-            bg-black
+            bg-white
             border
+            border-gray-300
             rounded-xl
             shadow-md
             transition-all
@@ -286,7 +277,7 @@ export default function CartModel({ cartModelOpen, setCartModelOpen }) {
                                                         )}
 
                                                         {/* IMAGE */}
-                                                        <div className="bg-black relative">
+                                                        <div className="bg-white relative">
                                                             <div
                                                                 onClick={() => setCartModelOpen(false)}
                                                                 className="relative h-47.5 overflow-hidden "
@@ -320,7 +311,7 @@ export default function CartModel({ cartModelOpen, setCartModelOpen }) {
                 px-5
                 pt-5
                 pb-3
-                bg-black
+                bg-white
                 flex
                 flex-col
             "
@@ -331,8 +322,9 @@ export default function CartModel({ cartModelOpen, setCartModelOpen }) {
                                                                 <h2
                                                                     className="
                         text-xl
-                        text-[#E6C766]
-                        font-extrabold
+                        text-black
+                        Poppins
+                        
                         capitalize
                     "
                                                                 >
@@ -366,7 +358,7 @@ export default function CartModel({ cartModelOpen, setCartModelOpen }) {
                                                                     className="
                         text-sm
                         mt-4
-                        text-gray-300
+                        text-gray-800
                         line-clamp-2
                         min-h-10
                     "
@@ -377,7 +369,8 @@ export default function CartModel({ cartModelOpen, setCartModelOpen }) {
                                                                 {/* QUANTITY */}
                                                                 <div className="mt-0 flex items-center gap-2">
 
-                                                                    <span className="text-gray-300 text-sm">
+                                                                    <span className="text-gray-800
+                                                                    Poppins  text-sm">
                                                                         Quantity
                                                                     </span>
 
@@ -410,13 +403,12 @@ export default function CartModel({ cartModelOpen, setCartModelOpen }) {
                                                             <div className="flex items-center gap-3 mt-4">
 
                                                                 <p
-                                                                    style={{ color: gold.base }}
-                                                                    className="text-2xl font-extrabold"
+                                                                    className="text-2xl text-black Poppins font-semibold"
                                                                 >
                                                                     ₹ {item.p_customer_price}
                                                                 </p>
 
-                                                                <p className="text-sm text-gray-400 line-through">
+                                                                <p className="text-sm text-gray-800 Poppins line-through">
                                                                     ₹ {item.p_sale_price}
                                                                 </p>
 
@@ -425,7 +417,7 @@ export default function CartModel({ cartModelOpen, setCartModelOpen }) {
                                                         </div>
 
                                                         {/* BUTTONS */}
-                                                        <div className="grid grid-cols-2 gap-2 px-5 pb-5 bg-black">
+                                                        <div className="grid grid-cols-2 gap-2 px-5 pb-5 bg-white">
 
                                                             <button
                                                                 disabled={removingId === item.product_id}
@@ -439,7 +431,6 @@ export default function CartModel({ cartModelOpen, setCartModelOpen }) {
                     cursor-pointer
                     px-4
                     py-2
-                    rounded-full
                     bg-red-600
                     hover:bg-red-700
                     text-white
@@ -448,8 +439,8 @@ export default function CartModel({ cartModelOpen, setCartModelOpen }) {
                 "
                                                             >
                                                                 {removingId === item.product_id
-                                                                    ? "Removing..."
-                                                                    : "Remove"}
+                                                                    ? "लोडिंग..."
+                                                                    : "हटाएं"}
                                                             </button>
 
                                                             <BuyNowButton
@@ -467,17 +458,17 @@ export default function CartModel({ cartModelOpen, setCartModelOpen }) {
                                             );
                                         })}
 
-                                        <div className="flex items-center justify-between px-5 py-5 rounded-2xl bg-black border border-amber-500/30 shadow-[0_0_20px_rgba(245,158,11,0.15)]">
+                                        <div className="flex items-center justify-between px-5 py-5 rounded-2xl bg-white border border-amber-500/30 shadow-[0_0_20px_rgba(245,158,11,0.15)]">
                                             <div
                                                 style={{ fontFamily: "Poppins" }}
-                                                className="text-lg font-semibold tracking-wide text-amber-100"
+                                                className="text-lg font-semibold tracking-wide text-amber-700"
                                             >
                                                 Total
                                             </div>
 
                                             <span
                                                 style={{ fontFamily: "Poppins" }}
-                                                className="text-3xl font-semibold tracking-normal text-amber-300"
+                                                className="text-3xl font-semibold tracking-normal text-amber-700"
                                             >
                                                 ₹ {TotalAmount}.00
                                             </span>

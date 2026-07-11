@@ -65,21 +65,10 @@ export default function CategoriesClient() {
                         {/* Heading */}
                         <div
                             onClick={() => setShowCategories(!showCategories)}
-                            className="w-full flex items-center justify-between mb-8 relative z-10 ">
+                            className="w-full px-4 flex items-center justify-between mb-8 relative z-10 ">
                             <div className="flex items-center gap-4 ">
-                                <div
-                                    className="w-2 h-10 rounded-full shadow-lg"
-                                    style={{
-                                        background: `linear-gradient(to bottom, ${gold.light}, ${gold.dark})`,
-                                    }}
-                                />
-
                                 <h1
-                                    className="text-3xl Poppins font-bold tracking-[6px] capitalize Poppins"
-                                    style={{
-                                        color: gold.light,
-                                        textShadow: `0 0 20px ${gold.base}40`,
-                                    }}
+                                    className="text-3xl Poppins font-bold tracking-[6px] capitalize Poppins text-black"
                                 >
                                     <span className="sm:inline hidden Poppins">All</span> Categories
                                 </h1>
@@ -87,7 +76,7 @@ export default function CategoriesClient() {
 
 
                             <button
-                                className="text-white hover:scale-110 transition-all duration-300"
+                                className="text-black hover:scale-110 transition-all duration-300"
                             >
                                 <ChevronDown
                                     size={30}
@@ -113,7 +102,7 @@ export default function CategoriesClient() {
                                 }
   `}
                         >
-                            <ul className="flex flex-wrap items-center gap-4 relative z-10">
+                            <ul className="flex px-4 flex-wrap items-center gap-4 relative z-10">
                                 {/* ALL BUTTON */}
                                 <li
                                     onClick={() => setSelectedCategory(null)}
@@ -121,17 +110,19 @@ export default function CategoriesClient() {
                                         selectedCategory == null
                                             ? {
                                                 background:
-                                                    "linear-gradient(135deg,#8a6a12 0%,#b8860b 20%,#d4af37 40%,#fff2b3 50%,#d4af37 60%,#b8860b 80%,#8a6a12 100%)",
+                                                    "black",
+                                                color: 'white',
                                                 border: "1px solid rgba(255,242,179,0.4)",
                                             }
                                             : {
-                                                border: `1px solid ${gold.base}50`,
+                                                border: `1px solid black`,
+                                                color : 'black'
                                             }
                                     }
                                     className={`${selectedCategory == null
                                         ? "linear-gradient(to left,#8a6a12 0%,#b8860b 20%,#d4af37 40%,#fff2b3 50%,#d4af37 60%,#b8860b 80%,#8a6a12 100%) text-black"
                                         : "bg-transparent text-white"
-                                        } lg:px-8 lg:py-2 px-5 py-1 capitalize rounded-full tracking-wide cursor-pointer transition-all duration-300 hover:scale-110 hover:-translate-y-1 font-bold active:scale-95 backdrop-blur-md`}
+                                        } lg:px-8 lg:py-2 px-5 py-2 capitalize rounded-full tracking-wide cursor-pointer transition-all duration-300 hover:scale-110 hover:-translate-y-1 font-bold active:scale-95 backdrop-blur-md`}
                                 >
                                     All
                                 </li>
@@ -164,11 +155,14 @@ export default function CategoriesClient() {
                                             item.category_id === selectedCategory
                                                 ? {
                                                     background:
-                                                        "linear-gradient(135deg,#8a6a12 0%,#b8860b 20%,#d4af37 40%,#fff2b3 50%,#d4af37 60%,#b8860b 80%,#8a6a12 100%)",
+                                                        "black",
+                                                    color: 'white',
                                                     border: "1px solid rgba(255,242,179,0.4)",
                                                 }
                                                 : {
-                                                    border: `1px solid ${gold.base}50`,
+                                                    border: `1px solid black`,
+                                                    color: 'black',
+                                                    background: 'white'
                                                 }
                                         }
                                     >
@@ -179,11 +173,11 @@ export default function CategoriesClient() {
                         </div>
                     </div>
 
-                    <div className='mb-10'>
+                    {/* <div className='mb-10'>
                         <p className='text-gray-300 Poppins'>Buy stylish artificial jewellery online featuring Bajuband, Kamarband, Rings, Earrings, Maang Tikka, Necklaces, Bangles, and Bridal Jewellery. Our collection combines traditional craftsmanship with modern fashion to suit weddings, festivals, and daily wear. Find the perfect imitation jewellery pieces to elevate your look at the best prices.</p>
 
                         <p className='text-gray-300 Poppins mt-2'> Explore our exclusive collection of artificial jewellery designed for every style and occasion. From traditional Bajuband and Kamarband to elegant rings, earrings, and bridal sets, discover timeless fashion accessories. Shop premium-quality imitation jewellery online with nationwide delivery.</p>
-                    </div>
+                    </div> */}
 
                     <div className="lg:mb-5 mb-5 lg:p-0">
                         {products_loading ? (
@@ -218,75 +212,73 @@ export default function CategoriesClient() {
 export function NoProductFoundInThisCategory() {
     return (
         <div
-            className='
-        w-full
-        flex
-        items-center
-        justify-center
-    '
+            className="
+                w-full
+                flex
+                items-center
+                justify-center
+            "
         >
             <div
-                className='
-            relative
-            overflow-hidden
-            rounded-3xl
-            border
-            border-[#5c4308]
-            bg-black
-            py-10
-            lg:px-6 sm:px-4
-            text-center
-            max-w-2xl
-            mx-auto
-            w-full
-            shadow-2xl
-        '
+                className="
+                    relative
+                    overflow-hidden
+                    rounded-3xl
+                    border
+                    border-amber-200
+                    bg-gradient-to-br
+                    from-white
+                    via-amber-50
+                    to-white
+                    py-10
+                    lg:px-6
+                    sm:px-4
+                    text-center
+                    max-w-2xl
+                    mx-auto
+                    w-full
+                    shadow-[0_20px_60px_rgba(212,175,55,0.15)]
+                "
             >
-
-                {/* GLOW EFFECT */}
+                {/* SOFT GLOW */}
                 <div
-                    className='
-                absolute
-                top-[-100]
-                left-1/2
-                -translate-x-1/2
-                w-[300]
-                h-[300]
-                rounded-full
-                blur-3xl
-                opacity-20
-            '
+                    className="
+                        absolute
+                        -top-24
+                        left-1/2
+                        -translate-x-1/2
+                        w-80
+                        h-80
+                        rounded-full
+                        blur-3xl
+                        opacity-60
+                    "
                     style={{
                         background:
-                            "linear-gradient(135deg,#d4af37,#fff2b3)"
+                            "radial-gradient(circle, rgba(212,175,55,.22) 0%, rgba(255,255,255,0) 75%)",
                     }}
                 />
 
                 {/* ICON */}
                 <div
-                    className='
-                relative
-                z-10
-                w-20
-                h-20
-                mx-auto
-                rounded-full
-                flex
-                items-center
-                justify-center
-                text-4xl
-                mb-6
-            '
+                    className="
+                        relative
+                        z-10
+                        w-20
+                        h-20
+                        mx-auto
+                        rounded-full
+                        flex
+                        items-center
+                        justify-center
+                        text-4xl
+                        mb-6
+                        shadow-lg
+                    "
                     style={{
-                        background: `
-                    linear-gradient(
-                        135deg,
-                        #8a6a12,
-                        #d4af37,
-                        #fff2b3
-                    )
-                `,
-                        color: "#000"
+                        background:
+                            "linear-gradient(135deg,#B8860B,#D4AF37,#F8E7A1)",
+                        color: "#fff",
                     }}
                 >
                     ✦
@@ -294,17 +286,17 @@ export function NoProductFoundInThisCategory() {
 
                 {/* TITLE */}
                 <h2
-                    className='
-                relative
-                z-10
-                lg:text-3xl
-                text-2xl
-                font-extrabold
-                mb-4
-                tracking-wide
-            '
+                    className="
+                        relative
+                        z-10
+                        lg:text-3xl
+                        text-2xl
+                        font-extrabold
+                        mb-4
+                        tracking-wide
+                    "
                     style={{
-                        color: "#E6C766"
+                        color: "#7A5510",
                     }}
                 >
                     No Products Found In This Category
@@ -312,44 +304,38 @@ export function NoProductFoundInThisCategory() {
 
                 {/* DESCRIPTION */}
                 <p
-                    className='
-                relative
-                z-10
-                text-gray-400
-                text-lg
-                leading-relaxed
-                max-w-xl
-                mx-auto
-            '
+                    className="
+                        relative
+                        z-10
+                        text-gray-600
+                        text-lg
+                        leading-relaxed
+                        max-w-xl
+                        mx-auto
+                    "
                 >
                     Fresh luxury collections are on the way.
                     Stay tuned for our latest premium arrivals and
                     exclusive designs.
                 </p>
 
-                {/* DECORATIVE LINE */}
+                {/* DIVIDER */}
                 <div
-                    className='
-                relative
-                z-10
-                w-40
-                h-[2]
-                mx-auto
-                mt-8
-                rounded-full
-            '
+                    className="
+                        relative
+                        z-10
+                        w-40
+                        h-[2px]
+                        mx-auto
+                        mt-8
+                        rounded-full
+                    "
                     style={{
-                        background: `
-                    linear-gradient(
-                        to right,
-                        transparent,
-                        #d4af37,
-                        transparent
-                    )
-                `
+                        background:
+                            "linear-gradient(to right, transparent, #D4AF37, transparent)",
                     }}
                 />
             </div>
         </div>
-    )
+    );
 }

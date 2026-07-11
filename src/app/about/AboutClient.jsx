@@ -48,29 +48,11 @@ export default function AboutClient() {
                 min-h-screen
                 overflow-hidden
                 relative
-                bg-black
-                text-white
+                bg-white
+                text-black
             '
         >
 
-            {/* Glow */}
-            <div
-                className='
-                    absolute
-                    top-0
-                    left-1/2
-                    -translate-x-1/2
-                    w-[700]
-                    h-[300]
-                    rounded-full
-                    blur-3xl
-                    opacity-10
-                    pointer-events-none
-                '
-                style={{
-                    background: '#d4af37'
-                }}
-            />
 
             <div className='max-w-330 mx-auto lg:px-6 px-4 relative z-10'>
 
@@ -89,37 +71,13 @@ export default function AboutClient() {
                         '
                         style={{
                             borderColor: 'rgba(230,199,102,0.15)',
-                            background: `
-                                linear-gradient(
-                                    145deg,
-                                    rgba(5,5,5,0.96) 0%,
-                                    rgba(12,12,12,0.98) 40%,
-                                    rgba(26,20,5,1) 100%
-                                )
-                            `,
+
                             boxShadow: `
                                 0 0 50px rgba(212,175,55,0.08),
                                 inset 0 0 40px rgba(255,215,120,0.03)
                             `
                         }}
                     >
-
-                        {/* Top Shine */}
-                        <div
-                            className='
-                                absolute
-                                top-0
-                                left-full
-                                w-[120%]
-                                h-full
-                                rotate-12
-                                opacity-10
-                            '
-                            style={{
-                                background:
-                                    'linear-gradient(120deg, transparent, rgba(255,255,255,0.12), transparent)'
-                            }}
-                        />
 
                         {/* Heading */}
                         <div className='relative z-10 mb-16'>
@@ -132,7 +90,7 @@ export default function AboutClient() {
                                     leading-8
                                     tracking-[8px]
                                     mb-5
-                                    text-[#f5df8b]
+                                    text-black
                                 '
                             >
                                 Luxury • Elegance • Trust
@@ -144,36 +102,27 @@ export default function AboutClient() {
                                     md:text-4xl
                                     text-3xl
                                     text-center
-                                    font-bold
+                                    font-semibold
+                                    Poppins
                                     tracking-wide
                                     leading-tight
                                 '
                                 style={{
-                                    color: '#f8e7a1'
+                                    color: 'black'
                                 }}
                             >
-                                About
-                                <span
-                                    className='ml-4'
-                                    style={{
-                                        background: premiumGoldGradient,
-                                        WebkitBackgroundClip: 'text',
-                                        WebkitTextFillColor: 'transparent'
-                                    }}
-                                >
-                                    Us
-                                </span>
+                                About Us
                             </h2>
 
                             <div className='flex justify-center'>
                                 <div
-                                    className='w-60 h-[2] mt-6 rounded-full'
+                                    className='w-20 h-[2] mt-2 rounded-full'
                                     style={{
                                         background: `
                                             linear-gradient(
                                                 to right,
                                                 transparent,
-                                                #d4af37,
+                                                #000000,
                                                 transparent
                                             )
                                         `
@@ -191,7 +140,8 @@ export default function AboutClient() {
 
                                 <p
                                     className='
-                                        text-[#b8b8b8]
+                                        text-gray-800
+                                        Poppins
                                         lg:text-lg
                                         text-base
                                         leading-9
@@ -231,13 +181,11 @@ export default function AboutClient() {
                                             relative
                                             overflow-hidden
                                             group
+                                            border-gray-300
                                             hover:scale-[1.03]
                                             duration-300
                                         '
-                                        style={{
-                                            borderColor: 'rgba(230,199,102,0.15)',
-                                            background: '#090909'
-                                        }}
+
                                     >
 
                                         <div
@@ -263,13 +211,13 @@ export default function AboutClient() {
                                                 z-10
                                             '
                                             style={{
-                                                color: '#f5df8b'
+                                                color: 'black'
                                             }}
                                         >
-                                            60k+
+                                            100k+
                                         </h2>
 
-                                        <p className='text-[#9e9e9e] tracking-wide relative z-10'>
+                                        <p className='text-gray-700 tracking-wide relative z-10'>
                                             Instagram Family
                                         </p>
 
@@ -285,11 +233,8 @@ export default function AboutClient() {
                                             group
                                             hover:scale-[1.03]
                                             duration-300
+                                            border-gray-300
                                         '
-                                        style={{
-                                            borderColor: 'rgba(230,199,102,0.15)',
-                                            background: '#090909'
-                                        }}
                                     >
 
                                         <div
@@ -299,11 +244,7 @@ export default function AboutClient() {
                                                 opacity-0
                                                 group-hover:opacity-100
                                                 duration-500
-                                            '
-                                            style={{
-                                                background:
-                                                    'radial-gradient(circle, rgba(255,235,160,0.10) 0%, transparent 70%)'
-                                            }}
+                                          '
                                         />
 
                                         <h2
@@ -315,13 +256,13 @@ export default function AboutClient() {
                                                 z-10
                                             '
                                             style={{
-                                                color: '#f5df8b'
+                                                color: 'black'
                                             }}
                                         >
                                             Premium
                                         </h2>
 
-                                        <p className='text-[#9e9e9e] tracking-wide relative z-10'>
+                                        <p className='text-gray-700 tracking-wide relative z-10'>
                                             Luxury Collection
                                         </p>
 
@@ -335,6 +276,7 @@ export default function AboutClient() {
                             <div
                                 className='
                                     border
+                                    border-gray-300
                                     rounded-[34px]
                                     lg:p-10
                                     p-6
@@ -342,47 +284,19 @@ export default function AboutClient() {
                                     overflow-hidden
                                     backdrop-blur-xl
                                 '
-                                style={{
-                                    borderColor: 'rgba(230,199,102,0.18)',
-                                    background: `
-                                        linear-gradient(
-                                            145deg,
-                                            rgba(8,8,8,0.98),
-                                            rgba(20,15,5,1)
-                                        )
-                                    `
-                                }}
                             >
 
-                                {/* Glow */}
-                                <div
-                                    className='
-                                        absolute
-                                        -top-16
-                                        -right-16
-                                        w-48
-                                        h-48
-                                        rounded-full
-                                        blur-3xl
-                                        opacity-15
-                                    '
-                                    style={{
-                                        background: '#d4af37'
-                                    }}
-                                />
 
                                 <h2
                                     className='
                                         text-4xl
-                                        font-bold
+                                        font-semibold
                                         mb-10
                                         tracking-wide
                                         relative
                                         z-10
+                                        Poppins
                                     '
-                                    style={{
-                                        color: '#f8e7a1'
-                                    }}
                                 >
                                     Why Choose Us
                                 </h2>
@@ -413,13 +327,10 @@ export default function AboutClient() {
                                                 className='
                                                     min-w-4
                                                     h-4
+                                                    bg-amber-500
                                                     rounded-full
                                                     mt-2
                                                 '
-                                                style={{
-                                                    background: premiumGoldGradient,
-                                                    boxShadow: '0 0 15px rgba(245,223,139,0.35)'
-                                                }}
                                             />
 
                                             <div>
@@ -429,13 +340,13 @@ export default function AboutClient() {
                                                         text-2xl
                                                         mb-2
                                                         font-semibold
-                                                        text-[#f5df8b]
+                                                        text-black
                                                     '
                                                 >
                                                     {item.title}
                                                 </h3>
 
-                                                <p className='text-[#9e9e9e] leading-8'>
+                                                <p className='text-gray-800 leading-8'>
                                                     {item.desc}
                                                 </p>
 
@@ -466,17 +377,12 @@ export default function AboutClient() {
                             text-center
                             font-bold
                             tracking-wide
-                            text-[#f8e7a1]
+                            text-gray-800
                         '
                     >
                         Our
                         <span
-                            className='ml-4'
-                            style={{
-                                background: premiumGoldGradient,
-                                WebkitBackgroundClip: 'text',
-                                WebkitTextFillColor: 'transparent'
-                            }}
+                            className='ml-4 text-black'
                         >
                             Facilities
                         </span>
@@ -484,13 +390,13 @@ export default function AboutClient() {
 
                     <div className='flex justify-center mb-14'>
                         <div
-                            className='w-60 h-[2] mt-6 rounded-full'
+                            className='w-60 h-[1] mt-2 rounded-full'
                             style={{
                                 background: `
                                     linear-gradient(
                                         to right,
                                         transparent,
-                                        #d4af37,
+                                        #000000,
                                         transparent
                                     )
                                 `
