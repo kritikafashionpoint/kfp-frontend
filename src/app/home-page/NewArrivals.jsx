@@ -95,7 +95,7 @@ export default function NewArrivals() {
 
                     ) : new_arrivals.length === 0 ? (
 
-                        <NoNewArrFound title={'No Top Selling Products Yet'} />
+                        <NoNewArrFound title={'No New Arrivals Yet'} />
 
                     ) :
 
@@ -147,74 +147,71 @@ export default function NewArrivals() {
 export function NoNewArrFound({ title }) {
     return (
         <div
-            className='
-        w-full
-        flex
-        items-center
-        justify-center
-    '
+            className="
+                w-full
+                flex
+                items-center
+                justify-center
+            "
         >
             <div
-                className='
-            relative
-            overflow-hidden
-            sm:rounded-3xl
-            border
-            border-[#5c4308]
-            bg-black
-            px-10
-            py-5
-            text-center
-            max-w-4xl
-            w-full
-            shadow-2xl
-        '
+                className="
+                    relative
+                    overflow-hidden
+                    sm:rounded-3xl
+                    border
+                    border-amber-200
+                    bg-gradient-to-br
+                    from-white
+                    via-amber-50
+                    to-white
+                    px-10
+                    py-8
+                    text-center
+                    max-w-4xl
+                    w-full
+                    shadow-[0_20px_60px_rgba(212,175,55,0.15)]
+                "
             >
-
-                {/* GLOW EFFECT */}
+                {/* SOFT GLOW */}
                 <div
-                    className='
-                absolute
-                top-[-100]
-                left-1/2
-                -translate-x-1/2
-                w-[300]
-                h-[300]
-                rounded-full
-                blur-3xl
-                opacity-20
-            '
+                    className="
+                        absolute
+                        -top-24
+                        left-1/2
+                        -translate-x-1/2
+                        w-80
+                        h-80
+                        rounded-full
+                        blur-3xl
+                        opacity-60
+                    "
                     style={{
                         background:
-                            "linear-gradient(135deg,#d4af37,#fff2b3)"
+                            "radial-gradient(circle, rgba(212,175,55,.22) 0%, rgba(255,255,255,0) 75%)",
                     }}
                 />
 
                 {/* ICON */}
                 <div
-                    className='
-                relative
-                z-10
-                w-20
-                h-20
-                mx-auto
-                rounded-full
-                flex
-                items-center
-                justify-center
-                text-4xl
-                mb-6
-            '
+                    className="
+                        relative
+                        z-10
+                        w-20
+                        h-20
+                        mx-auto
+                        rounded-full
+                        flex
+                        items-center
+                        justify-center
+                        text-4xl
+                        mb-6
+                        shadow-lg
+                    "
                     style={{
-                        background: `
-                    linear-gradient(
-                        135deg,
-                        #8a6a12,
-                        #d4af37,
-                        #fff2b3
-                    )
-                `,
-                        color: "#000"
+                        background:
+                            "linear-gradient(135deg,#B8860B,#D4AF37,#F8E7A1)",
+                        color: "#fff",
                     }}
                 >
                     ✦
@@ -222,61 +219,55 @@ export function NoNewArrFound({ title }) {
 
                 {/* TITLE */}
                 <h2
-                    className='
-                relative
-                z-10
-                text-3xl
-                font-extrabold
-                mb-4
-                tracking-wide
-            '
+                    className="
+                        relative
+                        z-10
+                        text-3xl
+                        font-extrabold
+                        mb-4
+                        tracking-wide
+                    "
                     style={{
-                        color: "#E6C766"
+                        color: "#7A5510",
                     }}
                 >
-                    {title ? title : 'No Products Found'}
+                    {title ? title : "No Products Found"}
                 </h2>
 
                 {/* DESCRIPTION */}
                 <p
-                    className='
-                relative
-                z-10
-                text-gray-400
-                text-lg
-                leading-relaxed
-                max-w-xl
-                mx-auto
-            '
+                    className="
+                        relative
+                        z-10
+                        text-gray-600
+                        text-lg
+                        leading-relaxed
+                        max-w-xl
+                        mx-auto
+                    "
                 >
                     Fresh luxury collections are on the way.
                     Stay tuned for our latest premium arrivals and
                     exclusive designs.
                 </p>
 
-                {/* DECORATIVE LINE */}
+                {/* DIVIDER */}
                 <div
-                    className='
-                relative
-                z-10
-                w-40
-                h-[2]
-                mx-auto
-                mt-8
-                rounded-full
-            '
+                    className="
+                        relative
+                        z-10
+                        w-40
+                        h-[2px]
+                        mx-auto
+                        mt-8
+                        rounded-full
+                    "
                     style={{
-                        background: `
-                    linear-gradient(
-                        to right,
-                        transparent,
-                        #d4af37,
-                        transparent
-                    )
-                `
+                        background:
+                            "linear-gradient(to right, transparent, #D4AF37, transparent)",
                     }}
                 />
             </div>
         </div>
-    )
-} 
+    );
+}

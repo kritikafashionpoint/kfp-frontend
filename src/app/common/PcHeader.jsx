@@ -329,9 +329,10 @@ export function UserPoints({
                         "
                     >
                         <span
-                            style={{ background: premiumGoldGradient }}
                             className="
                                 absolute
+                                bg-amber-300
+                                Poppins
                                 -top-2
                                 -right-2
                                 w-5
@@ -342,7 +343,7 @@ export function UserPoints({
                                 justify-center
                                 text-black
                                 text-xs
-                                font-bold
+                                font-semibold
                             "
                         >
                             {cartData?.length || 0}

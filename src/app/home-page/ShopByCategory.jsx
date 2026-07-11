@@ -29,25 +29,20 @@ export default function ShopByCategory() {
 
                 {/* Heading */}
                 <div className="flex items-center justify-center sm:gap-5 gap-0">
-                    <div
-                        className="lg:w-28 w-20 h-[1] bg-linear-to-r from-transparent via-black to-transparent"
-
-                    />
                     {/* Main Heading */}
                     <h2 className="relative flex items-center justify-center lg:mb-14 mb-8">
 
                         {/* Main Heading */}
                         <span
-                            className="relative Poppins z-10 lg:text-3xl text-xl font-semibold tracking-wide inline-block text-black"
+                            className="relative Poppins z-10 lg:text-3xl text-2xl font-semibold tracking-wide inline-block text-black"
                         >
                             Shop By Category
                         </span>
 
+                        <div className="absolute top-[115%] left-1/2 -translate-x-1/2 z-99 w-1/2 h-[1.5] bg-linear-to-r from-transparent via-black to-transparent"></div>
+
                     </h2>
 
-                    <div
-                        className="lg:w-28 w-20 h-[1] bg-linear-to-r from-transparent via-black to-transparent"
-                    />
                 </div>
 
 
@@ -69,36 +64,39 @@ export default function ShopByCategory() {
                                     {/* IMAGE SKELETON */}
                                     <div
                                         className="
-                            relative
-                           lg:w-[120]
-                            lg:h-[120]
-                            md:w-[150]
-                            md:h-[150]
-                            sm:w-[130]
-                            sm:h-[130]
-                            w-[120]
-                            h-[120]
-                            rounded-full
-                            overflow-hidden 
-                            bg-linear-to-br
-                            from-[#1a1a1a]
-                            via-[#2b2b2b]
-                            to-[#1a1a1a]
-                        "
+            relative
+            lg:w-[120px]
+            lg:h-[120px]
+            md:w-[150px]
+            md:h-[150px]
+            sm:w-[130px]
+            sm:h-[130px]
+            w-[120px]
+            h-[120px]
+            rounded-full
+            overflow-hidden
+            border
+            border-amber-200
+            shadow-[0_8px_25px_rgba(212,175,55,0.12)]
+            bg-gradient-to-br
+            from-white
+            via-amber-50
+            to-white
+        "
                                     />
 
                                     {/* TITLE SKELETON */}
                                     <div
                                         className="
-                            mt-5
-                            h-4
-                            w-24
-                            rounded-full
-                            bg-linear-to-r
-                            from-[#5c4308]
-                            via-[#b8860b]
-                            to-[#5c4308]
-                        "
+            mt-5
+            h-4
+            w-24
+            rounded-full
+            bg-gradient-to-r
+            from-amber-200
+            via-amber-300
+            to-amber-200
+        "
                                     />
 
                                 </div>
@@ -114,124 +112,109 @@ export default function ShopByCategory() {
                                 ?
 
                                 <div className="w-full flex justify-center py-10">
-
                                     <div
                                         className="
-                        relative
-                        overflow-hidden
-                        rounded-3xl
-                        bg-black
-                        px-10
-                        py-14
-                        text-center
-                        max-w-2xl
-                        w-full
-                        shadow-2xl
-                    "
+      relative
+      overflow-hidden
+      rounded-3xl
+      bg-white
+      border
+      border-amber-200
+      px-10
+      py-14
+      text-center
+      max-w-2xl
+      w-full
+      shadow-[0_20px_60px_rgba(0,0,0,0.08)]
+    "
                                     >
-
-                                        {/* GLOW */}
+                                        {/* Soft Glow */}
                                         <div
                                             className="
-                            absolute
-                            top-[-100]
-                            left-1/2
-                            -translate-x-1/2
-                            w-[300]
-                            h-[300]
-                            rounded-full
-                            blur-3xl
-                            opacity-20
-                        "
+        absolute
+        -top-20
+        left-1/2
+        -translate-x-1/2
+        w-80
+        h-80
+        rounded-full
+        blur-3xl
+        opacity-40
+      "
                                             style={{
                                                 background:
-                                                    "linear-gradient(135deg,#d4af37,#fff2b3)"
+                                                    "radial-gradient(circle, rgba(212,175,55,.25) 0%, rgba(255,255,255,0) 70%)",
                                             }}
                                         />
 
-                                        {/* ICON */}
+                                        {/* Icon */}
                                         <div
                                             className="
-                            relative
-                            z-10
-                            w-20
-                            h-20
-                            mx-auto
-                            rounded-full
-                            flex
-                            items-center
-                            justify-center
-                            text-4xl
-                            mb-6
-                        "
+        relative
+        z-10
+        w-20
+        h-20
+        mx-auto
+        rounded-full
+        flex
+        items-center
+        justify-center
+        text-4xl
+        mb-6
+        shadow-lg
+      "
                                             style={{
-                                                background: `
-                                linear-gradient(
-                                    135deg,
-                                    #8a6a12,
-                                    #d4af37,
-                                    #fff2b3
-                                )
-                            `,
-                                                color: "#000"
+                                                background:
+                                                    "linear-gradient(135deg,#B8860B,#D4AF37,#F8E7A1)",
+                                                color: "#fff",
                                             }}
                                         >
                                             ✦
                                         </div>
 
-                                        {/* TITLE */}
+                                        {/* Title */}
                                         <h2
                                             className="
-                            relative
-                            z-10
-                            text-3xl
-                            font-extrabold
-                            mb-4
-                            tracking-wide
-                        "
-                                            style={{
-                                                color: "#E6C766"
-                                            }}
+        relative
+        z-10
+        text-3xl
+        font-extrabold
+        mb-4
+      "
+                                            style={{ color: "#8A6A12" }}
                                         >
                                             No Categories Found
                                         </h2>
 
-                                        {/* DESC */}
+                                        {/* Description */}
                                         <p
                                             className="
-                            relative
-                            z-10
-                            text-gray-400
-                            text-lg
-                            leading-relaxed
-                            max-w-xl
-                            mx-auto
-                        "
+        relative
+        z-10
+        text-gray-600
+        text-lg
+        leading-relaxed
+        max-w-xl
+        mx-auto
+      "
                                         >
-                                            New premium collections and luxury
-                                            categories will be available soon.
+                                            New premium collections and luxury categories will be available soon.
                                         </p>
 
-                                        {/* LINE */}
+                                        {/* Divider */}
                                         <div
                                             className="
-                            relative
-                            z-10
-                            w-40
-                            h-[2]
-                            mx-auto
-                            mt-8
-                            rounded-full
-                        "
+        relative
+        z-10
+        w-40
+        h-[2px]
+        mx-auto
+        mt-8
+        rounded-full
+      "
                                             style={{
-                                                background: `
-                                linear-gradient(
-                                    to right,
-                                    transparent,
-                                    #d4af37,
-                                    transparent
-                                )
-                            `
+                                                background:
+                                                    "linear-gradient(to right, transparent, #D4AF37, transparent)",
                                             }}
                                         />
                                     </div>
