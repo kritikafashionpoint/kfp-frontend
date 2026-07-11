@@ -5,7 +5,7 @@ import { FaPhone } from "react-icons/fa";
 
 export default function LuxuryGlowBanner() {
     return (
-        <div className="w-screen lg:h-[130vh] h-[40vh] bg-white relative ">
+        <div className="w-screen lg:h-[130vh] h-[38vh] bg-white relative ">
 
             <div className="sm:hidden block py-3">
                 <div className="flex items-center justify-center z-49 w-full">
@@ -30,7 +30,7 @@ export default function LuxuryGlowBanner() {
                     </Link>
                 </div>
             </div>
-            <div className="w-full h-[30vh]">
+            <div className="w-full h-[38vh]">
                 <img src="/b4.png" className="w-screen lg:h-[130vh] h-[40vh] object-cover object-bottom" />
             </div>
         </div>

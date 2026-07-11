@@ -243,7 +243,7 @@ export function UserPoints({
         <div className={`flex items-center ${ismobile ? 'gap-3' : 'gap-5'}`}>
 
             {/* SEARCH ICON - ALWAYS VISIBLE */}
-            <div
+            {/* <div
                 onClick={() => setSearch(true)}
                 className="
                     relative
@@ -278,7 +278,7 @@ export function UserPoints({
                     size={17}
                     className="relative z-10 text-black"
                 />
-            </div>
+            </div> */}
 
             {token ? (
                 <>

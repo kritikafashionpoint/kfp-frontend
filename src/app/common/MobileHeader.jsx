@@ -81,12 +81,10 @@ export default function MobileHeader() {
                         </div>
                     </Link>
 
-                    {/* <div>
-                        <UserPoints ismobile={true} token={token} cartData={cartData} premiumGoldGradient={premiumGoldGradient} setSearch={setSearch} setWishListModelOpen={setWishListModelOpen} setCartModelOpen={setCartModelOpen} />
-                    </div> */}
 
-                    <div onClick={()=>setCartModelOpen(true)} className='text-black'>
-                        <BsCartCheck size={21} ismobile={true} token={token} cartData={cartData} premiumGoldGradient={premiumGoldGradient} setSearch={setSearch} setWishListModelOpen={setWishListModelOpen} setCartModelOpen={setCartModelOpen} />
+
+                    <div>
+                        <UserPoints ismobile={true} token={token} cartData={cartData} premiumGoldGradient={premiumGoldGradient} setSearch={setSearch} setWishListModelOpen={setWishListModelOpen} setCartModelOpen={setCartModelOpen} />
                     </div>
                 </div>
 
@@ -288,14 +286,7 @@ export function MobileMenu({ mobileMenu, setMobileMenu, premiumGoldGradient }) {
                                             "0 0 20px rgba(245,223,139,.18)"
                                     }}
                                 >
-                                    <span style={{ color: '#fff2b3' }}>K</span>
-                                    <span className='sm:inline hidden'>ritika{" "}</span>
-
-                                    <span style={{ color: '#fff2b3' }}>F</span>
-                                    <span className='sm:inline hidden'>ashion{" "}</span>
-
-                                    <span style={{ color: '#fff2b3' }}>P</span>
-                                    <span className='sm:inline hidden'>oint</span>
+                                    <span className='Poppins font-semibold text-black'>Kritika Fashion Point</span>
                                 </h2>
 
                                 <p
@@ -303,11 +294,9 @@ export function MobileMenu({ mobileMenu, setMobileMenu, premiumGoldGradient }) {
                             text-[11px]
                             tracking-[3px]
                             uppercase
+                            text-gray-800
                             mt-1
                         "
-                                    style={{
-                                        color: "rgba(245,223,139,.65)"
-                                    }}
                                 >
                                     Premium Jewellery
                                 </p>
@@ -409,7 +398,7 @@ export function MobileMenu({ mobileMenu, setMobileMenu, premiumGoldGradient }) {
                                                     fontFamily: 'Poppins'
                                                 }}
                                                 className="
-                                    text-white
+                                    text-black
                                     font-normal
                                     text-[16px]
                                     tracking-wide

@@ -62,7 +62,7 @@ export default function Footer() {
             />
 
             {/* Decorative Design */}
-            <div className="absolute -top-10 -left-10 w-[300] h-[300] opacity-[0.2] pointer-events-none">
+            <div className="absolute -top-10 -left-10 w-[300] h-[300] opacity-[0.35] pointer-events-none">
                 <Image
                     src="/designs/d1.png"
                     alt="design"
@@ -72,7 +72,7 @@ export default function Footer() {
                 />
             </div>
 
-            <div className="absolute -bottom-10 -right-10 rotate-180 w-[300] h-[300] opacity-[0.2] pointer-events-none">
+            <div className="absolute -bottom-10 -right-10 rotate-180 w-[300] h-[300] opacity-[0.35] pointer-events-none">
                 <Image
                     src="/designs/d1.png"
                     alt="design"
@@ -106,7 +106,7 @@ export default function Footer() {
                             text-3xl
                             font-bold
                             tracking-wide
-                            text-black
+                            text-amber-600
                         '
                     >
                         KRITIKA

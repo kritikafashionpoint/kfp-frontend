@@ -87,7 +87,7 @@ export default function ShopNowClient() {
                                 className='lg:text-5xl md:text-4xl text-3xl  sm:text-center font-semibold tracking-wide text-black leading-tight'
                             >
                                 <span className='sm:inline hidden'>Our</span>
-                                <span style={{ color: gold.mid }} className='ml-2'>
+                                <span style={{ color: 'black' }} className='ml-2'>
                                     Collection
                                 </span>
 
@@ -96,10 +96,8 @@ export default function ShopNowClient() {
 
 
                             <div
-                                style={{
-                                    background: `linear-gradient(to right, ${gold.dark}, transparent)`
-                                }}
-                                className='w-52 h-[2] mt-2'
+
+                                className='w-52 h-[2] mt-2 bg-linear-to-r from-transparent via-black to-transparent'
                             >
 
                             </div>
@@ -119,22 +117,8 @@ export default function ShopNowClient() {
                         <div className='flex items-center sm:gap-5 gap-3'>
                             <Link href={'/categories'}>
                                 <button
-                                    // onClick={() => setFilterModelOpen(true)}
-                                    style={{
-                                        background: `linear-gradient(
-                                    135deg,
-                                    #4d3900 0%,
-                                    #7a5a08 18%,
-                                    #b8860b 38%,
-                                    #d4af37 50%,
-                                    #e8cf6a 58%,
-                                    #c9971a 72%,
-                                    #7a5a08 88%,
-                                    #4d3900 100%
-                                )`
-                                    }}
-
-                                    className='flex text-black  hover:scale-[1.05] duration-300 ease-in-out items-center sm:px-10 px-3 py-2.5 rounded-md cursor-pointer gap-2 text-lg'>
+                                    onClick={() => setFilterModelOpen(false)}
+                                    className='flex text-black bg-amber-300  hover:scale-[1.05] duration-300 ease-in-out items-center sm:px-10 px-3 py-2.5 rounded-md cursor-pointer gap-2 text-lg'>
                                     <BiSolidCategory />
                                     <span style={{ fontFamily: 'Poppins' }} className='sm:block hidden font-semibold'>Categories
                                     </span>
@@ -144,20 +128,7 @@ export default function ShopNowClient() {
 
                             <button
                                 onClick={() => setFilterModelOpen(true)}
-                                style={{
-                                    background: `linear-gradient(
-                                    135deg,
-                                    #4d3900 0%,
-                                    #7a5a08 18%,
-                                    #b8860b 38%,
-                                    #d4af37 50%,
-                                    #e8cf6a 58%,
-                                    #c9971a 72%,
-                                    #7a5a08 88%,
-                                    #4d3900 100%
-                                )`
-                                }}
-                                className='flex text-black  hover:scale-[1.05] duration-300 ease-in-out items-center sm:px-10 px-3 py-2.5 rounded-md cursor-pointer gap-2 text-lg'>
+                                className='flex text-black bg-amber-300 hover:scale-[1.05] duration-300 ease-in-out items-center sm:px-10 px-3 py-2.5 rounded-md cursor-pointer gap-2 text-lg'>
                                 <span style={{ fontFamily: 'Poppins' }} className='sm:block hidden font-semibold'>Filter
                                 </span>
                                 <FaSortAmountUp />
@@ -183,7 +154,7 @@ export default function ShopNowClient() {
 
                         ) : (
 
-                            <div className='lg:px-6 px-4 grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 grid-cols-2 sm:gap-x-5 sm:gap-y-8'>
+                            <div className='lg:px-6 px-4 grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 grid-cols-2 sm:gap-x-5 gap-x-3 gap-y-5 sm:gap-y-8'>
                                 {filteredProducts.map((item, index) => (
                                     <ProductCard
                                         key={index}
