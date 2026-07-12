@@ -330,6 +330,13 @@ export default function ProductDetailClient() {
                                     setSelectedProduct={setSelectedProduct} item={ProductBySlug} getNowModel={getNowModel} setGetNowModel={setGetNowModel} customClasses={'py-3'} />
                             </div>
 
+                            <Link
+                                href={`https://wa.me/${process.env.NEXT_PUBLIC_PHONE_NUMBER}`}
+                                target="_blank"
+                            >
+                                <button className="cursor-pointer hover:text-white duration-300 w-full h-full py-3 bg-green-500 text-black Poppins font-semibold text-lg mt-4 rounded">Whatsapp पर खरीदें </button>
+                            </Link>
+
                             {/* Features */}
                             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-10">
 

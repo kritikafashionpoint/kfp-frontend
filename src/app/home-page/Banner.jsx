@@ -58,7 +58,9 @@ export function FixedButtons() {
                     <BsWhatsapp className="text-white" size={26} />
                 </div>
             </Link>
-            <Link href={'https://www.instagram.com/kritika_fashion_point/'}>
+            <Link href={'https://www.instagram.com/kritika_fashion_point/'}
+            target="_blank"
+            >
                 <div className="fixed hover:scale-115 duration-300 bottom-6 left-6 cursor-pointer z-999 w-12 h-12 rounded-full bg-linear-to-tr from-[#F58529] via-[#DD2A7B] to-[#515BD4] flex items-center justify-center">
                     <BsInstagram className="text-white" size={26} />
                 </div>

@@ -198,6 +198,7 @@ export default function AddToCartButton({
                 text-black
                 items-center
                 justify-center
+                bg-white
                 cursor-pointer
                 gap-2
                 duration-300
