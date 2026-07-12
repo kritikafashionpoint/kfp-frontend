@@ -28,7 +28,7 @@ export default function BuyNowButton({ quantity, setQuantity, getNowModel, item,
                 setQuantity && setQuantity(item.quantity)
 
             }}
-            className={`${customClasses} relative px-6 py-2 bg-amber-400 text-black font-bold cursor-pointer overflow-hidden transition-all duration-300 hover:scale-105 active:scale-95`}
+            className={`${customClasses} rounded relative px-6 py-2 bg-amber-400 text-black font-bold cursor-pointer overflow-hidden transition-all duration-300 hover:scale-105 active:scale-95`}
 
         >
             <span className="relative z-10 uppercase font-extrabold">खरीदें</span>

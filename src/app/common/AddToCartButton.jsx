@@ -200,6 +200,7 @@ export default function AddToCartButton({
                 justify-center
                 bg-white
                 cursor-pointer
+                rounded
                 gap-2
                 duration-300
                 hover:scale-[1.02]
