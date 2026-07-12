@@ -39,16 +39,12 @@ export default function page() {
         <div className='w-full lg:my-16 my-10'>
             <div className='max-w-330 mx-auto lg:px-6 sm:px-4 '>
 
-                <div className="text-center">
-                    <span className="inline-block px-4 py-2 rounded-full border border-yellow-500/30 bg-yellow-500/10 text-yellow-400 text-sm tracking-widest uppercase">
-                        Premium Collection
-                    </span>
-
-                    <h1 style={{ color: gold.base }} className="mt-6 text-5xl capitalize md:text-6xl font-bold">
-                        {slugCategory?.category_name}
+                <div className="text-center"> 
+                    <h1 style={{ color: gold.dark }} className="mt-6 text-5xl capitalize md:text-6xl font-bold">
+                        {slugCategory?.category_name} Products
                     </h1>
 
-                    <p className="Poppins my-7 tracking-widest leading-6 text-gray-300 text-md">
+                    <p className="Poppins my-7 tracking-widest leading-6 text-black px-4 text-md">
                         Explore our exclusive collection of artificial jewellery and fashion accessories, including Baju Band, Kamar Band, Rings, Necklace Sets, Aad Jewellery, Borla, Bangles, Earrings, Bajuband Jodi, and Bridal Jewellery Sets. Kritika Fashion Point offers traditional Rajputi jewellery and modern fashion accessories designed for weddings, festivals, parties.
                     </p>
                 </div>
@@ -69,7 +65,7 @@ export default function page() {
                     ) :
 
                         (
-                            <div className='grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 sm:gap-x-5 gap-y-8'>
+                            <div className='grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 sm:gap-x-5 gap-y-8 px-4 gap-3'>
                                 {category_product?.map((item, index) => (
                                     <ProductCard
                                         key={index}
