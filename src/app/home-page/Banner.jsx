@@ -2,10 +2,13 @@ import Link from "next/link";
 import { gold } from "../colors/color";
 import Image from "next/image";
 import { FaPhone } from "react-icons/fa";
+import { BsInstagram, BsWhatsapp } from "react-icons/bs";
 
 export default function LuxuryGlowBanner() {
     return (
-        <div className="w-screen h-full bg-white relative ">
+        <div className="w-full h-full bg-white relative ">
+
+            <FixedButtons />
 
             <div className="sm:hidden block py-3">
                 <div className="flex items-center justify-center z-49 w-full">
@@ -33,7 +36,7 @@ export default function LuxuryGlowBanner() {
             <section className="relative w-full aspect-19/12">
                 <Image
                     src="/b4.png"
-                     alt="Kritika Fashion Point"
+                    alt="Kritika Fashion Point"
                     fill
                     priority
                     sizes="100vw"
@@ -41,7 +44,25 @@ export default function LuxuryGlowBanner() {
                 />
             </section>
         </div>
+    )
+}
 
-
+export function FixedButtons() {
+    return (
+        <div>
+            <Link
+                href={`https://wa.me/${process.env.NEXT_PUBLIC_PHONE_NUMBER}`}
+                target="_blank"
+            >
+                <div className="fixed hover:scale-115 duration-300 bottom-6 right-6 cursor-pointer z-999 w-12 h-12 rounded-full bg-green-500 flex items-center justify-center">
+                    <BsWhatsapp className="text-white" size={26} />
+                </div>
+            </Link>
+            <Link href={'https://www.instagram.com/kritika_fashion_point/'}>
+                <div className="fixed hover:scale-115 duration-300 bottom-6 left-6 cursor-pointer z-999 w-12 h-12 rounded-full bg-linear-to-tr from-[#F58529] via-[#DD2A7B] to-[#515BD4] flex items-center justify-center">
+                    <BsInstagram className="text-white" size={26} />
+                </div>
+            </Link>
+        </div>
     )
 }
