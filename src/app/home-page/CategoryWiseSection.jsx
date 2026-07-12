@@ -20,6 +20,8 @@ export default function CategoryWiseSections({ item, index, loading, setLoading,
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [getNowModel, setGetNowModel] = useState(false)
 
+    console.log("Category Item:", item);
+
     return (
         <section className="w-full bg-white relative">
 
@@ -90,6 +92,7 @@ export default function CategoryWiseSections({ item, index, loading, setLoading,
                                 <ProductCardSkeleton />
                             ))
                             :
+
                             item?.products.map((product, index) => (
                                 (
                                     <ProductCard

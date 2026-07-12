@@ -19,7 +19,6 @@ export default function ProductCard({
 
     if (!item) return null;
 
-    console.log('items check check', item)
 
     const {
         p_slug,
@@ -31,6 +30,9 @@ export default function ProductCard({
         index_image,
         is_top_selling,
     } = item;
+
+    console.log("Customer Price:", item.p_customer_price);
+
 
     return (
         <Link
@@ -206,6 +208,7 @@ export default function ProductCard({
             text-lg
             font-semibold
             Poppins
+            text-black
             
         "
                             >

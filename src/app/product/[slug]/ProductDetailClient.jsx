@@ -232,7 +232,7 @@ export default function ProductDetailClient() {
                                     className="px-3 py-1 rounded-full text-sm font-semibold"
                                     style={{
                                         backgroundColor: "#1a1a1a",
-                                        color : gold.light,
+                                        color: gold.light,
                                     }}
                                 >
                                     {p_discount}% OFF
@@ -342,11 +342,11 @@ export default function ProductDetailClient() {
                                 >
                                     <Truck
                                         size={35}
-                                        style={{ color : 'black' }}
+                                        style={{ color: 'black' }}
                                     />
                                     <h4
                                         className="mt-3 font-semibold"
-                                        style={{ color : 'black' }}
+                                        style={{ color: 'black' }}
                                     >
                                         Safe Delivery
                                     </h4>
@@ -358,11 +358,11 @@ export default function ProductDetailClient() {
                                 >
                                     <ShieldCheck
                                         size={35}
-                                        style={{ color : 'black' }}
+                                        style={{ color: 'black' }}
                                     />
                                     <h4
                                         className="mt-3 font-semibold"
-                                        style={{ color : 'black' }}
+                                        style={{ color: 'black' }}
                                     >
                                         Premium Quality
                                     </h4>
@@ -374,11 +374,11 @@ export default function ProductDetailClient() {
                                 >
                                     <RotateCcw
                                         size={35}
-                                        style={{ color : 'black' }}
+                                        style={{ color: 'black' }}
                                     />
                                     <h4
                                         className="mt-3 font-semibold"
-                                        style={{ color : 'black' }}
+                                        style={{ color: 'black' }}
                                     >
                                         Advance Booking
                                     </h4>
@@ -391,336 +391,335 @@ export default function ProductDetailClient() {
                     <div className="grid lg:grid-cols-2 grid-cols-1 gap-6 lg:gap-10 mt-20">
 
                         {/* Product Details Card */}
-                      {/* Product Details Card */}
-<div
-    className="relative overflow-hidden rounded-[30px] border border-yellow-200 bg-gradient-to-br from-white via-[#fffdf8] to-[#fff8ea] shadow-xl"
->
+                        {/* Product Details Card */}
+                        <div
+                            className="relative overflow-hidden rounded-[30px] border border-yellow-200 bg-linear-to-br from-white via-[#fffdf8] to-[#fff8ea] shadow-xl"
+                        >
 
-    {/* Soft Glow */}
-    <div
-        className="absolute -top-20 -right-20 w-56 h-56 rounded-full blur-3xl opacity-30"
-        style={{
-            background: "radial-gradient(circle,#fde68a,transparent)"
-        }}
-    ></div>
+                            {/* Soft Glow */}
+                            <div
+                                className="absolute -top-20 -right-20 w-56 h-56 rounded-full blur-3xl opacity-30"
+                                style={{
+                                    background: "radial-gradient(circle,#fde68a,transparent)"
+                                }}
+                            ></div>
 
-    <div className="relative h-full rounded-[30px] p-6 lg:p-8">
+                            <div className="relative h-full rounded-[30px] p-6 lg:p-8">
 
-        {/* Heading */}
-        <div className="flex items-center gap-4 mb-8">
+                                {/* Heading */}
+                                <div className="flex items-center gap-4 mb-8">
 
-            <div
-                className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl shadow-md"
-                style={{
-                    background: `linear-gradient(135deg, ${gold.base}, ${gold.light})`,
-                    color: "#fff"
-                }}
-            >
-                ✨
-            </div>
+                                    <div
+                                        className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl shadow-md"
+                                        style={{
+                                            background: `linear-gradient(135deg, ${gold.base}, ${gold.light})`,
+                                            color: "#fff"
+                                        }}
+                                    >
+                                        ✨
+                                    </div>
 
-            <div>
+                                    <div>
 
-                <h2
-                    className="lg:text-3xl text-2xl font-bold"
-                    style={{ color: gold.dark }}
-                >
-                    Product Details
-                </h2>
+                                        <h2
+                                            className="lg:text-3xl text-2xl font-bold"
+                                            style={{ color: gold.dark }}
+                                        >
+                                            Product Details
+                                        </h2>
 
-                <p className="text-gray-500 text-sm mt-1">
-                    Premium handcrafted jewellery information
-                </p>
+                                        <p className="text-gray-500 text-sm mt-1">
+                                            Premium handcrafted jewellery information
+                                        </p>
 
-            </div>
+                                    </div>
 
-        </div>
+                                </div>
 
-        {/* Details Grid */}
+                                {/* Details Grid */}
 
-        <div className="grid sm:grid-cols-2 grid-cols-1 gap-5">
+                                <div className="grid sm:grid-cols-2 grid-cols-1 gap-5">
 
-            {/* Left */}
+                                    {/* Left */}
 
-            <div className="space-y-5">
+                                    <div className="space-y-5">
 
-                <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition">
+                                        <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition">
 
-                    <p className="text-gray-500 text-sm mb-1">
-                        Category
-                    </p>
+                                            <p className="text-gray-500 text-sm mb-1">
+                                                Category
+                                            </p>
 
-                    <h4 className="text-gray-900 text-lg font-semibold">
-                        {category_name || "Artificial Jewellery"}
-                    </h4>
+                                            <h4 className="text-gray-900 text-lg font-semibold">
+                                                {category_name || "Artificial Jewellery"}
+                                            </h4>
 
-                </div>
+                                        </div>
 
-                <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition">
+                                        <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition">
 
-                    <p className="text-gray-500 text-sm mb-1">
-                        Type
-                    </p>
+                                            <p className="text-gray-500 text-sm mb-1">
+                                                Type
+                                            </p>
 
-                    <h4 className="text-gray-900 text-lg font-semibold capitalize">
-                        {p_title}
-                    </h4>
+                                            <h4 className="text-gray-900 text-lg font-semibold capitalize">
+                                                {p_title}
+                                            </h4>
 
-                </div>
+                                        </div>
 
-                <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition">
+                                        <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition">
 
-                    <p className="text-gray-500 text-sm mb-2">
-                        Material
-                    </p>
+                                            <p className="text-gray-500 text-sm mb-2">
+                                                Material
+                                            </p>
 
-                    <ul className="flex flex-wrap gap-2">
+                                            <ul className="flex flex-wrap gap-2">
 
-                        {material.map((item, index) => (
+                                                {material.map((item, index) => (
 
-                            <li
-                                key={index}
-                                className="px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-sm font-medium text-gray-800 capitalize"
-                            >
-                                {item}
-                            </li>
+                                                    <li
+                                                        key={index}
+                                                        className="px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-sm font-medium text-gray-800 capitalize"
+                                                    >
+                                                        {item}
+                                                    </li>
 
-                        ))}
+                                                ))}
 
-                    </ul>
+                                            </ul>
 
-                </div>
+                                        </div>
 
-                <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition">
+                                        <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition">
 
-                    <p className="text-gray-500 text-sm mb-2">
-                        Finish
-                    </p>
+                                            <p className="text-gray-500 text-sm mb-2">
+                                                Finish
+                                            </p>
 
-                    <ul className="flex flex-wrap gap-2">
+                                            <ul className="flex flex-wrap gap-2">
 
-                        {finishing.map((item, index) => (
+                                                {finishing.map((item, index) => (
 
-                            <li
-                                key={index}
-                                className="px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-sm font-medium text-gray-800 capitalize"
-                            >
-                                {item}
-                            </li>
+                                                    <li
+                                                        key={index}
+                                                        className="px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-sm font-medium text-gray-800 capitalize"
+                                                    >
+                                                        {item}
+                                                    </li>
 
-                        ))}
+                                                ))}
 
-                    </ul>
+                                            </ul>
 
-                </div>
+                                        </div>
 
-            </div>
+                                    </div>
 
-            {/* Right */}
+                                    {/* Right */}
 
-            <div className="space-y-5">
+                                    <div className="space-y-5">
 
-                <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition">
+                                        <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition">
 
-                    <p className="text-gray-500 text-sm mb-2">
-                        Occasion
-                    </p>
+                                            <p className="text-gray-500 text-sm mb-2">
+                                                Occasion
+                                            </p>
 
-                    <ul className="flex flex-wrap gap-2">
+                                            <ul className="flex flex-wrap gap-2">
 
-                        {occasions.map((item, index) => (
+                                                {occasions.map((item, index) => (
 
-                            <li
-                                key={index}
-                                className="px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-sm font-medium text-gray-800 capitalize"
-                            >
-                                {item}
-                            </li>
+                                                    <li
+                                                        key={index}
+                                                        className="px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-sm font-medium text-gray-800 capitalize"
+                                                    >
+                                                        {item}
+                                                    </li>
 
-                        ))}
+                                                ))}
 
-                    </ul>
+                                            </ul>
 
-                </div>
+                                        </div>
 
-                <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition">
+                                        <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition">
 
-                    <p className="text-gray-500 text-sm mb-2">
-                        Package Includes
-                    </p>
+                                            <p className="text-gray-500 text-sm mb-2">
+                                                Package Includes
+                                            </p>
 
-                    <ul className="flex flex-wrap gap-2">
+                                            <ul className="flex flex-wrap gap-2">
 
-                        {include_items.map((item, index) => (
+                                                {include_items.map((item, index) => (
 
-                            <li
-                                key={index}
-                                className="px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-sm font-medium text-gray-800 capitalize"
-                            >
-                                {item}
-                            </li>
+                                                    <li
+                                                        key={index}
+                                                        className="px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-sm font-medium text-gray-800 capitalize"
+                                                    >
+                                                        {item}
+                                                    </li>
 
-                        ))}
+                                                ))}
 
-                    </ul>
+                                            </ul>
 
-                </div>
+                                        </div>
 
-                <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition">
+                                        <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition">
 
-                    <p className="text-gray-500 text-sm mb-1">
-                        Dispatch Time
-                    </p>
+                                            <p className="text-gray-500 text-sm mb-1">
+                                                Dispatch Time
+                                            </p>
 
-                    <h4 className="text-gray-900 text-lg font-semibold">
-                        2–3 Working Days
-                    </h4>
+                                            <h4 className="text-gray-900 text-lg font-semibold">
+                                                2–3 Working Days
+                                            </h4>
 
-                </div>
+                                        </div>
 
-            </div>
+                                    </div>
 
-        </div>
+                                </div>
 
-    </div>
+                            </div>
 
-</div>
+                        </div>
 
                         {/* Read Before Use */}
-                       {/* Read Before Use */}
-<div
-    className="relative overflow-hidden rounded-[30px] border border-yellow-200 bg-gradient-to-br from-white via-[#fffdf8] to-[#fff8ea] shadow-xl"
->
+                        <div
+                            className="relative overflow-hidden rounded-[30px] border border-yellow-200 bg-linear-to-br from-white via-[#fffdf8] to-[#fff8ea] shadow-xl"
+                        >
 
-    {/* Soft Glow */}
-    <div className="absolute -bottom-20 -left-20 w-56 h-56 rounded-full blur-3xl opacity-30 bg-yellow-200"></div>
+                            {/* Soft Glow */}
+                            <div className="absolute -bottom-20 -left-20 w-56 h-56 rounded-full blur-3xl opacity-30 bg-yellow-200"></div>
 
-    <div className="relative w-full h-full rounded-[30px] p-6 lg:p-8">
+                            <div className="relative w-full h-full rounded-[30px] p-6 lg:p-8">
 
-        {/* Heading */}
+                                {/* Heading */}
 
-        <div className="flex items-center gap-4 mb-8">
+                                <div className="flex items-center gap-4 mb-8">
 
-            <div
-                className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl shadow-md"
-                style={{
-                    background: `linear-gradient(135deg, ${gold.base}, ${gold.light})`,
-                    color: "#fff"
-                }}
-            >
-                ⚜️
-            </div>
+                                    <div
+                                        className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl shadow-md"
+                                        style={{
+                                            background: `linear-gradient(135deg, ${gold.base}, ${gold.light})`,
+                                            color: "#fff"
+                                        }}
+                                    >
+                                        ⚜️
+                                    </div>
 
-            <div>
+                                    <div>
 
-                <h2
-                    className="lg:text-3xl text-2xl font-bold"
-                    style={{ color: gold.dark }}
-                >
-                    Read Before Use
-                </h2>
+                                        <h2
+                                            className="lg:text-3xl text-2xl font-bold"
+                                            style={{ color: gold.dark }}
+                                        >
+                                            Read Before Use
+                                        </h2>
 
-                <p className="text-gray-500 text-sm mt-1">
-                    Jewellery care instructions & important notes
-                </p>
+                                        <p className="text-gray-500 text-sm mt-1">
+                                            Jewellery care instructions & important notes
+                                        </p>
 
-            </div>
+                                    </div>
 
-        </div>
+                                </div>
 
-        {/* Notes */}
+                                {/* Notes */}
 
-        <div className="space-y-5">
+                                <div className="space-y-5">
 
-            <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition">
+                                    <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition">
 
-                <div className="flex gap-4 items-start">
+                                        <div className="flex gap-4 items-start">
 
-                    <div className="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center text-lg">
-                        💧
-                    </div>
+                                            <div className="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center text-lg">
+                                                💧
+                                            </div>
 
-                    <p className="text-gray-700 leading-7">
-                        Keep the jewellery away from water, perfume,
-                        sweat and chemicals to maintain its shine,
-                        polish and long-lasting finish.
-                    </p>
+                                            <p className="text-gray-700 leading-7">
+                                                Keep the jewellery away from water, perfume,
+                                                sweat and chemicals to maintain its shine,
+                                                polish and long-lasting finish.
+                                            </p>
 
-                </div>
+                                        </div>
 
-            </div>
+                                    </div>
 
-            <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition">
+                                    <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition">
 
-                <div className="flex gap-4 items-start">
+                                        <div className="flex gap-4 items-start">
 
-                    <div className="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center text-lg">
-                        📦
-                    </div>
+                                            <div className="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center text-lg">
+                                                📦
+                                            </div>
 
-                    <p className="text-gray-700 leading-7">
-                        Store your jewellery in an airtight box or a
-                        soft pouch after every use to protect it from
-                        scratches and discoloration.
-                    </p>
+                                            <p className="text-gray-700 leading-7">
+                                                Store your jewellery in an airtight box or a
+                                                soft pouch after every use to protect it from
+                                                scratches and discoloration.
+                                            </p>
 
-                </div>
+                                        </div>
 
-            </div>
+                                    </div>
 
-            <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition">
+                                    <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition">
 
-                <div className="flex gap-4 items-start">
+                                        <div className="flex gap-4 items-start">
 
-                    <div className="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center text-lg">
-                        ✨
-                    </div>
+                                            <div className="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center text-lg">
+                                                ✨
+                                            </div>
 
-                    <p className="text-gray-700 leading-7">
-                        This jewellery is specially crafted for fashion,
-                        weddings, festivals and occasional wear. Avoid
-                        rough daily usage for longer durability.
-                    </p>
+                                            <p className="text-gray-700 leading-7">
+                                                This jewellery is specially crafted for fashion,
+                                                weddings, festivals and occasional wear. Avoid
+                                                rough daily usage for longer durability.
+                                            </p>
 
-                </div>
+                                        </div>
 
-            </div>
+                                    </div>
 
-            <div
-                className="rounded-2xl p-6 shadow-lg"
-                style={{
-                    background: `linear-gradient(135deg, ${gold.base}, ${gold.light})`
-                }}
-            >
+                                    <div
+                                        className="rounded-2xl p-6 shadow-lg"
+                                        style={{
+                                            background: `linear-gradient(135deg, ${gold.base}, ${gold.light})`
+                                        }}
+                                    >
 
-                <div className="flex items-center gap-4">
+                                        <div className="flex items-center gap-4">
 
-                    <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center text-2xl">
-                        🚚
-                    </div>
+                                            <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center text-2xl">
+                                                🚚
+                                            </div>
 
-                    <div>
+                                            <div>
 
-                        <h4 className="text-black font-bold text-lg">
-                            Safe Packaging & Fast Delivery
-                        </h4>
+                                                <h4 className="text-black font-bold text-lg">
+                                                    Safe Packaging & Fast Delivery
+                                                </h4>
 
-                        <p className="text-black text-sm mt-1">
-                            Every jewellery piece is packed carefully to
-                            ensure safe delivery across India.
-                        </p>
+                                                <p className="text-black text-sm mt-1">
+                                                    Every jewellery piece is packed carefully to
+                                                    ensure safe delivery across India.
+                                                </p>
 
-                    </div>
+                                            </div>
 
-                </div>
+                                        </div>
 
-            </div>
+                                    </div>
 
-        </div>
+                                </div>
 
-    </div>
+                            </div>
 
-</div>
+                        </div>
                     </div>
 
                 </div>
